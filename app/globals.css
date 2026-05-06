@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ──────────────────────────────── */
+:root {
+  --color-bg:           #ede0d8;   /* warm rose-beige */
+  --color-bg-white:     #f8f2ef;   /* off-white sections */
+  --color-nav:          #3a4228;   /* dark olive green */
+  --color-nav-text:     #f5f0eb;
+  --color-heading-rose: #8b3535;   /* deep rose / burgundy */
+  --color-heading-olive:#7a6c3d;   /* olive gold */
+  --color-body:         #5a4835;   /* warm dark brown */
+  --color-muted:        #c8a89a;   /* muted rose */
+  --color-border:       #d4b8ad;
+  --color-btn-border:   #8b3535;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ─── Typography helpers ────────────────────────────────── */
+.font-script {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-great-vibes), cursive;
+  color: var(--color-heading-rose);
+}
+
+/* ─── Navbar ────────────────────────────────────────────── */
+.nav-link {
+  @apply px-5 py-3 text-sm tracking-widest uppercase transition-colors duration-200;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--color-nav-text);
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link.active {
+  background-color: var(--color-nav);
+  color: #fff;
+}
+
+/* ─── Page heading ──────────────────────────────────────── */
+.page-heading {
+  font-family: var(--font-great-vibes), cursive;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-heading-olive);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ─── Section heading ───────────────────────────────────── */
+.section-heading {
+  font-family: var(--font-great-vibes), cursive;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-heading-rose);
+  text-align: center;
+}
+
+.section-subheading {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--color-heading-olive);
+  text-align: center;
+}
+
+/* ─── Outline button ────────────────────────────────────── */
+.btn-outline {
+  display: inline-block;
+  border: 1px solid var(--color-btn-border);
+  color: var(--color-heading-rose);
+  padding: 0.45rem 1.4rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-heading-rose);
+  color: #fff;
+}
+
+/* ─── Card / info block ─────────────────────────────────── */
+.info-card {
+  @apply text-center py-6 px-4;
+}
+
+/* ─── Divider ────────────────────────────────────────────── */
+.divider {
+  border-color: var(--color-border);
+  @apply my-8 border-t;
+}
+
+/* ─── FAQ accordion ──────────────────────────────────────── */
+details summary {
+  cursor: pointer;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-body);
+  list-style: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+details summary::-webkit-details-marker { display: none; }
+
+details[open] summary {
+  color: var(--color-heading-rose);
+}
+
+details p {
+  padding: 0.75rem 0 1rem;
+  font-size: 0.95rem;
+  color: var(--color-body);
+}
