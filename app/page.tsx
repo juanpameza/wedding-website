@@ -48,7 +48,7 @@ export default function HomePage() {
           <p
             className="font-script leading-none mt-2"
             style={{
-              fontSize: "clamp(1.4rem, 4vw, 2.5rem)",
+              fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
               color: "var(--color-heading-rose)",
             }}
           >
@@ -59,7 +59,7 @@ export default function HomePage() {
         <span
           className="font-script leading-none"
           style={{
-            fontSize: "clamp(4rem, 12vw, 8rem)",
+            fontSize: "clamp(8rem, 12vw, 8rem)",
             color: "var(--color-muted)",
           }}
         >
@@ -79,7 +79,7 @@ export default function HomePage() {
           <p
             className="font-script leading-none mt-2"
             style={{
-              fontSize: "clamp(1.4rem, 4vw, 2.5rem)",
+              fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
               color: "var(--color-heading-rose)",
             }}
           >
