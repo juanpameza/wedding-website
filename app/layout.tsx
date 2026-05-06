@@ -19,10 +19,11 @@ const cormorant = Cormorant_Garamond({
 // ─── Metadata — edit these ────────────────────────────────
 export const metadata: Metadata = {
   title: {
-    template: "%s | Partner A & Partner B",
-    default: "Partner A & Partner B",
+    template: "%s | Sage & Juanpa",
+    default: "Sage & Juanpa | March 13, 2027",
   },
-  description: "Join us to celebrate our wedding!",
+  description:
+    "Join us to celebrate the wedding of Sage & Juanpa in San Salvador, El Salvador.",
 };
 
 export default function RootLayout({

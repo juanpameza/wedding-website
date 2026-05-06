@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Countdown from "@/components/Countdown";
 
 export const metadata: Metadata = { title: "Home" };
 
@@ -9,7 +10,7 @@ const COUPLE = {
   partnerB: { first: "Juanpa", last: "Meza" },
 };
 const DATE = "March 13th, 2027";
-const LOCATION = "San Salvador, El Salvadir";
+const LOCATION = "San Salvador, El Salvador";
 const WELCOME_HEADING = "Welcome to San Salvador!";
 const WELCOME_BODY =
   "We're so happy and grateful to have you in our lives. It means so much to us that you're joining us for this special moment. We can't wait to celebrate with you!";
@@ -21,7 +22,7 @@ export default function HomePage() {
       className="flex flex-col items-center"
       style={{ backgroundColor: "var(--color-bg)" }}
     >
-      {/* ── Hero monogram placeholder ── */}
+      {/* ── Hero monogram ── */}
       <div className="flex items-center justify-center w-full py-16">
         <Image
           src="/images/logo.png"
@@ -110,9 +111,12 @@ export default function HomePage() {
         </p>
       </div>
 
+      {/* ── Countdown ── */}
+      <Countdown />
+
       {/* ── Welcome message ── */}
       <div
-        className="max-w-2xl text-center px-8 pb-24 pt-8"
+        className="max-w-2xl text-center px-8 pb-8 pt-4"
         style={{ color: "var(--color-body)" }}
       >
         <p className="font-semibold mb-2" style={{ fontFamily: "inherit" }}>
