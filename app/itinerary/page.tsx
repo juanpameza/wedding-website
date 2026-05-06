@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = { title: "Itinerary" };
@@ -29,7 +30,7 @@ const itineraryDays: ItineraryDay[] = [
         description:
           "Cardedeu Chapel",
         detailsHref: "#thursday-event-1-details",
-        // imageSrc: "/images/thursday-event-1.png",
+        imageSrc: "/images/cardedeu.png",
       },
       {
         id: "thursday-event-2",
@@ -38,7 +39,7 @@ const itineraryDays: ItineraryDay[] = [
         description:
           "Lake House",
         detailsHref: "#thursday-event-2-details",
-        // imageSrc: "/images/thursday-event-2.png",
+        imageSrc: "/images/lake-house.png",
       },
       {
         id: "thursday-event-3",
@@ -47,7 +48,7 @@ const itineraryDays: ItineraryDay[] = [
         description:
           "La Cantina",
         detailsHref: "#thursday-event-3-details",
-        // imageSrc: "/images/thursday-event-3.png",
+        imageSrc: "/images/cheers.png",
       },
     ],
   },
@@ -61,7 +62,7 @@ const itineraryDays: ItineraryDay[] = [
         description:
           "Balsamar Beach",
         detailsHref: "#friday-event-1-details",
-        // imageSrc: "/images/friday-event-1.png",
+        imageSrc: "/images/beach.png",
       },
     ],
   },
@@ -75,7 +76,7 @@ const itineraryDays: ItineraryDay[] = [
         description:
           "Basilica of Our Lady of Guadalupe",
         detailsHref: "#ceremony-details",
-        // imageSrc: "/images/ceremony.png",
+        imageSrc: "/images/basilica-guadalupe.png",
       },
       {
         id: "reception",
@@ -84,7 +85,7 @@ const itineraryDays: ItineraryDay[] = [
         description:
           "Cajamarca El Salvador",
         detailsHref: "#reception-details",
-        // imageSrc: "/images/reception.png",
+        imageSrc: "/images/cajamarca.png",
       },
     ],
   },
@@ -133,24 +134,33 @@ export default function ItineraryPage() {
                       } items-center gap-10`}
                     >
                       <div className="flex-shrink-0">
-                        {/* Replace with: <Image src={event.imageSrc} alt={event.name} width={300} height={280} /> */}
-                        <div
-                          className="w-64 h-56 rounded-lg flex items-center justify-center border-2"
-                          style={{
-                            borderColor: "var(--color-muted)",
-                            borderStyle: "dashed",
-                            backgroundColor: "var(--color-bg-white)",
-                          }}
-                        >
-                          <span
+                        {event.imageSrc ? (
+                          <Image
+                            src={event.imageSrc}
+                            alt={event.name}
+                            width={320}
+                            height={280}
+                            className="h-56 w-64 rounded-lg object-cover"
+                          />
+                        ) : (
+                          <div
+                            className="w-64 h-56 rounded-lg flex items-center justify-center border-2"
                             style={{
-                              color: "var(--color-muted)",
-                              fontSize: "0.8rem",
+                              borderColor: "var(--color-muted)",
+                              borderStyle: "dashed",
+                              backgroundColor: "var(--color-bg-white)",
                             }}
                           >
-                            Watercolor image
-                          </span>
-                        </div>
+                            <span
+                              style={{
+                                color: "var(--color-muted)",
+                                fontSize: "0.8rem",
+                              }}
+                            >
+                              Watercolor image
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="md:flex-1">

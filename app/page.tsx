@@ -24,8 +24,8 @@ export default function HomePage() {
       {/* ── Hero monogram placeholder ── */}
       <div className="flex items-center justify-center w-full py-16">
         <Image
-          src="/images/save-the-date.jpeg"
-          alt="Save the date for Sage and Juanpa"
+          src="/images/logo.png"
+          alt="MN Logo"
           width={1343}
           height={1600}
           priority
