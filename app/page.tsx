@@ -9,16 +9,6 @@ export const metadata: Metadata = { title: "Home" };
 const logoMaxWidth = homeContent.logoMaxWidth ?? 448;
 const logoPadding = homeContent.logoPadding ?? 24;
 
-const partsA = siteContent.coupleNameA.split(" ");
-const partnerAFirst = partsA[0];
-const partnerAMiddle = partsA.length > 2 ? partsA.slice(1, -1).join(" ") : "";
-const partnerALast = partsA.length > 1 ? partsA[partsA.length - 1] : "";
-
-const partsB = siteContent.coupleNameB.split(" ");
-const partnerBFirst = partsB[0];
-const partnerBMiddle = partsB.length > 2 ? partsB.slice(1, -1).join(" ") : "";
-const partnerBLast = partsB.length > 1 ? partsB[partsB.length - 1] : "";
-
 export default function HomePage() {
   return (
     <div
@@ -60,77 +50,27 @@ export default function HomePage() {
       </div>
 
       {/* ── Names ── */}
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-6 pb-4 sm:gap-8">
-        <div className="text-right">
-          <h1
-            className="home-name-text leading-none"
-            style={{
-              color: "var(--color-heading-rose)",
-            }}
-          >
-            {partnerAFirst}
-          </h1>
-          {partnerAMiddle && (
-            <p
-              className="home-name-text leading-none mt-2"
-              style={{
-                color: "var(--color-heading-rose)",
-              }}
-            >
-              {partnerAMiddle}
-            </p>
-          )}
-          {partnerALast && (
-            <p
-              className="home-name-text leading-none mt-2"
-              style={{
-                color: "var(--color-heading-rose)",
-              }}
-            >
-              {partnerALast}
-            </p>
-          )}
-        </div>
+      <div className="flex flex-col items-center gap-2 px-6 pb-4">
+        <h1
+          className="home-name-text leading-none"
+          style={{ color: "var(--color-heading-rose)" }}
+        >
+          {siteContent.coupleNameA}
+        </h1>
 
         <span
           className="home-ampersand leading-none"
-          style={{
-            color: "var(--color-muted)",
-          }}
+          style={{ color: "var(--color-muted)" }}
         >
           &amp;
         </span>
 
-        <div className="text-left">
-          <h1
-            className="home-name-text leading-none"
-            style={{
-              color: "var(--color-heading-rose)",
-            }}
-          >
-            {partnerBFirst}
-          </h1>
-          {partnerBMiddle && (
-            <p
-              className="home-name-text leading-none mt-2"
-              style={{
-                color: "var(--color-heading-rose)",
-              }}
-            >
-              {partnerBMiddle}
-            </p>
-          )}
-          {partnerBLast && (
-            <p
-              className="home-name-text leading-none mt-2"
-              style={{
-                color: "var(--color-heading-rose)",
-              }}
-            >
-              {partnerBLast}
-            </p>
-          )}
-        </div>
+        <h1
+          className="home-name-text leading-none"
+          style={{ color: "var(--color-heading-rose)" }}
+        >
+          {siteContent.coupleNameB}
+        </h1>
       </div>
 
       {/* ── Date & location ── */}
