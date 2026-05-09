@@ -11,13 +11,13 @@
   "typography": {
     "homeNames": {
       "fontFamily": "__displayFont",
-      "fontSize": 74,
+      "fontSize": 85,
       "bold": false,
       "italic": false
     },
     "homeAmpersand": {
       "fontFamily": "__displayFont",
-      "fontSize": 128,
+      "fontSize": 112,
       "bold": false,
       "italic": false
     },
