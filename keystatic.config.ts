@@ -1,13 +1,8 @@
 import { config, fields, singleton } from "@keystatic/core";
 
-const isProduction = process.env.NODE_ENV === "production";
-
 export default config({
   storage:
-    isProduction &&
-    process.env.KEYSTATIC_GITHUB_CLIENT_ID &&
-    process.env.NEXT_PUBLIC_GITHUB_OWNER &&
-    process.env.NEXT_PUBLIC_GITHUB_REPO
+    process.env.NEXT_PUBLIC_GITHUB_OWNER && process.env.NEXT_PUBLIC_GITHUB_REPO
       ? {
           kind: "github",
           repo: {
