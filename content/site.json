@@ -5,18 +5,9 @@
   "weddingDateTime": "2027-03-13T21:00:00Z",
   "weddingLocation": "San Salvador, El Salvador",
   "siteTitle": "Sage & Juanpa | March 13, 2027",
-  "displayFont": "Parisienne",
-  "bodyFont": "Libre Baskerville",
+  "displayFont": "Brittney Signature",
+  "bodyFont": "Cormorant Garamond",
   "baseFontSize": 16,
-  "colorBg": "#FFF1EC",
-  "colorBgWhite": "#FFFDF8",
-  "colorNav": "#667A60",
-  "colorNavText": "#FFFDF8",
-  "colorHeadingRose": "#667A60",
-  "colorHeadingOlive": "#B86F7F",
-  "colorBody": "#33382E",
-  "colorMuted": "#CFA6A8",
-  "colorBorder": "#DDBFBA",
   "typography": {
     "homeNames": {
       "fontFamily": "__displayFont",
@@ -101,5 +92,14 @@
     "gallery": false,
     "registry": false,
     "faqs": false
-  }
+  },
+  "colorBg": "#FFF1EC",
+  "colorBgWhite": "#FFFDF8",
+  "colorNav": "#667A60",
+  "colorNavText": "#FFFDF8",
+  "colorHeadingRose": "#667A60",
+  "colorHeadingOlive": "#B86F7F",
+  "colorBody": "#33382E",
+  "colorMuted": "#CFA6A8",
+  "colorBorder": "#DDBFBA"
 }
