@@ -57,7 +57,7 @@ export default function JourneyMap({ stops, mapImage }: Props) {
               left: `${stop.x}%`,
               top: `${stop.y}%`,
               transform: "translate(-50%, -50%)",
-              fontFamily: "var(--font-cormorant), Georgia, serif",
+              fontFamily: "var(--font-body), Georgia, serif",
             }}
           >
             {index + 1}
@@ -90,7 +90,7 @@ export default function JourneyMap({ stops, mapImage }: Props) {
               className="mb-2 text-sm font-semibold uppercase tracking-[0.16em]"
               style={{
                 color: "var(--color-heading-olive)",
-                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontFamily: "var(--font-body), Georgia, serif",
               }}
             >
               Stop {selectedStop.number}
@@ -110,7 +110,7 @@ export default function JourneyMap({ stops, mapImage }: Props) {
               className="mt-5 text-[1.05rem] leading-7"
               style={{
                 color: "var(--color-body)",
-                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontFamily: "var(--font-body), Georgia, serif",
               }}
             >
               {selectedStop.story}

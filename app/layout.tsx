@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Great_Vibes, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import ConditionalNavbar from "@/components/ConditionalNavbar";
 import fs from "fs";
@@ -9,18 +8,6 @@ import { unstable_noStore as noStore } from "next/cache";
 function getSiteContent() {
   return JSON.parse(fs.readFileSync(path.join(process.cwd(), "content/site.json"), "utf-8"));
 }
-
-const greatVibes = Great_Vibes({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-great-vibes",
-});
-
-const cormorant = Cormorant_Garamond({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-cormorant",
-});
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = getSiteContent();
@@ -37,7 +24,15 @@ export default function RootLayout({
 }) {
   noStore();
   const siteContent = getSiteContent();
+
+  const displayFontParam = (siteContent.displayFont ?? "Great Vibes").replace(/ /g, "+");
+  const bodyFontParam = (siteContent.bodyFont ?? "Cormorant Garamond").replace(/ /g, "+");
+  const fontsUrl = `https://fonts.googleapis.com/css2?family=${displayFontParam}&family=${bodyFontParam}:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap`;
+
   const cssVars = {
+    "--font-display": `"${siteContent.displayFont ?? "Great Vibes"}", cursive`,
+    "--font-body": `"${siteContent.bodyFont ?? "Cormorant Garamond"}", Georgia, serif`,
+    "--font-size-base": `${siteContent.baseFontSize ?? 16}px`,
     "--color-bg": siteContent.colorBg,
     "--color-bg-white": siteContent.colorBgWhite,
     "--color-nav": siteContent.colorNav,
@@ -51,11 +46,12 @@ export default function RootLayout({
   } as React.CSSProperties;
 
   return (
-    <html
-      lang="en"
-      className={`${greatVibes.variable} ${cormorant.variable}`}
-      style={cssVars}
-    >
+    <html lang="en" style={cssVars}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href={fontsUrl} rel="stylesheet" />
+      </head>
       <body>
         <ConditionalNavbar />
         <main className="min-h-screen">{children}</main>

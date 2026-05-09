@@ -61,7 +61,7 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
               style={{
                 fontSize: "clamp(1.6rem, 5vw, 2.8rem)",
                 color: "var(--color-heading-rose)",
-                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontFamily: "var(--font-body), Georgia, serif",
                 fontWeight: 300,
                 lineHeight: 1,
               }}

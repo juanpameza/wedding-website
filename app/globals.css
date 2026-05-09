@@ -19,30 +19,31 @@
 /* ─── Base ───────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  font-size: var(--font-size-base, 16px);
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-body);
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 18px;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 1.125rem;
   line-height: 1.7;
 }
 
 /* ─── Typography helpers ────────────────────────────────── */
 .font-script {
-  font-family: var(--font-great-vibes), cursive;
+  font-family: var(--font-display), cursive;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-great-vibes), cursive;
+  font-family: var(--font-display), cursive;
   color: var(--color-heading-rose);
 }
 
 /* ─── Navbar ────────────────────────────────────────────── */
 .nav-link {
   @apply px-5 py-3 text-sm tracking-widest uppercase transition-colors duration-200;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body), Georgia, serif;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   color: var(--color-nav-text);
@@ -59,7 +60,7 @@ h1, h2, h3 {
 
 /* ─── Page heading ──────────────────────────────────────── */
 .page-heading {
-  font-family: var(--font-great-vibes), cursive;
+  font-family: var(--font-display), cursive;
   font-size: clamp(2.5rem, 6vw, 4rem);
   color: var(--color-heading-olive);
   text-align: center;
@@ -68,14 +69,14 @@ h1, h2, h3 {
 
 /* ─── Section heading ───────────────────────────────────── */
 .section-heading {
-  font-family: var(--font-great-vibes), cursive;
+  font-family: var(--font-display), cursive;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: var(--color-heading-rose);
   text-align: center;
 }
 
 .section-subheading {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body), Georgia, serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
   color: var(--color-heading-olive);
@@ -88,7 +89,7 @@ h1, h2, h3 {
   border: 1px solid var(--color-btn-border);
   color: var(--color-heading-rose);
   padding: 0.45rem 1.4rem;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body), Georgia, serif;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   transition: background-color 0.2s, color 0.2s;
@@ -113,7 +114,7 @@ h1, h2, h3 {
 /* ─── FAQ accordion ──────────────────────────────────────── */
 details summary {
   cursor: pointer;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-body), Georgia, serif;
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0.04em;

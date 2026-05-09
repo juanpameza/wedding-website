@@ -20,9 +20,9 @@ const config: Config = {
         "accent-orange": "#F49D5A",
       },
       fontFamily: {
-        script: ["var(--font-great-vibes)", "cursive"],
-        serif: ["var(--font-cormorant)", "Georgia", "serif"],
-        sans: ["var(--font-cormorant)", "Georgia", "serif"],
+        script: ["var(--font-display)", "cursive"],
+        serif: ["var(--font-body)", "Georgia", "serif"],
+        sans: ["var(--font-body)", "Georgia", "serif"],
       },
     },
   },
