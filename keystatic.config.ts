@@ -25,6 +25,7 @@ export default config({
     site: singleton({
       label: "Site Settings & Colors",
       path: "content/site",
+      format: { data: "json" },
       schema: {
         coupleNameA: fields.text({ label: "Partner A Full Name", description: "e.g., Sage Nye" }),
         coupleNameB: fields.text({ label: "Partner B Full Name", description: "e.g., Juanpa Meza" }),
@@ -47,6 +48,7 @@ export default config({
     home: singleton({
       label: "Home Page",
       path: "content/home",
+      format: { data: "json" },
       schema: {
         welcomeHeading: fields.text({ label: "Welcome Heading" }),
         welcomeBody: fields.text({ multiline: true, label: "Welcome Message" }),
@@ -62,6 +64,7 @@ export default config({
     itinerary: singleton({
       label: "Itinerary",
       path: "content/itinerary",
+      format: { data: "json" },
       schema: {
         days: fields.array(
           fields.object({
@@ -94,6 +97,7 @@ export default config({
     travel: singleton({
       label: "Travel & Stay",
       path: "content/travel",
+      format: { data: "json" },
       schema: {
         airportName: fields.text({ label: "Airport Name & Code", description: "e.g., El Salvador International Airport (SAL)" }),
         airportDistance: fields.text({ label: "Distance from City", description: "e.g., 44 km from San Salvador" }),
@@ -131,6 +135,7 @@ export default config({
     hairMakeup: singleton({
       label: "Hair & Makeup",
       path: "content/hair-makeup",
+      format: { data: "json" },
       schema: {
         intro: fields.text({ multiline: true, label: "Introduction Text" }),
         stylists: fields.array(
@@ -162,6 +167,7 @@ export default config({
     thingsToDo: singleton({
       label: "Things To Do",
       path: "content/things-to-do",
+      format: { data: "json" },
       schema: {
         intro: fields.text({ multiline: true, label: "Introduction Text" }),
         planningContact: fields.text({ label: "Planning Contact" }),
@@ -190,6 +196,7 @@ export default config({
     registry: singleton({
       label: "Registry",
       path: "content/registry",
+      format: { data: "json" },
       schema: {
         intro: fields.text({ multiline: true, label: "Introduction Text" }),
         note: fields.text({ multiline: true, label: "Gift Note (shown at the bottom)" }),
@@ -211,6 +218,7 @@ export default config({
     faqs: singleton({
       label: "FAQs",
       path: "content/faqs",
+      format: { data: "json" },
       schema: {
         questions: fields.array(
           fields.object({
@@ -228,6 +236,7 @@ export default config({
     journey: singleton({
       label: "Our Journey Map",
       path: "content/journey",
+      format: { data: "json" },
       schema: {
         mapImage: fields.image({
           label: "Map Image",
@@ -253,6 +262,7 @@ export default config({
     gallery: singleton({
       label: "Gallery",
       path: "content/gallery",
+      format: { data: "json" },
       schema: {
         images: fields.array(
           fields.object({
