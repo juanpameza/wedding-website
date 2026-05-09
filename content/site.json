@@ -7,11 +7,11 @@
   "siteTitle": "Sage & Juanpa | March 13, 2027",
   "colorBg": "#FFF1EC",
   "colorBgWhite": "#FFFAF4",
-  "colorNav": "#7F947D",
-  "colorNavText": "#FFFDF9",
-  "colorHeadingRose": "#5F7D62",
-  "colorHeadingOlive": "#D99AA5",
-  "colorBody": "#3D3935",
-  "colorMuted": "#AEBBA9",
-  "colorBorder": "#E8CFC2"
+  "colorNav": "#657B66",
+  "colorNavText": "#FFFAF4",
+  "colorHeadingRose": "#657B66",
+  "colorHeadingOlive": "#B98286",
+  "colorBody": "#3F3934",
+  "colorMuted": "#A8B8A9",
+  "colorBorder": "#E7CFC5"
 }
