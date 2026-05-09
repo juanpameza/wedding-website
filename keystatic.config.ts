@@ -1,4 +1,5 @@
 import { config, fields, singleton } from "@keystatic/core";
+import { colorField } from "@/lib/keystatic-color-field";
 
 export default config({
   storage:
@@ -33,15 +34,15 @@ export default config({
         weddingDateTime: fields.text({ label: "Countdown Date/Time (ISO 8601)", description: "e.g., 2027-03-13T21:00:00Z — this drives the countdown timer" }),
         weddingLocation: fields.text({ label: "Wedding Location", description: "e.g., San Salvador, El Salvador" }),
         siteTitle: fields.text({ label: "Browser Tab Title", description: "e.g., Sage & Juanpa | March 13, 2027" }),
-        colorBg: fields.text({ label: "Background Color", description: "Main page background hex, e.g. #F8E59A" }),
-        colorBgWhite: fields.text({ label: "Section Background Color", description: "Secondary section hex, e.g. #B9D9EB" }),
-        colorNav: fields.text({ label: "Navbar Background", description: "e.g. #A20067" }),
-        colorNavText: fields.text({ label: "Navbar Text Color", description: "e.g. #F8E59A" }),
-        colorHeadingRose: fields.text({ label: "Primary Accent Color", description: "Used for headings, body text, buttons — e.g. #A20067" }),
-        colorHeadingOlive: fields.text({ label: "Secondary Accent Color", description: "Used for subheadings — e.g. #94AF00" }),
-        colorBody: fields.text({ label: "Body Text Color", description: "e.g. #A20067" }),
-        colorMuted: fields.text({ label: "Muted / Soft Accent", description: "e.g. #F59BBB" }),
-        colorBorder: fields.text({ label: "Border & Divider Color", description: "e.g. #F49D5A" }),
+        colorBg:           colorField("Background Color"),
+        colorBgWhite:      colorField("Section Background Color"),
+        colorNav:          colorField("Navbar Background"),
+        colorNavText:      colorField("Navbar Text Color"),
+        colorHeadingRose:  colorField("Primary Accent Color"),
+        colorHeadingOlive: colorField("Secondary Accent Color"),
+        colorBody:         colorField("Body Text Color"),
+        colorMuted:        colorField("Muted / Soft Accent"),
+        colorBorder:       colorField("Border & Divider Color"),
       },
     }),
 

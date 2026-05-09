@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { Great_Vibes, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import ConditionalNavbar from "@/components/ConditionalNavbar";
-import siteContent from "@/content/site.json";
+import fs from "fs";
+import path from "path";
+import { unstable_noStore as noStore } from "next/cache";
+
+function getSiteContent() {
+  return JSON.parse(fs.readFileSync(path.join(process.cwd(), "content/site.json"), "utf-8"));
+}
 
 const greatVibes = Great_Vibes({
   weight: "400",
@@ -16,19 +22,21 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: `%s | ${siteContent.siteTitle}`,
-    default: siteContent.siteTitle,
-  },
-  description: `Join us to celebrate the wedding of ${siteContent.coupleNameA} & ${siteContent.coupleNameB}.`,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const site = getSiteContent();
+  return {
+    title: { template: `%s | ${site.siteTitle}`, default: site.siteTitle },
+    description: `Join us to celebrate the wedding of ${site.coupleNameA} & ${site.coupleNameB}.`,
+  };
+}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  noStore();
+  const siteContent = getSiteContent();
   const cssVars = {
     "--color-bg": siteContent.colorBg,
     "--color-bg-white": siteContent.colorBgWhite,

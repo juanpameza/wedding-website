@@ -6,10 +6,15 @@ import homeContent from "@/content/home.json";
 
 export const metadata: Metadata = { title: "Home" };
 
-const [partnerAFirst, ...partnerARest] = siteContent.coupleNameA.split(" ");
-const partnerALast = partnerARest.join(" ");
-const [partnerBFirst, ...partnerBRest] = siteContent.coupleNameB.split(" ");
-const partnerBLast = partnerBRest.join(" ");
+const partsA = siteContent.coupleNameA.split(" ");
+const partnerAFirst = partsA[0];
+const partnerAMiddle = partsA.length > 2 ? partsA.slice(1, -1).join(" ") : "";
+const partnerALast = partsA.length > 1 ? partsA[partsA.length - 1] : "";
+
+const partsB = siteContent.coupleNameB.split(" ");
+const partnerBFirst = partsB[0];
+const partnerBMiddle = partsB.length > 2 ? partsB.slice(1, -1).join(" ") : "";
+const partnerBLast = partsB.length > 1 ? partsB[partsB.length - 1] : "";
 
 export default function HomePage() {
   return (
@@ -58,15 +63,28 @@ export default function HomePage() {
           >
             {partnerAFirst}
           </h1>
-          <p
-            className="font-script leading-none mt-2"
-            style={{
-              fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
-              color: "var(--color-heading-rose)",
-            }}
-          >
-            {partnerALast}
-          </p>
+          {partnerAMiddle && (
+            <p
+              className="font-script leading-none mt-2"
+              style={{
+                fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
+                color: "var(--color-heading-rose)",
+              }}
+            >
+              {partnerAMiddle}
+            </p>
+          )}
+          {partnerALast && (
+            <p
+              className="font-script leading-none mt-2"
+              style={{
+                fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
+                color: "var(--color-heading-rose)",
+              }}
+            >
+              {partnerALast}
+            </p>
+          )}
         </div>
 
         <span
@@ -89,15 +107,28 @@ export default function HomePage() {
           >
             {partnerBFirst}
           </h1>
-          <p
-            className="font-script leading-none mt-2"
-            style={{
-              fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
-              color: "var(--color-heading-rose)",
-            }}
-          >
-            {partnerBLast}
-          </p>
+          {partnerBMiddle && (
+            <p
+              className="font-script leading-none mt-2"
+              style={{
+                fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
+                color: "var(--color-heading-rose)",
+              }}
+            >
+              {partnerBMiddle}
+            </p>
+          )}
+          {partnerBLast && (
+            <p
+              className="font-script leading-none mt-2"
+              style={{
+                fontSize: "clamp(2.3rem, 7vw, 4.6rem)",
+                color: "var(--color-heading-rose)",
+              }}
+            >
+              {partnerBLast}
+            </p>
+          )}
         </div>
       </div>
 
