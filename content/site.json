@@ -16,5 +16,90 @@
   "colorHeadingOlive": "#B86F7F",
   "colorBody": "#33382E",
   "colorMuted": "#CFA6A8",
-  "colorBorder": "#DDBFBA"
+  "colorBorder": "#DDBFBA",
+  "typography": {
+    "homeNames": {
+      "fontFamily": "__displayFont",
+      "fontSize": 74,
+      "bold": false,
+      "italic": false
+    },
+    "homeAmpersand": {
+      "fontFamily": "__displayFont",
+      "fontSize": 128,
+      "bold": false,
+      "italic": false
+    },
+    "homeDetails": {
+      "fontFamily": "__displayFont",
+      "fontSize": 28,
+      "bold": false,
+      "italic": false
+    },
+    "pageHeading": {
+      "fontFamily": "__displayFont",
+      "fontSize": 64,
+      "bold": false,
+      "italic": false
+    },
+    "sectionHeading": {
+      "fontFamily": "__displayFont",
+      "fontSize": 44,
+      "bold": false,
+      "italic": false
+    },
+    "sectionSubheading": {
+      "fontFamily": "__bodyFont",
+      "fontSize": 16,
+      "bold": false,
+      "italic": false
+    },
+    "cardHeading": {
+      "fontFamily": "__displayFont",
+      "fontSize": 32,
+      "bold": false,
+      "italic": false
+    },
+    "bodyText": {
+      "fontFamily": "__bodyFont",
+      "fontSize": 18,
+      "bold": false,
+      "italic": false
+    },
+    "nav": {
+      "fontFamily": "__bodyFont",
+      "fontSize": 14,
+      "bold": false,
+      "italic": false
+    },
+    "button": {
+      "fontFamily": "__bodyFont",
+      "fontSize": 14,
+      "bold": false,
+      "italic": false
+    },
+    "countdownNumber": {
+      "fontFamily": "__bodyFont",
+      "fontSize": 44,
+      "bold": false,
+      "italic": false
+    },
+    "countdownLabel": {
+      "fontFamily": "__bodyFont",
+      "fontSize": 10,
+      "bold": false,
+      "italic": false
+    }
+  },
+  "countdownVisibility": {
+    "home": true,
+    "journey": false,
+    "itinerary": false,
+    "travel": false,
+    "hairMakeup": false,
+    "thingsToDo": false,
+    "gallery": false,
+    "registry": false,
+    "faqs": false
+  }
 }

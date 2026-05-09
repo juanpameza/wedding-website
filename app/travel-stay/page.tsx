@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageCountdown from "@/components/PageCountdown";
 import travelContent from "@/content/travel.json";
 
 export const metadata: Metadata = { title: "Travel & Stay" };
@@ -23,6 +24,7 @@ export default function TravelStayPage() {
       <h1 className="page-heading" style={{ color: "var(--color-heading-rose)" }}>
         Travel &amp; Stay
       </h1>
+      <PageCountdown page="travel" />
 
       <div className="max-w-3xl mx-auto px-6 space-y-16">
 
@@ -61,7 +63,7 @@ export default function TravelStayPage() {
                 }}
               >
                 <h3
-                  className="font-script text-2xl mb-1"
+                  className="card-heading mb-1"
                   style={{ color: "var(--color-heading-rose)" }}
                 >
                   {hotel.name}
@@ -109,7 +111,7 @@ export default function TravelStayPage() {
                 }}
               >
                 <h3
-                  className="font-script text-2xl mb-2"
+                  className="card-heading mb-2"
                   style={{ color: "var(--color-heading-olive)" }}
                 >
                   {svc.name}

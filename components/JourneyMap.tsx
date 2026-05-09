@@ -13,56 +13,68 @@ export type JourneyStop = {
 type Props = {
   stops: JourneyStop[];
   mapImage?: string | null;
+  mapMaxWidth?: number | null;
+  mapPadding?: number | null;
 };
 
-export default function JourneyMap({ stops, mapImage }: Props) {
+export default function JourneyMap({
+  stops,
+  mapImage,
+  mapMaxWidth = 1493,
+  mapPadding = 0,
+}: Props) {
   const [selectedStop, setSelectedStop] = useState<(JourneyStop & { number: number }) | null>(null);
 
   return (
     <>
-      <div className="relative w-full min-w-[900px] max-w-[1493px]">
-        {mapImage ? (
-          <Image
-            src={mapImage}
-            alt="Our Journey Map"
-            width={1493}
-            height={1054}
-            className="w-full select-none"
-            priority
-          />
-        ) : (
-          <div
-            className="block w-full select-none flex items-center justify-center border-2 border-dashed"
-            style={{
-              aspectRatio: "1493/1054",
-              borderColor: "var(--color-muted)",
-              backgroundColor: "var(--color-bg-white)",
-            }}
-          >
-            <span style={{ color: "var(--color-muted)", fontSize: "0.85rem" }}>
-              Journey Map
-            </span>
-          </div>
-        )}
+      <div
+        className="w-full min-w-[900px]"
+        style={{ maxWidth: mapMaxWidth ?? 1493, padding: mapPadding ?? 0 }}
+      >
+        <div className="relative w-full">
+          {mapImage ? (
+            <Image
+              src={mapImage}
+              alt="Our Journey Map"
+              width={1493}
+              height={1054}
+              className="w-full select-none"
+              priority
+            />
+          ) : (
+            <div
+              className="flex w-full select-none items-center justify-center border-2 border-dashed"
+              style={{
+                aspectRatio: "1493/1054",
+                borderColor: "var(--color-muted)",
+                backgroundColor: "var(--color-bg-white)",
+              }}
+            >
+              <span style={{ color: "var(--color-muted)", fontSize: "0.85rem" }}>
+                Journey Map
+              </span>
+            </div>
+          )}
 
-        {stops.map((stop, index) => (
-          <button
-            key={index}
-            type="button"
-            aria-label={`Read more about ${stop.location}`}
-            title={stop.location}
-            onClick={() => setSelectedStop({ ...stop, number: index + 1 })}
-            className="absolute z-10 flex h-7 w-7 items-center justify-center rounded-full border border-[#b9823d]/70 bg-[#fff8eb]/95 text-[0.78rem] font-semibold leading-none text-[#8b5b1f] shadow-[0_2px_8px_rgba(91,60,23,0.2)] transition hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#c48b43] focus:ring-offset-2 focus:ring-offset-[#fbf1e3]"
-            style={{
-              left: `${stop.x}%`,
-              top: `${stop.y}%`,
-              transform: "translate(-50%, -50%)",
-              fontFamily: "var(--font-body), Georgia, serif",
-            }}
-          >
-            {index + 1}
-          </button>
-        ))}
+          {stops.map((stop, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Read more about ${stop.location}`}
+              title={stop.location}
+              onClick={() => setSelectedStop({ ...stop, number: index + 1 })}
+              className="absolute z-10 flex h-7 w-7 items-center justify-center rounded-full border border-[#b9823d]/70 bg-[#fff8eb]/95 text-[0.78rem] font-semibold leading-none text-[#8b5b1f] shadow-[0_2px_8px_rgba(91,60,23,0.2)] transition hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#c48b43] focus:ring-offset-2 focus:ring-offset-[#fbf1e3]"
+              style={{
+                left: `${stop.x}%`,
+                top: `${stop.y}%`,
+                transform: "translate(-50%, -50%)",
+                fontFamily: "var(--font-body), Georgia, serif",
+              }}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
       </div>
 
       {selectedStop && (
@@ -97,10 +109,9 @@ export default function JourneyMap({ stops, mapImage }: Props) {
             </p>
             <h2
               id="journey-stop-title"
-              className="font-script"
+              className="card-heading"
               style={{
                 color: "var(--color-heading-rose)",
-                fontSize: "clamp(2.1rem, 6vw, 3rem)",
                 lineHeight: 1.05,
               }}
             >

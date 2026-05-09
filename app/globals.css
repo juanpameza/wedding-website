@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Brittney Signature";
+  src:
+    local("Brittney Signature"),
+    local("BrittneySignature"),
+    url("/fonts/brittney-signature.woff2") format("woff2"),
+    url("/fonts/BrittneySignature.woff2") format("woff2"),
+    url("/fonts/brittney-signature.woff") format("woff"),
+    url("/fonts/BrittneySignature.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 /* ─── CSS Custom Properties ──────────────────────────────── */
 :root {
   --color-bg:           #F8E59A;   /* warm yellow */
@@ -25,8 +39,10 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-body);
-  font-family: var(--font-body), Georgia, serif;
-  font-size: 1.125rem;
+  font-family: var(--font-body-text), var(--font-body), Georgia, serif;
+  font-size: var(--font-body-text-size, 1.125rem);
+  font-style: var(--font-body-text-style, normal);
+  font-weight: var(--font-body-text-weight, 400);
   line-height: 1.7;
 }
 
@@ -36,15 +52,46 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display), cursive;
+  font-family: var(--font-section-heading), var(--font-display), cursive;
   color: var(--color-heading-rose);
+}
+
+.home-name-text {
+  font-family: var(--font-home-names), var(--font-display), cursive;
+  font-size: min(var(--font-home-names-size, 4.6rem), 18vw);
+  font-style: var(--font-home-names-style, normal);
+  font-weight: var(--font-home-names-weight, 400);
+}
+
+.home-ampersand {
+  font-family: var(--font-home-ampersand), var(--font-display), cursive;
+  font-size: min(var(--font-home-ampersand-size, 8rem), 24vw);
+  font-style: var(--font-home-ampersand-style, normal);
+  font-weight: var(--font-home-ampersand-weight, 400);
+}
+
+.home-detail {
+  font-family: var(--font-home-details), var(--font-display), cursive;
+  font-size: min(var(--font-home-details-size, 1.9rem), 8vw);
+  font-style: var(--font-home-details-style, normal);
+  font-weight: var(--font-home-details-weight, 400);
+}
+
+.card-heading {
+  font-family: var(--font-card-heading), var(--font-display), cursive;
+  font-size: min(var(--font-card-heading-size, 2rem), 10vw);
+  font-style: var(--font-card-heading-style, normal);
+  font-weight: var(--font-card-heading-weight, 400);
+  line-height: 1.1;
 }
 
 /* ─── Navbar ────────────────────────────────────────────── */
 .nav-link {
   @apply px-5 py-3 text-sm tracking-widest uppercase transition-colors duration-200;
-  font-family: var(--font-body), Georgia, serif;
-  font-size: 0.85rem;
+  font-family: var(--font-nav), var(--font-body), Georgia, serif;
+  font-size: var(--font-nav-size, 0.85rem);
+  font-style: var(--font-nav-style, normal);
+  font-weight: var(--font-nav-weight, 400);
   letter-spacing: 0.08em;
   color: var(--color-nav-text);
 }
@@ -60,8 +107,10 @@ h1, h2, h3 {
 
 /* ─── Page heading ──────────────────────────────────────── */
 .page-heading {
-  font-family: var(--font-display), cursive;
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-family: var(--font-page-heading), var(--font-display), cursive;
+  font-size: min(var(--font-page-heading-size, 4rem), 15vw);
+  font-style: var(--font-page-heading-style, normal);
+  font-weight: var(--font-page-heading-weight, 400);
   color: var(--color-heading-olive);
   text-align: center;
   margin-bottom: 2rem;
@@ -69,15 +118,19 @@ h1, h2, h3 {
 
 /* ─── Section heading ───────────────────────────────────── */
 .section-heading {
-  font-family: var(--font-display), cursive;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-family: var(--font-section-heading), var(--font-display), cursive;
+  font-size: min(var(--font-section-heading-size, 2.8rem), 12vw);
+  font-style: var(--font-section-heading-style, normal);
+  font-weight: var(--font-section-heading-weight, 400);
   color: var(--color-heading-rose);
   text-align: center;
 }
 
 .section-subheading {
-  font-family: var(--font-body), Georgia, serif;
-  font-size: 1rem;
+  font-family: var(--font-section-subheading), var(--font-body), Georgia, serif;
+  font-size: var(--font-section-subheading-size, 1rem);
+  font-style: var(--font-section-subheading-style, normal);
+  font-weight: var(--font-section-subheading-weight, 400);
   letter-spacing: 0.1em;
   color: var(--color-heading-olive);
   text-align: center;
@@ -89,8 +142,10 @@ h1, h2, h3 {
   border: 1px solid var(--color-btn-border);
   color: var(--color-heading-rose);
   padding: 0.45rem 1.4rem;
-  font-family: var(--font-body), Georgia, serif;
-  font-size: 0.85rem;
+  font-family: var(--font-button), var(--font-body), Georgia, serif;
+  font-size: var(--font-button-size, 0.85rem);
+  font-style: var(--font-button-style, normal);
+  font-weight: var(--font-button-weight, 400);
   letter-spacing: 0.06em;
   transition: background-color 0.2s, color 0.2s;
 }
@@ -114,7 +169,7 @@ h1, h2, h3 {
 /* ─── FAQ accordion ──────────────────────────────────────── */
 details summary {
   cursor: pointer;
-  font-family: var(--font-body), Georgia, serif;
+  font-family: var(--font-section-subheading), var(--font-body), Georgia, serif;
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -134,4 +189,25 @@ details p {
   padding: 0.75rem 0 1rem;
   font-size: 0.95rem;
   color: var(--color-body);
+}
+
+.countdown-complete {
+  font-family: var(--font-countdown-number), var(--font-display), cursive;
+  font-size: min(var(--font-countdown-number-size, 3rem), 12vw);
+  font-style: var(--font-countdown-number-style, normal);
+  font-weight: var(--font-countdown-number-weight, 400);
+}
+
+.countdown-number {
+  font-family: var(--font-countdown-number), var(--font-body), Georgia, serif;
+  font-size: min(var(--font-countdown-number-size, 2.8rem), 13vw);
+  font-style: var(--font-countdown-number-style, normal);
+  font-weight: var(--font-countdown-number-weight, 300);
+}
+
+.countdown-label {
+  font-family: var(--font-countdown-label), var(--font-body), Georgia, serif;
+  font-size: var(--font-countdown-label-size, 0.6rem);
+  font-style: var(--font-countdown-label-style, normal);
+  font-weight: var(--font-countdown-label-weight, 400);
 }

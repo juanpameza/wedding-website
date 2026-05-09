@@ -1,5 +1,71 @@
 import { config, fields, singleton } from "@keystatic/core";
 import { colorField } from "@/lib/keystatic-color-field";
+import {
+  DEFAULT_TYPOGRAPHY,
+  FONT_SELECT_OPTIONS,
+  TYPOGRAPHY_FONT_SELECT_OPTIONS,
+  type TypographyRole,
+} from "@/lib/site-style";
+
+function typographyField(
+  label: string,
+  role: TypographyRole,
+  description?: string,
+) {
+  const defaults = DEFAULT_TYPOGRAPHY[role];
+
+  return fields.object(
+    {
+      fontFamily: fields.select({
+        label: "Font",
+        options: TYPOGRAPHY_FONT_SELECT_OPTIONS,
+        defaultValue: defaults.fontFamily,
+      }),
+      fontSize: fields.number({
+        label: "Size (px)",
+        defaultValue: defaults.fontSize,
+        step: 1,
+        validation: { min: 8, max: 180 },
+      }),
+      bold: fields.checkbox({
+        label: "Bold",
+        defaultValue: defaults.bold,
+      }),
+      italic: fields.checkbox({
+        label: "Italic",
+        defaultValue: defaults.italic,
+      }),
+    },
+    { label, description, layout: [6, 6, 6, 6] },
+  );
+}
+
+function imageLayoutFields(defaultWidth: number, defaultHeight?: number) {
+  return {
+    imageWidth: fields.number({
+      label: "Image Width (px)",
+      defaultValue: defaultWidth,
+      step: 1,
+      validation: { min: 80, max: 1600 },
+    }),
+    ...(defaultHeight
+      ? {
+          imageHeight: fields.number({
+            label: "Image Height (px)",
+            defaultValue: defaultHeight,
+            step: 1,
+            validation: { min: 80, max: 1600 },
+          }),
+        }
+      : {}),
+    imagePadding: fields.number({
+      label: "Image Padding (px)",
+      defaultValue: 0,
+      step: 1,
+      validation: { min: 0, max: 160 },
+    }),
+  };
+}
 
 export default config({
   storage:
@@ -36,26 +102,14 @@ export default config({
         siteTitle: fields.text({ label: "Browser Tab Title", description: "e.g., Sage & Juanpa | March 13, 2027" }),
         displayFont: fields.select({
           label: "Display / Script Font",
-          description: "Used for headings and decorative text",
-          options: [
-            { label: "Great Vibes",      value: "Great Vibes" },
-            { label: "Dancing Script",   value: "Dancing Script" },
-            { label: "Parisienne",       value: "Parisienne" },
-            { label: "Pinyon Script",    value: "Pinyon Script" },
-            { label: "Sacramento",       value: "Sacramento" },
-          ],
+          description: "Default for headings and decorative text",
+          options: FONT_SELECT_OPTIONS,
           defaultValue: "Great Vibes",
         }),
         bodyFont: fields.select({
           label: "Body Font",
-          description: "Used for paragraphs, nav, and buttons",
-          options: [
-            { label: "Cormorant Garamond",  value: "Cormorant Garamond" },
-            { label: "EB Garamond",         value: "EB Garamond" },
-            { label: "Playfair Display",    value: "Playfair Display" },
-            { label: "Lora",                value: "Lora" },
-            { label: "Libre Baskerville",   value: "Libre Baskerville" },
-          ],
+          description: "Default for paragraphs, nav, and buttons",
+          options: FONT_SELECT_OPTIONS,
           defaultValue: "Cormorant Garamond",
         }),
         baseFontSize: fields.number({
@@ -64,6 +118,44 @@ export default config({
           defaultValue: 16,
           validation: { min: 13, max: 22 },
         }),
+        typography: fields.object(
+          {
+            homeNames: typographyField("Home Names", "homeNames"),
+            homeAmpersand: typographyField("Home Ampersand", "homeAmpersand"),
+            homeDetails: typographyField("Home Date & Location", "homeDetails"),
+            pageHeading: typographyField("Page Headings", "pageHeading"),
+            sectionHeading: typographyField("Section Headings", "sectionHeading"),
+            sectionSubheading: typographyField("Subheadings / Eyebrows", "sectionSubheading"),
+            cardHeading: typographyField("Card Headings", "cardHeading"),
+            bodyText: typographyField("Body Text", "bodyText"),
+            nav: typographyField("Navigation", "nav"),
+            button: typographyField("Buttons", "button"),
+            countdownNumber: typographyField("Countdown Numbers", "countdownNumber"),
+            countdownLabel: typographyField("Countdown Labels", "countdownLabel"),
+          },
+          {
+            label: "Detailed Typography",
+            description: "Override font, size, bold, and italic settings for specific parts of the site.",
+          },
+        ),
+        countdownVisibility: fields.object(
+          {
+            home: fields.checkbox({ label: "Home", defaultValue: true }),
+            journey: fields.checkbox({ label: "Our Journey", defaultValue: false }),
+            itinerary: fields.checkbox({ label: "Itinerary", defaultValue: false }),
+            travel: fields.checkbox({ label: "Travel & Stay", defaultValue: false }),
+            hairMakeup: fields.checkbox({ label: "Hair & Makeup", defaultValue: false }),
+            thingsToDo: fields.checkbox({ label: "Things To Do", defaultValue: false }),
+            gallery: fields.checkbox({ label: "Gallery", defaultValue: false }),
+            registry: fields.checkbox({ label: "Registry", defaultValue: false }),
+            faqs: fields.checkbox({ label: "FAQs", defaultValue: false }),
+          },
+          {
+            label: "Countdown Visibility",
+            description: "Choose which pages show the wedding countdown.",
+            layout: [4, 4, 4, 4, 4, 4, 4, 4, 4],
+          },
+        ),
         colorBg:           colorField("Background Color",       "Main page background"),
         colorBgWhite:      colorField("Section Background Color", "Secondary section backgrounds"),
         colorNav:          colorField("Navbar Background",        "Top navigation bar"),
@@ -89,6 +181,18 @@ export default config({
           directory: "public/images",
           publicPath: "/images/",
         }),
+        logoMaxWidth: fields.number({
+          label: "Logo Width (px)",
+          defaultValue: 448,
+          step: 1,
+          validation: { min: 120, max: 1200 },
+        }),
+        logoPadding: fields.number({
+          label: "Logo Padding (px)",
+          defaultValue: 24,
+          step: 1,
+          validation: { min: 0, max: 160 },
+        }),
       },
     }),
 
@@ -110,6 +214,7 @@ export default config({
                   directory: "public/images/itinerary",
                   publicPath: "/images/itinerary/",
                 }),
+                ...imageLayoutFields(256, 224),
               }),
               {
                 label: "Events",
@@ -275,6 +380,18 @@ export default config({
           directory: "public/images",
           publicPath: "/images/",
         }),
+        mapMaxWidth: fields.number({
+          label: "Map Width (px)",
+          defaultValue: 1493,
+          step: 1,
+          validation: { min: 600, max: 2400 },
+        }),
+        mapPadding: fields.number({
+          label: "Map Padding (px)",
+          defaultValue: 0,
+          step: 1,
+          validation: { min: 0, max: 180 },
+        }),
         stops: fields.array(
           fields.object({
             location: fields.text({ label: "Location Name", description: "e.g., Paris" }),
@@ -303,6 +420,18 @@ export default config({
               publicPath: "/images/gallery/",
             }),
             alt: fields.text({ label: "Caption / Alt Text" }),
+            imageWidthPercent: fields.number({
+              label: "Display Width (%)",
+              defaultValue: 100,
+              step: 1,
+              validation: { min: 25, max: 100 },
+            }),
+            imagePadding: fields.number({
+              label: "Image Padding (px)",
+              defaultValue: 0,
+              step: 1,
+              validation: { min: 0, max: 120 },
+            }),
           }),
           {
             label: "Photos",

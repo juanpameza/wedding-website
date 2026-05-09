@@ -1,9 +1,15 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
 import type { Metadata } from "next";
+import PageCountdown from "@/components/PageCountdown";
 import galleryContentRaw from "@/content/gallery.json";
 
-type GalleryImage = { src: string | null; alt: string };
+type GalleryImage = {
+  src: string | null;
+  alt: string;
+  imageWidthPercent?: number | null;
+  imagePadding?: number | null;
+};
 const galleryContent = galleryContentRaw as { images: GalleryImage[] };
 
 export const metadata: Metadata = { title: "Gallery" };
@@ -31,6 +37,8 @@ async function getFilesystemImages() {
       .map((fileName) => ({
         src: `/images/gallery/${fileName}`,
         alt: path.parse(fileName).name.replace(/[-_]/g, " "),
+        imageWidthPercent: 100,
+        imagePadding: 0,
       }));
   } catch {
     return [];
@@ -42,7 +50,12 @@ export default async function GalleryPage() {
   // otherwise fall back to all files in the gallery folder
   const cmsImages = galleryContent.images
     .filter((img) => img.src)
-    .map((img) => ({ src: img.src as string, alt: img.alt || "" }));
+    .map((img) => ({
+      src: img.src as string,
+      alt: img.alt || "",
+      imageWidthPercent: img.imageWidthPercent ?? 100,
+      imagePadding: img.imagePadding ?? 0,
+    }));
 
   const images =
     cmsImages.length > 0 ? cmsImages : await getFilesystemImages();
@@ -53,6 +66,7 @@ export default async function GalleryPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Gallery</h1>
+      <PageCountdown page="gallery" />
 
       <div className="mx-auto max-w-6xl pb-16">
         {images.length > 0 ? (
@@ -61,7 +75,13 @@ export default async function GalleryPage() {
               <figure
                 key={image.src}
                 className="mb-5 break-inside-avoid overflow-hidden rounded-lg"
-                style={{ backgroundColor: "var(--color-bg-white)" }}
+                style={{
+                  backgroundColor: "var(--color-bg-white)",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  padding: image.imagePadding,
+                  width: `${image.imageWidthPercent}%`,
+                }}
               >
                 <img
                   src={image.src}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageCountdown from "@/components/PageCountdown";
 import hairMakeupContent from "@/content/hair-makeup.json";
 
 export const metadata: Metadata = { title: "Hair & Makeup" };
@@ -12,6 +13,7 @@ export default function HairMakeupPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Hair &amp; Makeup</h1>
+      <PageCountdown page="hairMakeup" />
 
       <div className="max-w-3xl mx-auto space-y-14">
         {/* ── Intro ── */}
@@ -33,7 +35,7 @@ export default function HairMakeupPage() {
                 }}
               >
                 <h3
-                  className="font-script text-2xl mb-1"
+                  className="card-heading mb-1"
                   style={{ color: "var(--color-heading-rose)" }}
                 >
                   {s.name}

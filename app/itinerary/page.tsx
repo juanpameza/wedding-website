@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import PageCountdown from "@/components/PageCountdown";
 import itineraryContent from "@/content/itinerary.json";
 
 export const metadata: Metadata = { title: "Itinerary" };
@@ -18,6 +19,7 @@ export default function ItineraryPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Itinerary</h1>
+      <PageCountdown page="itinerary" />
 
       <div className="max-w-4xl mx-auto space-y-24">
         {itineraryContent.days.map((day, dayIndex) => {
@@ -41,6 +43,10 @@ export default function ItineraryPage() {
                   const anchorId = event.name
                     .toLowerCase()
                     .replace(/\s+/g, "-");
+                  const imageWidth = event.imageWidth ?? 256;
+                  const imageHeight = event.imageHeight ?? 224;
+                  const imagePadding = event.imagePadding ?? 0;
+                  const imageAspectRatio = `${imageWidth} / ${imageHeight}`;
 
                   return (
                     <div
@@ -50,19 +56,29 @@ export default function ItineraryPage() {
                         isEven ? "" : "md:flex-row-reverse"
                       } items-center gap-10`}
                     >
-                      <div className="flex-shrink-0">
+                      <div
+                        className="flex-shrink-0"
+                        style={{ padding: imagePadding }}
+                      >
                         {event.image ? (
                           <Image
                             src={event.image}
                             alt={event.name}
-                            width={256}
-                            height={224}
-                            className="w-64 h-56 rounded-lg object-cover"
+                            width={imageWidth}
+                            height={imageHeight}
+                            className="max-w-full rounded-lg object-cover"
+                            style={{
+                              aspectRatio: imageAspectRatio,
+                              height: "auto",
+                              width: `min(100%, ${imageWidth}px)`,
+                            }}
                           />
                         ) : (
                           <div
-                            className="w-64 h-56 rounded-lg flex items-center justify-center border-2"
+                            className="flex max-w-full items-center justify-center rounded-lg border-2"
                             style={{
+                              aspectRatio: imageAspectRatio,
+                              width: `min(100%, ${imageWidth}px)`,
                               borderColor: "var(--color-muted)",
                               borderStyle: "dashed",
                               backgroundColor: "var(--color-bg-white)",

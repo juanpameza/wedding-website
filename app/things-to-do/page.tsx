@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageCountdown from "@/components/PageCountdown";
 import thingsContent from "@/content/things-to-do.json";
 
 export const metadata: Metadata = { title: "Things To Do" };
@@ -12,6 +13,7 @@ export default function ThingsToDoPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Things To Do</h1>
+      <PageCountdown page="thingsToDo" />
 
       <div className="max-w-3xl mx-auto space-y-14">
         <p className="text-center" style={{ color: "var(--color-body)" }}>
@@ -33,7 +35,7 @@ export default function ThingsToDoPage() {
                   }}
                 >
                   <h3
-                    className="font-script text-xl mb-1"
+                    className="card-heading mb-1"
                     style={{ color: "var(--color-heading-olive)" }}
                   >
                     {item.name}

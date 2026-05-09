@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageCountdown from "@/components/PageCountdown";
 import registryContent from "@/content/registry.json";
 
 export const metadata: Metadata = { title: "Registry" };
@@ -14,6 +15,7 @@ export default function RegistryPage() {
       <h1 className="page-heading" style={{ color: "var(--color-heading-rose)" }}>
         Registry
       </h1>
+      <PageCountdown page="registry" />
 
       <div className="max-w-2xl mx-auto space-y-12 text-center">
         <p style={{ color: "var(--color-body)" }}>{intro}</p>
@@ -30,7 +32,7 @@ export default function RegistryPage() {
               }}
             >
               <h2
-                className="font-script text-2xl mb-2"
+                className="card-heading mb-2"
                 style={{ color: "var(--color-heading-rose)" }}
               >
                 {reg.name}

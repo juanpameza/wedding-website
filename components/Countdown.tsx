@@ -27,9 +27,8 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
     return (
       <div className="py-8 text-center">
         <p
-          className="font-script"
+          className="countdown-complete"
           style={{
-            fontSize: "clamp(2rem, 5vw, 3rem)",
             color: "var(--color-heading-rose)",
           }}
         >
@@ -58,11 +57,9 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
             }}
           >
             <span
+              className="countdown-number"
               style={{
-                fontSize: "clamp(1.6rem, 5vw, 2.8rem)",
                 color: "var(--color-heading-rose)",
-                fontFamily: "var(--font-body), Georgia, serif",
-                fontWeight: 300,
                 lineHeight: 1,
               }}
             >
@@ -70,8 +67,8 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
             </span>
           </div>
           <span
-            className="mt-2 uppercase tracking-widest"
-            style={{ fontSize: "0.6rem", color: "var(--color-heading-olive)" }}
+            className="countdown-label mt-2 uppercase tracking-widest"
+            style={{ color: "var(--color-heading-olive)" }}
           >
             {label}
           </span>

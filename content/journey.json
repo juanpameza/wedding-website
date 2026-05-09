@@ -1,5 +1,7 @@
 {
   "mapImage": null,
+  "mapMaxWidth": 1493,
+  "mapPadding": 0,
   "stops": [
     {
       "location": "El Salvador",
