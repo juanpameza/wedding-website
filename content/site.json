@@ -6,12 +6,12 @@
   "weddingLocation": "San Salvador, El Salvador",
   "siteTitle": "Sage & Juanpa | March 13, 2027",
   "colorBg": "#FFF1EC",
-  "colorBgWhite": "#EEF4EA",
-  "colorNav": "#6B3554",
-  "colorNavText": "#FDFAF5",
-  "colorHeadingRose": "#D99AA5",
-  "colorHeadingOlive": "#E6A15F",
+  "colorBgWhite": "#FFFAF4",
+  "colorNav": "#3F5F4A",
+  "colorNavText": "#FFFDF9",
+  "colorHeadingRose": "#5F7D62",
+  "colorHeadingOlive": "#D99AA5",
   "colorBody": "#3D3935",
   "colorMuted": "#7FAAC5",
-  "colorBorder": "#FFFDF9"
+  "colorBorder": "#E8CFC2"
 }
