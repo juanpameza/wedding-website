@@ -4,16 +4,16 @@
 
 /* ─── CSS Custom Properties ──────────────────────────────── */
 :root {
-  --color-bg:           #ede0d8;   /* warm rose-beige */
-  --color-bg-white:     #f8f2ef;   /* off-white sections */
-  --color-nav:          #3a4228;   /* dark olive green */
-  --color-nav-text:     #f5f0eb;
-  --color-heading-rose: #8b3535;   /* deep rose / burgundy */
-  --color-heading-olive:#7a6c3d;   /* olive gold */
-  --color-body:         #5a4835;   /* warm dark brown */
-  --color-muted:        #c8a89a;   /* muted rose */
-  --color-border:       #d4b8ad;
-  --color-btn-border:   #8b3535;
+  --color-bg:           #F8E59A;   /* warm yellow */
+  --color-bg-white:     #B9D9EB;   /* light blue sections */
+  --color-nav:          #A20067;   /* deep magenta */
+  --color-nav-text:     #F8E59A;
+  --color-heading-rose: #A20067;   /* deep magenta */
+  --color-heading-olive:#94AF00;   /* olive green */
+  --color-body:         #A20067;   /* deep magenta */
+  --color-muted:        #F59BBB;   /* soft pink */
+  --color-border:       #F49D5A;   /* orange */
+  --color-btn-border:   #A20067;
 }
 
 /* ─── Base ───────────────────────────────────────────────── */

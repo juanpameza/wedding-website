@@ -1,0 +1,42 @@
+{
+  "airportName": "Airport Name (CODE)",
+  "airportDistance": "XX km (XX miles) from City Center",
+  "airportTravelTime": "~XX minutes",
+  "airportVisaNote": "Visa is/is not required for stays under XX days.",
+  "airportArrivalRecommendation": "We recommend arriving by [Day], as official wedding events begin [Day] morning.",
+  "planningContact": "+1 (555) 200-0000",
+  "hotels": [
+    {
+      "name": "Hotel Name 1",
+      "address": "123 Street Name, City",
+      "phone": "+1 (555) 000-0000",
+      "reserveLink": "#"
+    },
+    {
+      "name": "Hotel Name 2",
+      "address": "456 Avenue, City",
+      "phone": "+1 (555) 000-0001",
+      "reserveLink": "#"
+    },
+    {
+      "name": "Hotel Name 3",
+      "address": "789 Boulevard, City",
+      "phone": "+1 (555) 000-0002",
+      "reserveLink": "#"
+    }
+  ],
+  "transportServices": [
+    {
+      "name": "Transport Company 1",
+      "phone": "+1 (555) 100-0000",
+      "email": "contact@company1.com",
+      "instagram": "@company1handle"
+    },
+    {
+      "name": "Transport Company 2",
+      "phone": "+1 (555) 100-0001",
+      "email": "contact@company2.com",
+      "instagram": "@company2handle"
+    }
+  ]
+}

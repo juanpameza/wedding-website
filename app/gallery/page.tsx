@@ -1,9 +1,12 @@
 import { readdir } from "node:fs/promises";
 import path from "node:path";
 import type { Metadata } from "next";
+import galleryContentRaw from "@/content/gallery.json";
+
+type GalleryImage = { src: string | null; alt: string };
+const galleryContent = galleryContentRaw as { images: GalleryImage[] };
 
 export const metadata: Metadata = { title: "Gallery" };
-export const dynamic = "force-dynamic";
 
 const GALLERY_DIR = path.join(process.cwd(), "public", "images", "gallery");
 const IMAGE_EXTENSIONS = new Set([
@@ -15,10 +18,9 @@ const IMAGE_EXTENSIONS = new Set([
   ".webp",
 ]);
 
-async function getGalleryImages() {
+async function getFilesystemImages() {
   try {
     const files = await readdir(GALLERY_DIR, { withFileTypes: true });
-
     return files
       .filter((file) => file.isFile())
       .map((file) => file.name)
@@ -36,7 +38,14 @@ async function getGalleryImages() {
 }
 
 export default async function GalleryPage() {
-  const images = await getGalleryImages();
+  // Use Keystatic-managed images if any have been added via the CMS,
+  // otherwise fall back to all files in the gallery folder
+  const cmsImages = galleryContent.images
+    .filter((img) => img.src)
+    .map((img) => ({ src: img.src as string, alt: img.alt || "" }));
+
+  const images =
+    cmsImages.length > 0 ? cmsImages : await getFilesystemImages();
 
   return (
     <div

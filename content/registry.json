@@ -1,0 +1,18 @@
+{
+  "intro": "Your presence at our wedding is the greatest gift of all. However, if you'd like to give something, we've registered at the following stores.",
+  "note": "If you'd like to give a monetary gift, cash or a gift card is always appreciated and can be brought to the wedding or sent digitally. Thank you so much for your generosity and love!",
+  "registries": [
+    {
+      "name": "Registry Store 1",
+      "description": "Home goods and kitchenware.",
+      "url": "https://example.com/registry1",
+      "buttonLabel": "View Registry"
+    },
+    {
+      "name": "Registry Store 2",
+      "description": "Experiences and travel fund.",
+      "url": "https://example.com/registry2",
+      "buttonLabel": "View Registry"
+    }
+  ]
+}

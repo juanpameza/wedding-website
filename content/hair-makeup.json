@@ -1,0 +1,19 @@
+{
+  "intro": "We want everyone to feel their most beautiful and confident on our big day! Below you'll find information about hair and makeup services available for the wedding weekend.",
+  "stylists": [
+    {
+      "name": "Stylist / Salon Name",
+      "role": "Hair & Makeup",
+      "note": "Available for wedding party. Contact to book your appointment.",
+      "phone": "+1 (555) 000-0000",
+      "email": "stylist@example.com",
+      "instagram": "@stylisthandle"
+    }
+  ],
+  "tips": [
+    { "tip": "Book your appointment as early as possible — spots fill up fast!" },
+    { "tip": "Bring inspiration photos to your consultation." },
+    { "tip": "Arrive with clean, dry hair unless your stylist says otherwise." },
+    { "tip": "Let us know if you have any allergies to products." }
+  ]
+}

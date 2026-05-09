@@ -1,0 +1,77 @@
+{
+  "mapImage": null,
+  "stops": [
+    {
+      "location": "El Salvador",
+      "story": "Where it all started. In 2022, Sage came as a guest to a wedding — Juanpa was standing up for his best friend. We spent the whole weekend talking and laughing, and didn't want it to end.",
+      "x": 39.6,
+      "y": 30.4
+    },
+    {
+      "location": "Arizona, Utah & Nevada",
+      "story": "Sage had somehow never seen the Grand Canyon, so Juanpa flew out and they turned it into a road trip: Grand Canyon, Zion, Horseshoe Bend — and our first official date at the Eiffel Tower in Vegas.",
+      "x": 70.1,
+      "y": 30.8
+    },
+    {
+      "location": "Holbox & Mexico",
+      "story": "Playita, family, and lot's of good food!",
+      "x": 13.8,
+      "y": 46
+    },
+    {
+      "location": "Ravenna, Italy",
+      "story": "First half marathon together. In reality, more of an excuse to travel together!",
+      "x": 39.3,
+      "y": 44.3
+    },
+    {
+      "location": "Switzerland",
+      "story": "Mountains, quiet, and a trip that made the long distance feel worth it.",
+      "x": 51.3,
+      "y": 45.9
+    },
+    {
+      "location": "Istanbul & Cappadocia",
+      "story": "Exploring a whole new culture. Hot air balloons were canceled due to weather, but an ATV tour through the valleys of Cappadocia more than made up for it.",
+      "x": 75.4,
+      "y": 46.7
+    },
+    {
+      "location": "Cartagena, Colombia",
+      "story": "A full month working remotely from Colombia. Lots of fun and adventure!",
+      "x": 15,
+      "y": 62.3
+    },
+    {
+      "location": "Austin",
+      "story": "F1 weekend in Austin and a Ferrari 1-2. Best way to celebrate Juanpa's birthday!",
+      "x": 39,
+      "y": 61.8
+    },
+    {
+      "location": "Catalina Island, California",
+      "story": "Kayaking and a lot of sun to celebrate Sage's birthday.",
+      "x": 59.4,
+      "y": 61.9
+    },
+    {
+      "location": "Hawaii (Kauai)",
+      "story": "Camping in a rooftop tent under the stars of Kauai.",
+      "x": 14.8,
+      "y": 80.6
+    },
+    {
+      "location": "Greece",
+      "story": "Island hopping. The trip that made Paris feel inevitable.",
+      "x": 42.5,
+      "y": 81.6
+    },
+    {
+      "location": "Paris",
+      "story": "Juanpa proposed in front of the real Eiffel Tower. The ring had been in his jacket pocket the whole time — the same jacket Sage had borrowed because she got cold.",
+      "x": 73.7,
+      "y": 76.8
+    }
+  ]
+}

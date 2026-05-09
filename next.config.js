@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  transpilePackages: ["@keystatic/core", "@keystatic/next"],
+};
 
 module.exports = nextConfig;

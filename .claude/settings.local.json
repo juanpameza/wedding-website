@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s http://localhost:3000 -o /dev/null -w \"%{http_code}\")"
+    ]
+  }
+}

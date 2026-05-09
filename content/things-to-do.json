@@ -1,0 +1,30 @@
+{
+  "intro": "While you're here, we hope you take time to enjoy the beauty, flavors, and charm of our city. If you need help planning tours or activities, reach out to our wedding planning team.",
+  "planningContact": "+1 (555) 200-0000",
+  "categories": [
+    {
+      "heading": "Breakfast & Lunch Spots",
+      "items": [
+        { "name": "Café Name 1", "note": "Great for a morning bite." },
+        { "name": "Café Name 2", "note": "Local favorite for lunch." },
+        { "name": "Café Name 3", "note": "Beautiful garden setting." }
+      ]
+    },
+    {
+      "heading": "Dinner & Drinks",
+      "items": [
+        { "name": "Restaurant 1", "note": "Upscale dining, reservations recommended." },
+        { "name": "Bar / Restaurant 2", "note": "Lively atmosphere and great cocktails." },
+        { "name": "Restaurant 3", "note": "Authentic local cuisine." }
+      ]
+    },
+    {
+      "heading": "Explore the City",
+      "items": [
+        { "name": "Landmark 1", "note": "Scenic lake — perfect for a weekend morning." },
+        { "name": "Landmark 2", "note": "Historic city center, great for walking tours." },
+        { "name": "Landmark 3", "note": "Beautiful beach town ~1 hour away." }
+      ]
+    }
+  ]
+}

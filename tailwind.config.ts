@@ -9,14 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#ede0d8",
-        nav: "#3a4228",
-        "nav-text": "#f5f0eb",
-        "heading-rose": "#8b3535",
-        "heading-olive": "#7a6c3d",
-        "body-text": "#5a4835",
-        "muted-rose": "#c8a89a",
-        "accent-green": "#4a5c2e",
+        bg: "#F8E59A",
+        "bg-blue": "#B9D9EB",
+        nav: "#A20067",
+        "nav-text": "#F8E59A",
+        "heading-rose": "#A20067",
+        "heading-olive": "#94AF00",
+        "body-text": "#A20067",
+        "muted-pink": "#F59BBB",
+        "accent-orange": "#F49D5A",
       },
       fontFamily: {
         script: ["var(--font-great-vibes)", "cursive"],

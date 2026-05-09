@@ -2,11 +2,8 @@
 
 import { useState, useEffect } from "react";
 
-// March 13, 2027 at 3:00 PM El Salvador time (UTC-6) = 21:00 UTC
-const WEDDING_DATE = new Date("2027-03-13T21:00:00Z");
-
-function getTimeLeft() {
-  const diff = WEDDING_DATE.getTime() - Date.now();
+function getTimeLeft(targetDate: Date) {
+  const diff = targetDate.getTime() - Date.now();
   if (diff <= 0) return null;
   return {
     days: Math.floor(diff / 86400000),
@@ -16,13 +13,15 @@ function getTimeLeft() {
   };
 }
 
-export default function Countdown() {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+export default function Countdown({ targetDate }: { targetDate: string }) {
+  const date = new Date(targetDate);
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft(date));
 
   useEffect(() => {
-    const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    const id = setInterval(() => setTimeLeft(getTimeLeft(date)), 1000);
     return () => clearInterval(id);
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [targetDate]);
 
   if (!timeLeft) {
     return (

@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Countdown from "@/components/Countdown";
+import Image from "next/image";
+import siteContent from "@/content/site.json";
+import homeContent from "@/content/home.json";
 
 export const metadata: Metadata = { title: "Home" };
 
-// ─── CONFIG — edit everything below ──────────────────────
-const COUPLE = {
-  partnerA: { first: "Sage", last: "Nye" },
-  partnerB: { first: "Juanpa", last: "Meza" },
-};
-const DATE = "March 13th, 2027";
-const LOCATION = "San Salvador, El Salvador";
-const WELCOME_HEADING = "Welcome to San Salvador!";
-const WELCOME_BODY =
-  "We're so happy and grateful to have you in our lives. It means so much to us that you're joining us for this special moment. We can't wait to celebrate with you!";
-// ─────────────────────────────────────────────────────────
+const [partnerAFirst, ...partnerARest] = siteContent.coupleNameA.split(" ");
+const partnerALast = partnerARest.join(" ");
+const [partnerBFirst, ...partnerBRest] = siteContent.coupleNameB.split(" ");
+const partnerBLast = partnerBRest.join(" ");
 
 export default function HomePage() {
   return (
@@ -24,14 +19,31 @@ export default function HomePage() {
     >
       {/* ── Hero monogram ── */}
       <div className="flex items-center justify-center w-full py-16">
-        <Image
-          src="/images/logo.png"
-          alt="MN Logo"
-          width={1343}
-          height={1600}
-          priority
-          className="h-auto w-full max-w-md px-6"
-        />
+        {homeContent.logoImage ? (
+          <div className="w-full max-w-md mx-6">
+            <Image
+              src={homeContent.logoImage}
+              alt="Wedding logo"
+              width={1343}
+              height={1600}
+              className="w-full h-auto rounded-lg"
+              priority
+            />
+          </div>
+        ) : (
+          <div
+            className="flex items-center justify-center w-full max-w-md mx-6 rounded-lg border-2 border-dashed"
+            style={{
+              aspectRatio: "1343/1600",
+              borderColor: "var(--color-muted)",
+              backgroundColor: "var(--color-bg-white)",
+            }}
+          >
+            <span style={{ color: "var(--color-muted)", fontSize: "0.85rem" }}>
+              MN Logo
+            </span>
+          </div>
+        )}
       </div>
 
       {/* ── Names ── */}
@@ -44,7 +56,7 @@ export default function HomePage() {
               color: "var(--color-heading-rose)",
             }}
           >
-            {COUPLE.partnerA.first}
+            {partnerAFirst}
           </h1>
           <p
             className="font-script leading-none mt-2"
@@ -53,7 +65,7 @@ export default function HomePage() {
               color: "var(--color-heading-rose)",
             }}
           >
-            {COUPLE.partnerA.last}
+            {partnerALast}
           </p>
         </div>
 
@@ -75,7 +87,7 @@ export default function HomePage() {
               color: "var(--color-heading-rose)",
             }}
           >
-            {COUPLE.partnerB.first}
+            {partnerBFirst}
           </h1>
           <p
             className="font-script leading-none mt-2"
@@ -84,7 +96,7 @@ export default function HomePage() {
               color: "var(--color-heading-rose)",
             }}
           >
-            {COUPLE.partnerB.last}
+            {partnerBLast}
           </p>
         </div>
       </div>
@@ -98,7 +110,7 @@ export default function HomePage() {
             color: "var(--color-muted)",
           }}
         >
-          {DATE}
+          {siteContent.weddingDate}
         </p>
         <p
           className="font-script"
@@ -107,12 +119,12 @@ export default function HomePage() {
             color: "var(--color-muted)",
           }}
         >
-          {LOCATION}
+          {siteContent.weddingLocation}
         </p>
       </div>
 
       {/* ── Countdown ── */}
-      <Countdown />
+      <Countdown targetDate={siteContent.weddingDateTime} />
 
       {/* ── Welcome message ── */}
       <div
@@ -120,9 +132,9 @@ export default function HomePage() {
         style={{ color: "var(--color-body)" }}
       >
         <p className="font-semibold mb-2" style={{ fontFamily: "inherit" }}>
-          {WELCOME_HEADING}
+          {homeContent.welcomeHeading}
         </p>
-        <p>{WELCOME_BODY}</p>
+        <p>{homeContent.welcomeBody}</p>
       </div>
     </div>
   );

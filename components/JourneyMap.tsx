@@ -1,132 +1,57 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
 
-type JourneyStop = {
-  number: number;
+export type JourneyStop = {
   location: string;
   story: string;
   x: number;
   y: number;
 };
 
-const stops: JourneyStop[] = [
-  {
-    number: 1,
-    location: "El Salvador",
-    story:
-      "Where it all started. In 2022, Sage came as a guest to a wedding \u2014 Juanpa was standing up for his best friend. We spent the whole weekend talking and laughing, and didn't want it to end.",
-    x: 39.6,
-    y: 30.4,
-  },
-  {
-    number: 2,
-    location: "Arizona, Utah & Nevada",
-    story:
-      "Sage had somehow never seen the Grand Canyon, so Juanpa flew out and they turned it into a road trip: Grand Canyon, Zion, Horseshoe Bend \u2014 and our first official date at the Eiffel Tower in Vegas.",
-    x: 70.1,
-    y: 30.8,
-  },
-  {
-    number: 3,
-    location: "Holbox & Mexico",
-    story:
-      "Playita, family, and lot's of good food!",
-    x: 13.8,
-    y: 46,
-  },
-  {
-    number: 4,
-    location: "Ravenna, Italy",
-    story: "First half marathon together. In reality, more of an excuse to travel together!",
-    x: 39.3,
-    y: 44.3,
-  },
-  {
-    number: 5,
-    location: "Switzerland",
-    story: "Mountains, quiet, and a trip that made the long distance feel worth it.",
-    x: 51.3,
-    y: 45.9,
-  },
-  {
-    number: 6,
-    location: "Istanbul & Cappadocia",
-    story:
-      "Exploring a whole new culture. Hot air balloons were canceled due to weather, but an ATV tour through the valleys of Cappadocia more than made up for it.",
-    x: 75.4,
-    y: 46.7,
-  },
-  {
-    number: 7,
-    location: "Cartagena, Colombia",
-    story:
-      "A full month working remotely from Colombia. Lots of fun and adventure!",
-    x: 15,
-    y: 62.3,
-  },
-  {
-    number: 8,
-    location: "Austin",
-    story: "F1 weekend in Austin and a Ferrari 1-2. Best way to celebrate Juanpa's birthday!",
-    x: 39,
-    y: 61.8,
-  },
-  {
-    number: 9,
-    location: "Catalina Island, California",
-    story: "Kayaking and a lot of sun to celebrate Sage's birthday.",
-    x: 59.4,
-    y: 61.9,
-  },
-  {
-    number: 10,
-    location: "Hawaii (Kauai)",
-    story: "Camping in a rooftop tent under the stars of Kauai.",
-    x: 14.8,
-    y: 80.6,
-  },
-  {
-    number: 11,
-    location: "Greece",
-    story: "Island hopping. The trip that made Paris feel inevitable.",
-    x: 42.5,
-    y: 81.6,
-  },
-  {
-    number: 12,
-    location: "Paris",
-    story:
-      "Juanpa proposed in front of the real Eiffel Tower. The ring had been in his jacket pocket the whole time \u2014 the same jacket Sage had borrowed because she got cold.",
-    x: 73.7,
-    y: 76.8,
-  },
-];
+type Props = {
+  stops: JourneyStop[];
+  mapImage?: string | null;
+};
 
-export default function JourneyMap() {
-  const [selectedStop, setSelectedStop] = useState<JourneyStop | null>(null);
+export default function JourneyMap({ stops, mapImage }: Props) {
+  const [selectedStop, setSelectedStop] = useState<(JourneyStop & { number: number }) | null>(null);
 
   return (
     <>
       <div className="relative w-full min-w-[900px] max-w-[1493px]">
-        <Image
-          src="/images/our-journey-map.png"
-          alt="Watercolor illustrated map of Sage and Juanpa's journey through El Salvador, Arizona, Mexico, Italy, Switzerland, Turkey, Colombia, Texas, California, Hawaii, Greece, and Paris."
-          width={1493}
-          height={1054}
-          priority
-          sizes="100vw"
-          className="block h-auto w-full select-none"
-        />
+        {mapImage ? (
+          <Image
+            src={mapImage}
+            alt="Our Journey Map"
+            width={1493}
+            height={1054}
+            className="w-full select-none"
+            priority
+          />
+        ) : (
+          <div
+            className="block w-full select-none flex items-center justify-center border-2 border-dashed"
+            style={{
+              aspectRatio: "1493/1054",
+              borderColor: "var(--color-muted)",
+              backgroundColor: "var(--color-bg-white)",
+            }}
+          >
+            <span style={{ color: "var(--color-muted)", fontSize: "0.85rem" }}>
+              Journey Map
+            </span>
+          </div>
+        )}
 
-        {stops.map((stop) => (
+        {stops.map((stop, index) => (
           <button
-            key={stop.number}
+            key={index}
             type="button"
             aria-label={`Read more about ${stop.location}`}
             title={stop.location}
-            onClick={() => setSelectedStop(stop)}
+            onClick={() => setSelectedStop({ ...stop, number: index + 1 })}
             className="absolute z-10 flex h-7 w-7 items-center justify-center rounded-full border border-[#b9823d]/70 bg-[#fff8eb]/95 text-[0.78rem] font-semibold leading-none text-[#8b5b1f] shadow-[0_2px_8px_rgba(91,60,23,0.2)] transition hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#c48b43] focus:ring-offset-2 focus:ring-offset-[#fbf1e3]"
             style={{
               left: `${stop.x}%`,
@@ -135,7 +60,7 @@ export default function JourneyMap() {
               fontFamily: "var(--font-cormorant), Georgia, serif",
             }}
           >
-            {stop.number}
+            {index + 1}
           </button>
         ))}
       </div>

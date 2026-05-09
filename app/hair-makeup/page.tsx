@@ -1,32 +1,11 @@
 import type { Metadata } from "next";
+import hairMakeupContent from "@/content/hair-makeup.json";
 
 export const metadata: Metadata = { title: "Hair & Makeup" };
 
-// ─── CONFIG ───────────────────────────────────────────────
-const INTRO =
-  "We want everyone to feel their most beautiful and confident on our big day! Below you'll find information about hair and makeup services available for the wedding weekend.";
-
-const STYLISTS = [
-  {
-    name: "Stylist / Salon Name",
-    role: "Hair & Makeup",
-    note: "Available for wedding party. Contact to book your appointment.",
-    phone: "+1 (555) 000-0000",
-    email: "stylist@example.com",
-    instagram: "@stylisthandle",
-  },
-  // Add more stylists as needed
-];
-
-const TIPS = [
-  "Book your appointment as early as possible — spots fill up fast!",
-  "Bring inspiration photos to your consultation.",
-  "Arrive with clean, dry hair unless your stylist says otherwise.",
-  "Let us know if you have any allergies to products.",
-];
-// ─────────────────────────────────────────────────────────
-
 export default function HairMakeupPage() {
+  const { intro, stylists, tips } = hairMakeupContent;
+
   return (
     <div
       className="min-h-screen py-16 px-6"
@@ -37,14 +16,14 @@ export default function HairMakeupPage() {
       <div className="max-w-3xl mx-auto space-y-14">
         {/* ── Intro ── */}
         <p className="text-center" style={{ color: "var(--color-body)" }}>
-          {INTRO}
+          {intro}
         </p>
 
         {/* ── Stylists ── */}
         <section>
           <h2 className="section-heading mb-8">Our Recommended Stylists</h2>
           <div className="grid gap-8 sm:grid-cols-2">
-            {STYLISTS.map((s) => (
+            {stylists.map((s) => (
               <div
                 key={s.name}
                 className="info-card border rounded-sm"
@@ -97,14 +76,14 @@ export default function HairMakeupPage() {
         <section className="text-center pb-8">
           <h2 className="section-heading mb-6">Tips &amp; Reminders</h2>
           <ul className="text-left inline-block space-y-3">
-            {TIPS.map((tip, i) => (
+            {tips.map((item, i) => (
               <li
                 key={i}
                 className="flex items-start gap-3"
                 style={{ color: "var(--color-body)" }}
               >
                 <span style={{ color: "var(--color-heading-rose)" }}>✦</span>
-                {tip}
+                {item.tip}
               </li>
             ))}
           </ul>
