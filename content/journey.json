@@ -5,73 +5,91 @@
   "stops": [
     {
       "location": "El Salvador",
-      "story": "Where it all started. In 2022, Sage came as a guest to a wedding — Juanpa was standing up for his best friend. We spent the whole weekend talking and laughing, and didn't want it to end.",
+      "story": "As fate would have it, Sage traveled to El Salvador with her older brother for the wedding of a friend’s sister. On her very first night there, her friend greeted her and immediately said, “Sage, I have a friend I want you to meet. He is tall, has blue eyes, and is an engineer.” Fortunately, from the moment Sage met Juanpa, she agreed with every part of that description. But over the course of that short weekend, Sage would quickly realize that Juanpa was so much more than tall, blue-eyed engineer. He was the kindest, most respectful, and adventurous person she had ever met. She felt completely in awe of him.The two did not leave each other’s side the entire weekend. It was an absolute blast. In fact, on the way home, Sage called her sister and said, “Natalie, I think I just met the love of my life.” ",
       "x": 39.6,
       "y": 30.4
     },
     {
       "location": "Arizona, Utah & Nevada",
-      "story": "Sage had somehow never seen the Grand Canyon, so Juanpa flew out and they turned it into a road trip: Grand Canyon, Zion, Horseshoe Bend — and our first official date at the Eiffel Tower in Vegas.",
+      "story": "A few months into talking, with Juanpa in Texas and Sage in Arizona, they discovered that Sage had never been to the Grand Canyon. Juanpa was determined to change that. So he planned a week-long road trip: from Phoenix to the Grand Canyon, then Horseshoe Bend, Zion, and finally Las Vegas, where they had their official first dinner date at the Eiffel Tower Restaurant on the Strip. A pretty iconic start!",
       "x": 70.1,
       "y": 30.8
     },
     {
       "location": "Holbox & Mexico",
-      "story": "Playita, family, and lot's of good food!",
+      "story": "A few months later, after officially becoming boyfriend and girlfriend, Juanpa took Sage to Holbox for her 23rd birthday. They spent their days soaking up the sun, exploring the island, and enjoying the beautiful nature of this peaceful little paradise. It was dreamy, sweet, and the perfect birthday getaway.",
+      "x": 13.8,
+      "y": 46
+    },
+    {
+      "location": "Ciudad de Mexico",
+      "story": "So excited about his new girlfriend, Juanpa decided it was absolutely essential that Sage meet the whole family- within one month of dating, of course- in order to receive final approval. So off they went to Mexico City, where Sage met his parents, his sister (who had just given birth to her first baby only a few days earlier), his brother-in-law, and his brother. It was a blast, and Sage instantly knew she loved his family. Around this time, Juanpa moved back to El Salvador, and just like that, their long-distance, and international, relationship officially began.",
+      "x": 13.8,
+      "y": 46
+    },
+    {
+      "location": "Antigua Guatemala",
+      "story": "Shortly after, Sage and Juanpa road-tripped from San Salvador to Antigua, Guatemala, where Sage met many, many of Juanpa’s high school friends. It was full of laughter, stories, and so much joy. Fue un gran viaje and another special chapter in getting to know each other’s worlds.",
       "x": 13.8,
       "y": 46
     },
     {
       "location": "Ravenna, Italy",
-      "story": "First half marathon together. In reality, more of an excuse to travel together!",
+      "story": "Missing each other and always looking for a reason to travel, they planned a trip to Europe. Their first stop was Ravenna, where they ran their first half marathon together. This would later become a pattern: another half marathon in Houston, and eventually, a full marathon in San Diego. Apparently, they don’t just like traveling together, they also like suffering together!",
       "x": 39.3,
       "y": 44.3
     },
     {
       "location": "Switzerland",
-      "story": "Mountains, quiet, and a trip that made the long distance feel worth it.",
+      "story": "Next came Switzerland, where Juanpa taught Sage how to drive stick shift on the side of a Swiss mountain. Why? Because it was illegal for him to drive there without a U.S. license, of course. Nothing says romance quite like learning manual transmission under pressure in one of the most beautiful places in the world.",
       "x": 51.3,
       "y": 45.9
     },
     {
       "location": "Istanbul & Cappadocia",
-      "story": "Exploring a whole new culture. Hot air balloons were canceled due to weather, but an ATV tour through the valleys of Cappadocia more than made up for it.",
+      "story": "Then came Turkey, where they fell in love with the stunning architecture, rich culture, and unforgettable energy of the country. Their hot air balloon ride in Cappadocia was unfortunately canceled because of bad weather, but their ATV tour through the valleys more than made up for it. Not exactly the original plan, but still magical in its own way",
       "x": 75.4,
       "y": 46.7
     },
     {
       "location": "Cartagena, Colombia",
-      "story": "A full month working remotely from Colombia. Lots of fun and adventure!",
+      "story": "Excited to reunite once again, they planned a month-long stay in Colombia, where Juanpa worked remotely and Sage studied for the MCAT. Romantic, productive, and slightly chaotic. During that month, they learned how to kitesurf, explored beautiful cities, and hiked through Tayrona National Park. It was the perfect mix of adventure, discipline, and quality time together",
       "x": 15,
       "y": 62.3
     },
     {
-      "location": "Austin",
-      "story": "F1 weekend in Austin and a Ferrari 1-2. Best way to celebrate Juanpa's birthday!",
-      "x": 39,
-      "y": 61.8
-    },
-    {
       "location": "Catalina Island, California",
-      "story": "Kayaking and a lot of sun to celebrate Sage's birthday.",
+      "story": "Somewhere along the way, Juanpa moved back to Texas, and Sage got into medical school, packed up her life, and moved from Arizona to California. During this season, Juanpa took Sage to Catalina Island for her birthday, where they kayaked, biked around the island, and enjoyed one more adventure together, this time with California sunshine and ocean views.",
       "x": 59.4,
       "y": 61.9
     },
     {
+      "location": "Austin",
+      "story": "For Juanpa’s birthday, they went to Austin to watch the Formula 1 race and Ferrari finished 1–2. A perfect birthday for Juanpa, and honestly, a pretty perfect weekend overall.",
+      "x": 39,
+      "y": 61.8
+    },
+    {
       "location": "Hawaii (Kauai)",
-      "story": "Camping in a rooftop tent under the stars of Kauai.",
+      "story": "Somehow, Juanpa convinced Sage to go car camping for five days in Kauai. And somehow… she loved it. They stayed in parks by the ocean, explored the island, and spent their days surrounded by sunshine, adventure, and beauty. To this day, it remains one of their favorite trips, a true adventure, and one full of love and sunshine.",
       "x": 14.8,
       "y": 80.6
     },
     {
       "location": "Greece",
-      "story": "Island hopping. The trip that made Paris feel inevitable.",
+      "story": "On a dreamy Greek getaway, Sage and Juanpa island-hopped for a week and ate some of the best food of their lives. What Sage didn’t know was that Juanpa had a ring with him the entire time. Through all the ferries, hotels, outfit changes, and Sage’s very dedicated cleaning and reorganizing of their luggage, she somehow never found it. Truly one of the greatest miracles of the trip",
       "x": 42.5,
       "y": 81.6
     },
     {
       "location": "Paris",
-      "story": "Juanpa proposed in front of the real Eiffel Tower. The ring had been in his jacket pocket the whole time — the same jacket Sage had borrowed because she got cold.",
+      "story": "The final stop of their European adventure was France, where they met up with family friends, wandered through the beautiful gardens of Versailles, and then came the big moment. Juanpa proposed to Sage in front of the Eiffel Tower- a perfect ode to their very f irst official date at the Eiffel Tower Restaurant in Las Vegas. Sage was so completely clueless that she was about to get engaged that she was wearing her retainer and had asked to borrow Juanpa’s jacket because she was cold… the same jacket where the ring was hidden. Which meant that, yes, Juanpa had to pull the ring box out of the jacket Sage herself was wearing in order to propose. It was perfect. They spent the rest of the day walking all over Paris (over 20,000 steps!) soaking in every second before heading home, newly engaged and very, very happy",
+      "x": 73.7,
+      "y": 76.8
+    },
+    {
+      "location": "El Salvador",
+      "story": "And now, here we are— back where it all began. There is so much more we could say, so many more trips and stories and ordinary little moments that have shaped us along the way. But more than anything, the people in our lives, all of you, have helped shape who we are and who we have become together. We hope you will join us in San Salvador to celebrate this next big step in our lives, in the very place where our story began. We love you all, and we cannot wait to see you.",
       "x": 73.7,
       "y": 76.8
     }
