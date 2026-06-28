@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ConditionalNavbar from "@/components/ConditionalNavbar";
+import ConditionalFooter from "@/components/ConditionalFooter";
+import PageBotanicals from "@/components/PageBotanicals";
 import fs from "fs";
 import path from "path";
 import { unstable_noStore as noStore } from "next/cache";
@@ -58,7 +60,9 @@ export default function RootLayout({
       </head>
       <body>
         <ConditionalNavbar />
+        <PageBotanicals />
         <main className="min-h-screen">{children}</main>
+        <ConditionalFooter />
       </body>
     </html>
   );

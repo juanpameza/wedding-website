@@ -19,10 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav
-      className="sticky top-0 z-50 flex flex-wrap items-center justify-center"
-      style={{ backgroundColor: "transparent" }}
-    >
+    <nav className="nav-bar sticky top-0 z-50 flex flex-wrap items-center justify-center">
       <ul className="flex flex-wrap justify-center">
         {links.map(({ label, href }) => {
           const isActive = pathname === href;
@@ -30,17 +27,7 @@ export default function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className="nav-link"
-                style={
-                  isActive
-                    ? {
-                        backgroundColor: "var(--color-nav)",
-                        color: "#fff",
-                      }
-                    : {
-                        color: "var(--color-nav)",
-                      }
-                }
+                className={`nav-link${isActive ? " active" : ""}`}
               >
                 {label}
               </Link>

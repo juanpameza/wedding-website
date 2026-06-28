@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
+import FlowerDivider from "@/components/FlowerDivider";
+import { FLOWERS } from "@/lib/flowers";
 import hairMakeupContent from "@/content/hair-makeup.json";
 
 export const metadata: Metadata = { title: "Hair & Makeup" };
@@ -13,6 +15,7 @@ export default function HairMakeupPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Hair &amp; Makeup</h1>
+      <FlowerDivider src={FLOWERS.escabiosa} />
       <PageCountdown page="hairMakeup" />
 
       <div className="max-w-3xl mx-auto space-y-14">
@@ -72,7 +75,7 @@ export default function HairMakeupPage() {
           </div>
         </section>
 
-        <hr className="divider" />
+        <FlowerDivider src={FLOWERS.escabiosa} />
 
         {/* ── Tips ── */}
         <section className="text-center pb-8">

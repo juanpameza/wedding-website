@@ -16,7 +16,7 @@
           "name": "Welcome Dinner",
           "time": "4:00 pm - 7:00 pm",
           "description": "Lake House",
-          "image": null,
+          "image": "/images/Lago_De_Coatepeque.png",
           "imageWidth": 256,
           "imageHeight": 224,
           "imagePadding": 0
@@ -39,7 +39,7 @@
           "name": "Beach Day",
           "time": "9:00 am - 3:00 pm",
           "description": "Balsamar Beach",
-          "image": null,
+          "image": "/images/Balsamar_Beach.png",
           "imageWidth": 256,
           "imageHeight": 224,
           "imagePadding": 0
@@ -53,7 +53,7 @@
           "name": "Wedding Ceremony",
           "time": "3:00 pm - 4:00 pm",
           "description": "Basilica of Our Lady of Guadalupe",
-          "image": null,
+          "image": "/images/Basilica_De_Guadalupe.png",
           "imageWidth": 256,
           "imageHeight": 224,
           "imagePadding": 0
@@ -62,7 +62,7 @@
           "name": "The Reception",
           "time": "5:00 pm - 2:00 am",
           "description": "Cajamarca El Salvador",
-          "image": null,
+          "image": "/images/Cajamarca.png",
           "imageWidth": 256,
           "imageHeight": 224,
           "imagePadding": 0

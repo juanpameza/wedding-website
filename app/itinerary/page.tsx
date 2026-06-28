@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import PageCountdown from "@/components/PageCountdown";
+import FlowerDivider from "@/components/FlowerDivider";
+import { FLOWERS } from "@/lib/flowers";
 import itineraryContent from "@/content/itinerary.json";
 
 export const metadata: Metadata = { title: "Itinerary" };
@@ -19,6 +21,7 @@ export default function ItineraryPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Itinerary</h1>
+      <FlowerDivider src={FLOWERS.lisianthus} />
       <PageCountdown page="itinerary" />
 
       <div className="max-w-4xl mx-auto space-y-24">
@@ -27,6 +30,7 @@ export default function ItineraryPage() {
 
           return (
             <section key={day.date} className="space-y-12">
+              {dayIndex > 0 && <FlowerDivider src={FLOWERS.lisianthus} />}
               <h2
                 className="section-subheading uppercase"
                 style={{ color: "var(--color-heading-olive)" }}

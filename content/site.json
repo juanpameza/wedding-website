@@ -5,19 +5,19 @@
   "weddingDateTime": "2027-03-13T21:00:00Z",
   "weddingLocation": "San Salvador, El Salvador",
   "siteTitle": "Sage & Juanpa | March 13, 2027",
-  "displayFont": "Parisienne",
+  "displayFont": "Dancing Script",
   "bodyFont": "Cormorant Garamond",
   "baseFontSize": 16,
   "typography": {
     "homeNames": {
       "fontFamily": "__displayFont",
-      "fontSize": 85,
+      "fontSize": 57,
       "bold": false,
       "italic": false
     },
     "homeAmpersand": {
       "fontFamily": "__displayFont",
-      "fontSize": 112,
+      "fontSize": 80,
       "bold": false,
       "italic": false
     },
@@ -58,8 +58,8 @@
       "italic": false
     },
     "nav": {
-      "fontFamily": "__bodyFont",
-      "fontSize": 14,
+      "fontFamily": "__displayFont",
+      "fontSize": 21,
       "bold": false,
       "italic": false
     },
@@ -93,13 +93,13 @@
     "registry": false,
     "faqs": false
   },
-  "colorBg": "#FFF1EC",
-  "colorBgWhite": "#FFFDF8",
-  "colorNav": "#667A60",
-  "colorNavText": "#FFFDF8",
-  "colorHeadingRose": "#667A60",
-  "colorHeadingOlive": "#B86F7F",
-  "colorBody": "#33382E",
-  "colorMuted": "#CFA6A8",
-  "colorBorder": "#DDBFBA"
+  "colorBg": "#ECE1DD",
+  "colorBgWhite": "#F3EAE5",
+  "colorNav": "#97973F",
+  "colorNavText": "#F6EFEA",
+  "colorHeadingRose": "#B5574D",
+  "colorHeadingOlive": "#97973F",
+  "colorBody": "#856F45",
+  "colorMuted": "#C2908A",
+  "colorBorder": "#DAC2BA"
 }

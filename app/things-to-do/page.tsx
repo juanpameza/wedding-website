@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
+import FlowerDivider from "@/components/FlowerDivider";
+import { FLOWERS } from "@/lib/flowers";
 import thingsContent from "@/content/things-to-do.json";
 
 export const metadata: Metadata = { title: "Things To Do" };
@@ -13,6 +15,7 @@ export default function ThingsToDoPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Things To Do</h1>
+      <FlowerDivider src={FLOWERS.anthurium} />
       <PageCountdown page="thingsToDo" />
 
       <div className="max-w-3xl mx-auto space-y-14">
@@ -21,8 +24,9 @@ export default function ThingsToDoPage() {
           <strong>{planningContact}</strong>
         </p>
 
-        {categories.map((cat) => (
+        {categories.map((cat, i) => (
           <section key={cat.heading}>
+            {i > 0 && <FlowerDivider src={FLOWERS.anthurium} />}
             <h2 className="section-heading mb-6">{cat.heading}</h2>
             <div className="grid gap-6 sm:grid-cols-3">
               {cat.items.map((item) => (

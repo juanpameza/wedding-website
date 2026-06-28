@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import Image from "next/image";
+import FlowerDivider from "@/components/FlowerDivider";
+import { FLOWERS } from "@/lib/flowers";
 import siteContent from "@/content/site.json";
 import homeContent from "@/content/home.json";
 
@@ -78,7 +80,7 @@ export default function HomePage() {
         <p
           className="home-detail"
           style={{
-            color: "var(--color-muted)",
+            color: "var(--color-heading-rose)",
           }}
         >
           {siteContent.weddingDate}
@@ -86,7 +88,7 @@ export default function HomePage() {
         <p
           className="home-detail"
           style={{
-            color: "var(--color-muted)",
+            color: "var(--color-heading-rose)",
           }}
         >
           {siteContent.weddingLocation}
@@ -95,6 +97,8 @@ export default function HomePage() {
 
       {/* ── Countdown ── */}
       <PageCountdown page="home" />
+
+      <FlowerDivider src={FLOWERS.lisianthus} className="w-full max-w-md" />
 
       {/* ── Welcome message ── */}
       <div

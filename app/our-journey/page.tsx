@@ -9,7 +9,7 @@ export default function OurJourneyPage() {
   return (
     <section
       className="flex min-h-screen w-full flex-col items-center overflow-x-auto"
-      style={{ backgroundColor: "#fbf1e3" }}
+      style={{ backgroundColor: "var(--color-bg)" }}
     >
       <PageCountdown page="journey" />
       <JourneyMap
