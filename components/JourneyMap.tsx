@@ -29,7 +29,7 @@ export default function JourneyMap({
   mapImage,
   mapMaxWidth = 1493,
   mapPadding = 0,
-  mapAspectRatio = "1493/1054",
+  mapAspectRatio = "1493/2000",
   stopImageWidth = 200,
 }: Props) {
   const stopWidth = stopImageWidth ?? 200;
@@ -96,7 +96,7 @@ export default function JourneyMap({
   return (
     <>
       <div
-        className="w-full min-w-[900px]"
+        className="hidden w-full min-w-[900px] lg:block"
         style={{ maxWidth: mapMaxWidth ?? 1493, padding: mapPadding ?? 0 }}
       >
         <div ref={frameRef} className="relative w-full">
@@ -111,15 +111,8 @@ export default function JourneyMap({
             />
           ) : (
             <div
-              className="w-full select-none rounded-xl"
-              style={{
-                aspectRatio: frameAspectRatio,
-                backgroundColor: "#f3e8d1",
-                backgroundImage:
-                  "radial-gradient(115% 80% at 50% 0%, rgba(255,251,242,0.75), rgba(243,232,209,0) 60%), radial-gradient(120% 90% at 50% 100%, rgba(196,160,93,0.12), rgba(243,232,209,0) 55%)",
-                boxShadow: "inset 0 0 70px rgba(150,120,70,0.13)",
-                border: "1px solid rgba(133,111,69,0.28)",
-              }}
+              className="w-full select-none"
+              style={{ aspectRatio: frameAspectRatio }}
             />
           )}
 
@@ -180,6 +173,19 @@ export default function JourneyMap({
                 >
                   {index + 1}
                 </span>
+                {!editMode && (
+                  <span
+                    className="card-heading pointer-events-none absolute left-1/2 top-full mt-1 w-[150px] -translate-x-1/2 text-center"
+                    style={{
+                      color: "var(--color-heading-rose)",
+                      fontSize: "1.58rem",
+                      lineHeight: 1.1,
+                      textShadow: "0 1px 4px rgba(255,248,235,0.95)",
+                    }}
+                  >
+                    {stop.location}
+                  </span>
+                )}
                 {editMode && (
                   <span className="pointer-events-none absolute left-1/2 top-full mt-1 -translate-x-1/2 whitespace-nowrap rounded bg-[#2b2118]/80 px-1.5 py-0.5 text-[0.6rem] font-semibold leading-none text-white">
                     {pos.x}, {pos.y}
@@ -189,6 +195,60 @@ export default function JourneyMap({
             );
           })}
         </div>
+      </div>
+
+      {/* Mobile / tablet: vertical timeline (map is hidden below lg) */}
+      <div className="flex w-full max-w-md flex-col px-5 py-6 lg:hidden">
+        {stops.map((stop, index) => (
+          <article
+            key={index}
+            className="relative flex flex-col items-center pb-12 text-center last:pb-0"
+          >
+            <p
+              className="mb-1 text-sm font-semibold uppercase tracking-[0.16em]"
+              style={{
+                color: "var(--color-heading-olive)",
+                fontFamily: "var(--font-body), Georgia, serif",
+              }}
+            >
+              Stop {index + 1}
+            </p>
+            <h2
+              className="card-heading"
+              style={{ color: "var(--color-heading-rose)", lineHeight: 1.05 }}
+            >
+              {stop.location}
+            </h2>
+
+            {stop.image && (
+              <Image
+                src={stop.image}
+                alt={stop.location}
+                width={240}
+                height={Math.round(240 * 1.2)}
+                className="mt-4 h-auto w-[62%] max-w-[240px] select-none"
+              />
+            )}
+
+            <p
+              className="mt-4 text-[1.02rem] leading-7"
+              style={{
+                color: "var(--color-body)",
+                fontFamily: "var(--font-body), Georgia, serif",
+              }}
+            >
+              {stop.story}
+            </p>
+
+            {index < stops.length - 1 && (
+              <span
+                aria-hidden
+                className="mt-10 block h-px w-12"
+                style={{ backgroundColor: "var(--color-border)" }}
+              />
+            )}
+          </article>
+        ))}
       </div>
 
       {editMode && (
