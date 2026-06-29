@@ -34,7 +34,8 @@ export default function JourneyMap({
 }: Props) {
   const stopWidth = stopImageWidth ?? 200;
   const frameAspectRatio = mapAspectRatio ?? "1493/1054";
-  const [selectedStop, setSelectedStop] = useState<(JourneyStop & { number: number }) | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const selectedStop = selectedIndex === null ? null : stops[selectedIndex];
 
   // ── Drag-to-position editor (opt-in via ?edit=1) ──────────────
   const [editMode, setEditMode] = useState(false);
@@ -49,6 +50,19 @@ export default function JourneyMap({
     const params = new URLSearchParams(window.location.search);
     setEditMode(params.get("edit") === "1");
   }, []);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedIndex(null);
+      else if (e.key === "ArrowRight")
+        setSelectedIndex((i) => (i === null ? i : Math.min(stops.length - 1, i + 1)));
+      else if (e.key === "ArrowLeft")
+        setSelectedIndex((i) => (i === null ? i : Math.max(0, i - 1)));
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [selectedIndex, stops.length]);
 
   function pointToPercent(clientX: number, clientY: number) {
     const rect = frameRef.current?.getBoundingClientRect();
@@ -127,7 +141,7 @@ export default function JourneyMap({
                 aria-label={`Read more about ${stop.location}`}
                 title={stop.location}
                 onClick={() => {
-                  if (!editMode) setSelectedStop({ ...stop, number: index + 1 });
+                  if (!editMode) setSelectedIndex(index);
                 }}
                 onPointerDown={(event) => {
                   if (!editMode) return;
@@ -273,22 +287,22 @@ export default function JourneyMap({
         </div>
       )}
 
-      {selectedStop && (
+      {selectedStop && selectedIndex !== null && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[#2b2118]/35 px-5 py-8"
           role="dialog"
           aria-modal="true"
           aria-labelledby="journey-stop-title"
-          onClick={() => setSelectedStop(null)}
+          onClick={() => setSelectedIndex(null)}
         >
           <div
-            className="relative w-full max-w-md border border-[#d9bd94] bg-[#fff8eb] px-7 py-6 text-center shadow-[0_18px_50px_rgba(54,36,20,0.25)]"
+            className="relative max-h-[90vh] w-full max-w-md overflow-y-auto border border-[#d9bd94] bg-[#fff8eb] px-7 py-6 text-center shadow-[0_18px_50px_rgba(54,36,20,0.25)]"
             onClick={(event) => event.stopPropagation()}
           >
             <button
               type="button"
               aria-label="Close story"
-              onClick={() => setSelectedStop(null)}
+              onClick={() => setSelectedIndex(null)}
               className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-lg leading-none text-[#8b5b1f] transition hover:bg-[#f0dfc5] focus:outline-none focus:ring-2 focus:ring-[#c48b43]"
             >
               x
@@ -301,7 +315,7 @@ export default function JourneyMap({
                 fontFamily: "var(--font-body), Georgia, serif",
               }}
             >
-              Stop {selectedStop.number}
+              Stop {selectedIndex + 1}
             </p>
             <h2
               id="journey-stop-title"
@@ -313,6 +327,17 @@ export default function JourneyMap({
             >
               {selectedStop.location}
             </h2>
+
+            {selectedStop.image && (
+              <Image
+                src={selectedStop.image}
+                alt={selectedStop.location}
+                width={240}
+                height={Math.round(240 * 1.2)}
+                className="mx-auto mt-4 h-auto w-[62%] max-w-[240px] select-none"
+              />
+            )}
+
             <p
               className="mt-5 text-[1.05rem] leading-7"
               style={{
@@ -322,6 +347,36 @@ export default function JourneyMap({
             >
               {selectedStop.story}
             </p>
+
+            <div className="mt-6 flex items-center justify-between">
+              <button
+                type="button"
+                aria-label="Previous stop"
+                disabled={selectedIndex === 0}
+                onClick={() => setSelectedIndex((i) => (i === null ? i : i - 1))}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#b9823d]/70 text-xl leading-none text-[#8b5b1f] transition hover:bg-[#f0dfc5] focus:outline-none focus:ring-2 focus:ring-[#c48b43] disabled:cursor-not-allowed disabled:opacity-30"
+              >
+                ‹
+              </button>
+              <span
+                className="text-sm"
+                style={{
+                  color: "var(--color-heading-olive)",
+                  fontFamily: "var(--font-body), Georgia, serif",
+                }}
+              >
+                {selectedIndex + 1} / {stops.length}
+              </span>
+              <button
+                type="button"
+                aria-label="Next stop"
+                disabled={selectedIndex === stops.length - 1}
+                onClick={() => setSelectedIndex((i) => (i === null ? i : i + 1))}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#b9823d]/70 text-xl leading-none text-[#8b5b1f] transition hover:bg-[#f0dfc5] focus:outline-none focus:ring-2 focus:ring-[#c48b43] disabled:cursor-not-allowed disabled:opacity-30"
+              >
+                ›
+              </button>
+            </div>
           </div>
         </div>
       )}

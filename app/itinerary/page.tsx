@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
+import ItineraryEventDetails from "@/components/ItineraryEventDetails";
 import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import itineraryContent from "@/content/itinerary.json";
 
@@ -119,15 +119,12 @@ export default function ItineraryPage() {
                         >
                           {event.description}
                         </p>
-                        <div
-                          className={
+                        <ItineraryEventDetails
+                          event={event}
+                          alignClass={
                             isEven ? "text-left" : "text-left md:text-right"
                           }
-                        >
-                          <Link href={`#${anchorId}-details`} className="btn-outline">
-                            View More Details
-                          </Link>
-                        </div>
+                        />
                       </div>
                     </div>
                   );

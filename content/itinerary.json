@@ -5,21 +5,23 @@
       "events": [
         {
           "name": "Beach Day",
-          "time": "9:00 am - 3:00 pm",
+          "time": "9:00 am - 5:00 pm",
           "description": "Balsamar Beach",
           "image": "/images/Balsamar_Beach.png",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0
+          "imagePadding": 0,
+          "details": "Kick off the celebration with a relaxed day at Balsamar Beach. Come ready for sun, sand, and surf — bring swimwear, sunscreen, and a towel. Lunch and drinks will be available for purchase."
         },
         {
           "name": "Night out in San Salvador",
-          "time": "9:00 pm - 12:00 am",
+          "time": "10:00 pm - 2:00 am",
           "description": "La Cantina",
           "image": "/images/la_cantina.png",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0
+          "imagePadding": 0,
+          "details": "Join us for a fun night out at the place where we first met! Come dressed to dance and enjoy a taste of the city's nightlife."
         }
       ]
     },
@@ -33,7 +35,8 @@
           "image": "/images/iglesia_maria_auxiliadora.png",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0
+          "imagePadding": 0,
+          "details": "A quiet hour of prayer and reflection at the lake before the festivities begin. All are welcome to join."
         },
         {
           "name": "Welcome Dinner",
@@ -42,7 +45,8 @@
           "image": "/images/Lago_De_Coatepeque.png",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0
+          "imagePadding": 0,
+          "details": "Gather with family and friends for a welcome dinner at the Lake House overlooking Lago de Coatepeque. Enjoy some pupusas, drinks, and the company of loved ones as we celebrate the weekend ahead."
         }
       ]
     },
@@ -56,7 +60,8 @@
           "image": "/images/Basilica_De_Guadalupe.png",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0
+          "imagePadding": 0,
+          "details": "The heart of the weekend — join us as we exchange vows at the Basilica of Our Lady of Guadalupe. Please arrive 30 minutes early to be seated before the ceremony begins."
         },
         {
           "name": "The Reception",
@@ -65,7 +70,8 @@
           "image": "/images/Cajamarca.png",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0
+          "imagePadding": 0,
+          "details": "Celebrate with us into the night at Cajamarca. Dinner, dancing, and plenty of surprises await. Formal attire requested."
         }
       ]
     }
