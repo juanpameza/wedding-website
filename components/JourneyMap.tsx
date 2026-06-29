@@ -5,6 +5,60 @@ import Image from "next/image";
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
 
+type Pt = { x: number; y: number };
+
+/**
+ * Build a hand-sketched, winding trail through the given points. Each leg
+ * between two stops gets an alternating S-wiggle (deterministic, so SSR and
+ * client agree), then the whole set is smoothed with a Catmull-Rom spline so
+ * the line wanders and doubles back instead of running straight.
+ */
+function buildWindingPath(pts: Pt[]): string {
+  if (pts.length < 2) return "";
+  // deterministic pseudo-random in [0,1) — no Math.random (hydration-safe)
+  const rand = (n: number) => {
+    const v = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+    return v - Math.floor(v);
+  };
+
+  const way: Pt[] = [];
+  for (let i = 0; i < pts.length; i++) {
+    way.push(pts[i]);
+    if (i >= pts.length - 1) continue;
+    const a = pts[i];
+    const b = pts[i + 1];
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const len = Math.hypot(dx, dy) || 1;
+    const px = -dy / len; // perpendicular unit
+    const py = dx / len;
+    const amp = Math.min(len * 0.3, 240);
+    const side = i % 2 === 0 ? 1 : -1;
+    const o1 = amp * (0.45 + rand(i) * 0.95);
+    const o2 = amp * (0.45 + rand(i + 17) * 0.95);
+    const t1 = 0.28 + rand(i + 3) * 0.12;
+    const t2 = 0.6 + rand(i + 7) * 0.14;
+    // two waypoints bowed to opposite sides → a wiggle, flipped each leg
+    way.push({ x: a.x + dx * t1 + px * o1 * side, y: a.y + dy * t1 + py * o1 * side });
+    way.push({ x: a.x + dx * t2 - px * o2 * side, y: a.y + dy * t2 - py * o2 * side });
+  }
+
+  const f = (n: number) => n.toFixed(1);
+  let d = `M ${f(way[0].x)} ${f(way[0].y)}`;
+  for (let i = 0; i < way.length - 1; i++) {
+    const p0 = way[i - 1] ?? way[i];
+    const p1 = way[i];
+    const p2 = way[i + 1];
+    const p3 = way[i + 2] ?? p2;
+    const c1x = p1.x + (p2.x - p0.x) / 6;
+    const c1y = p1.y + (p2.y - p0.y) / 6;
+    const c2x = p2.x - (p3.x - p1.x) / 6;
+    const c2y = p2.y - (p3.y - p1.y) / 6;
+    d += ` C ${f(c1x)} ${f(c1y)}, ${f(c2x)} ${f(c2y)}, ${f(p2.x)} ${f(p2.y)}`;
+  }
+  return d;
+}
+
 export type JourneyStop = {
   location: string;
   story: string;
@@ -34,6 +88,10 @@ export default function JourneyMap({
 }: Props) {
   const stopWidth = stopImageWidth ?? 200;
   const frameAspectRatio = mapAspectRatio ?? "1493/1054";
+  const [vbW, vbH] = frameAspectRatio.split("/").map((n) => Number(n.trim()) || 1);
+  const windingPath = buildWindingPath(
+    stops.map((s) => ({ x: (s.x / 100) * vbW, y: (s.y / 100) * vbH })),
+  );
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const selectedStop = selectedIndex === null ? null : stops[selectedIndex];
 
@@ -128,6 +186,26 @@ export default function JourneyMap({
               className="w-full select-none"
               style={{ aspectRatio: frameAspectRatio }}
             />
+          )}
+
+          {windingPath && (
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              viewBox={`0 0 ${vbW} ${vbH}`}
+              preserveAspectRatio="none"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d={windingPath}
+                stroke="#b9823d"
+                strokeOpacity={0.6}
+                strokeWidth={Math.max(vbW, vbH) / 650}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeDasharray={`${Math.max(vbW, vbH) / 280} ${Math.max(vbW, vbH) / 150}`}
+              />
+            </svg>
           )}
 
           {stops.map((stop, index) => {
