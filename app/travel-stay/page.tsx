@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
-import { FLOWERS } from "@/lib/flowers";
+import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import travelContent from "@/content/travel.json";
+
+const FL = pageFlowerOffset("/travel-stay");
 
 export const metadata: Metadata = { title: "Travel & Stay" };
 
@@ -26,7 +28,7 @@ export default function TravelStayPage() {
       <h1 className="page-heading" style={{ color: "var(--color-heading-rose)" }}>
         Travel &amp; Stay
       </h1>
-      <FlowerDivider src={FLOWERS.pinkGinger} />
+      <FlowerDivider src={flowerByIndex(FL + 1)} />
       <PageCountdown page="travel" />
 
       <div className="max-w-3xl mx-auto px-6 space-y-16">
@@ -50,7 +52,7 @@ export default function TravelStayPage() {
           </p>
         </section>
 
-        <FlowerDivider src={FLOWERS.pinkGinger} />
+        <FlowerDivider src={flowerByIndex(FL + 2)} />
 
         {/* ── Hotels ── */}
         <section>
@@ -91,7 +93,7 @@ export default function TravelStayPage() {
           </div>
         </section>
 
-        <FlowerDivider src={FLOWERS.pinkGinger} />
+        <FlowerDivider src={flowerByIndex(FL + 3)} />
 
         {/* ── Private Transport ── */}
         <section>
@@ -136,7 +138,7 @@ export default function TravelStayPage() {
           </div>
         </section>
 
-        <FlowerDivider src={FLOWERS.pinkGinger} />
+        <FlowerDivider src={flowerByIndex(FL + 4)} />
 
         {/* ── Travel Planning ── */}
         <section className="text-center pb-8">

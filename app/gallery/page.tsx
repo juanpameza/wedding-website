@@ -3,8 +3,10 @@ import path from "node:path";
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
-import { FLOWERS } from "@/lib/flowers";
+import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import galleryContentRaw from "@/content/gallery.json";
+
+const FL = pageFlowerOffset("/gallery");
 
 type GalleryImage = {
   src: string | null;
@@ -68,7 +70,7 @@ export default async function GalleryPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Gallery</h1>
-      <FlowerDivider src={FLOWERS.ranunculus} />
+      <FlowerDivider src={flowerByIndex(FL + 1)} />
       <PageCountdown page="gallery" />
 
       <div className="mx-auto max-w-6xl pb-16">

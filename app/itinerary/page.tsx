@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
-import { FLOWERS } from "@/lib/flowers";
+import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import itineraryContent from "@/content/itinerary.json";
+
+const FL = pageFlowerOffset("/itinerary");
 
 export const metadata: Metadata = { title: "Itinerary" };
 
@@ -21,7 +23,7 @@ export default function ItineraryPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">Itinerary</h1>
-      <FlowerDivider src={FLOWERS.lisianthus} />
+      <FlowerDivider src={flowerByIndex(FL + 1)} />
       <PageCountdown page="itinerary" />
 
       <div className="max-w-4xl mx-auto space-y-24">
@@ -30,7 +32,7 @@ export default function ItineraryPage() {
 
           return (
             <section key={day.date} className="space-y-12">
-              {dayIndex > 0 && <FlowerDivider src={FLOWERS.lisianthus} />}
+              {dayIndex > 0 && <FlowerDivider src={flowerByIndex(FL + 1 + dayIndex)} />}
               <h2
                 className="section-subheading uppercase"
                 style={{ color: "var(--color-heading-olive)" }}
@@ -70,9 +72,8 @@ export default function ItineraryPage() {
                             alt={event.name}
                             width={imageWidth}
                             height={imageHeight}
-                            className="max-w-full rounded-lg object-cover"
+                            className="max-w-full rounded-lg object-contain"
                             style={{
-                              aspectRatio: imageAspectRatio,
                               height: "auto",
                               width: `min(100%, ${imageWidth}px)`,
                             }}

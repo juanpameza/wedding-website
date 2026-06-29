@@ -17,6 +17,8 @@ export default function OurJourneyPage() {
         mapImage={journeyContent.mapImage}
         mapMaxWidth={journeyContent.mapMaxWidth}
         mapPadding={journeyContent.mapPadding}
+        mapAspectRatio={journeyContent.mapAspectRatio}
+        stopImageWidth={journeyContent.stopImageWidth}
       />
     </section>
   );

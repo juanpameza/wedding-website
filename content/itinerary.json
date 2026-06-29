@@ -4,30 +4,21 @@
       "date": "Thursday, March 11, 2027",
       "events": [
         {
-          "name": "Holy Hour",
-          "time": "3:00 pm - 4:00 pm",
-          "description": "Cardedeu Chapel",
-          "image": null,
-          "imageWidth": 256,
-          "imageHeight": 224,
-          "imagePadding": 0
-        },
-        {
-          "name": "Welcome Dinner",
-          "time": "4:00 pm - 7:00 pm",
-          "description": "Lake House",
-          "image": "/images/Lago_De_Coatepeque.png",
-          "imageWidth": 256,
-          "imageHeight": 224,
+          "name": "Beach Day",
+          "time": "9:00 am - 3:00 pm",
+          "description": "Balsamar Beach",
+          "image": "/images/Balsamar_Beach.png",
+          "imageWidth": 380,
+          "imageHeight": 333,
           "imagePadding": 0
         },
         {
           "name": "Night out in San Salvador",
           "time": "9:00 pm - 12:00 am",
           "description": "La Cantina",
-          "image": null,
-          "imageWidth": 256,
-          "imageHeight": 224,
+          "image": "/images/la_cantina.png",
+          "imageWidth": 380,
+          "imageHeight": 333,
           "imagePadding": 0
         }
       ]
@@ -35,13 +26,22 @@
     {
       "date": "Friday, March 12, 2027",
       "events": [
+                {
+          "name": "Holy Hour",
+          "time": "3:00 pm - 4:00 pm",
+          "description": "Iglesia Maria Auxiliadora",
+          "image": "/images/iglesia_maria_auxiliadora.png",
+          "imageWidth": 380,
+          "imageHeight": 333,
+          "imagePadding": 0
+        },
         {
-          "name": "Beach Day",
-          "time": "9:00 am - 3:00 pm",
-          "description": "Balsamar Beach",
-          "image": "/images/Balsamar_Beach.png",
-          "imageWidth": 256,
-          "imageHeight": 224,
+          "name": "Welcome Dinner",
+          "time": "4:00 pm - 7:00 pm",
+          "description": "Lake House",
+          "image": "/images/Lago_De_Coatepeque.png",
+          "imageWidth": 380,
+          "imageHeight": 333,
           "imagePadding": 0
         }
       ]
@@ -54,8 +54,8 @@
           "time": "3:00 pm - 4:00 pm",
           "description": "Basilica of Our Lady of Guadalupe",
           "image": "/images/Basilica_De_Guadalupe.png",
-          "imageWidth": 256,
-          "imageHeight": 224,
+          "imageWidth": 380,
+          "imageHeight": 333,
           "imagePadding": 0
         },
         {
@@ -63,8 +63,8 @@
           "time": "5:00 pm - 2:00 am",
           "description": "Cajamarca El Salvador",
           "image": "/images/Cajamarca.png",
-          "imageWidth": 256,
-          "imageHeight": 224,
+          "imageWidth": 380,
+          "imageHeight": 333,
           "imagePadding": 0
         }
       ]

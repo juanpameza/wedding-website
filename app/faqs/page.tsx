@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
-import { FLOWERS } from "@/lib/flowers";
+import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import faqsContent from "@/content/faqs.json";
+
+const FL = pageFlowerOffset("/faqs");
 
 export const metadata: Metadata = { title: "FAQs" };
 
@@ -13,7 +15,7 @@ export default function FAQsPage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <h1 className="page-heading">FAQs</h1>
-      <FlowerDivider src={FLOWERS.escabiosa} />
+      <FlowerDivider src={flowerByIndex(FL + 1)} />
       <PageCountdown page="faqs" />
 
       <div className="max-w-2xl mx-auto pb-16">

@@ -12,7 +12,7 @@ type Props = {
  * A small centered bloom flanked by thin hairlines — a watercolor-suite
  * section divider / heading flourish. Ornamental, so it's aria-hidden.
  */
-export default function FlowerDivider({ src, size = 58, className = "" }: Props) {
+export default function FlowerDivider({ src, size = 96, className = "" }: Props) {
   return (
     <div
       aria-hidden

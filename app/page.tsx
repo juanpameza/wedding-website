@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import Image from "next/image";
 import FlowerDivider from "@/components/FlowerDivider";
-import { FLOWERS } from "@/lib/flowers";
+import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import siteContent from "@/content/site.json";
 import homeContent from "@/content/home.json";
+
+const FL = pageFlowerOffset("/");
 
 export const metadata: Metadata = { title: "Home" };
 
@@ -98,7 +100,7 @@ export default function HomePage() {
       {/* ── Countdown ── */}
       <PageCountdown page="home" />
 
-      <FlowerDivider src={FLOWERS.lisianthus} className="w-full max-w-md" />
+      <FlowerDivider src={flowerByIndex(FL + 1)} className="w-full max-w-md" />
 
       {/* ── Welcome message ── */}
       <div

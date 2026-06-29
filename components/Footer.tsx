@@ -8,17 +8,17 @@ export default function Footer() {
       <BotanicalAccent
         src={FLOWERS.pinkGinger}
         corner="bottom-left"
-        width={170}
-        opacity={0.7}
-        className="-mb-6 -ml-6 hidden sm:block"
+        width={200}
+        opacity={0.75}
+        className="-ml-6 hidden sm:block"
       />
       <BotanicalAccent
         src={FLOWERS.ranunculus}
         corner="bottom-right"
-        width={170}
-        opacity={0.7}
+        width={200}
+        opacity={0.75}
         flip
-        className="-mb-6 -mr-6 hidden sm:block"
+        className="-mr-6 hidden sm:block"
       />
 
       <div className="relative z-10">

@@ -60,8 +60,10 @@ export default function RootLayout({
       </head>
       <body>
         <ConditionalNavbar />
-        <PageBotanicals />
-        <main className="min-h-screen">{children}</main>
+        <main className="relative min-h-screen">
+          {children}
+          <PageBotanicals />
+        </main>
         <ConditionalFooter />
       </body>
     </html>

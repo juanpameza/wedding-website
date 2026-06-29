@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
-import { FLOWERS } from "@/lib/flowers";
+import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import registryContent from "@/content/registry.json";
+
+const FL = pageFlowerOffset("/registry");
 
 export const metadata: Metadata = { title: "Registry" };
 
@@ -17,7 +19,7 @@ export default function RegistryPage() {
       <h1 className="page-heading" style={{ color: "var(--color-heading-rose)" }}>
         Registry
       </h1>
-      <FlowerDivider src={FLOWERS.lisianthus} />
+      <FlowerDivider src={flowerByIndex(FL + 1)} />
       <PageCountdown page="registry" />
 
       <div className="max-w-2xl mx-auto space-y-12 text-center">
@@ -58,7 +60,7 @@ export default function RegistryPage() {
           ))}
         </div>
 
-        <FlowerDivider src={FLOWERS.lisianthus} />
+        <FlowerDivider src={flowerByIndex(FL + 2)} />
 
         <p
           className="text-sm italic"
