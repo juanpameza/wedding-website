@@ -23,8 +23,24 @@ export interface GuestRecord {
   name: string;
   householdId: string | null;
   householdName: string | null;
+  /** A +1 whose name we don't know yet — the guest fills it in on the form. */
+  isPlusOne: boolean;
+  dietary: string;
   invitedEvents: RsvpEventKey[];
   responses: Record<RsvpEventKey, Attendance>;
+}
+
+export const NAME_MAX = 80;
+export const DIETARY_MAX = 500;
+
+/** True when a +1 row still has no real name on it. */
+export function isUnnamedPlusOne(guest: {
+  isPlusOne: boolean;
+  name: string;
+}): boolean {
+  if (!guest.isPlusOne) return false;
+  const n = guest.name.trim().toLowerCase();
+  return n === "" || n === "guest";
 }
 
 export interface HouseholdRoster {
@@ -36,6 +52,9 @@ export interface HouseholdRoster {
 export interface SubmissionUpdate {
   guestId: string;
   responses: Partial<Record<RsvpEventKey, Attendance>>;
+  /** Only honored for +1 placeholder rows — you can't rename a named guest. */
+  name?: string;
+  dietary?: string;
 }
 
 export interface ValidationResult {
@@ -90,6 +109,8 @@ export function parseGuest(
     householdName: householdId
       ? householdNameById.get(householdId) ?? null
       : null,
+    isPlusOne: Boolean(fields["Plus One"]),
+    dietary: String(fields["Dietary Restrictions"] ?? "").trim(),
     invitedEvents,
     responses,
   };
@@ -177,8 +198,33 @@ export function validateSubmission(
       responses[event.key] = value;
     }
 
-    if (Object.keys(responses).length > 0) {
-      sanitized.push({ guestId: update.guestId, responses });
+    // A guest may name their own +1, but may NOT rename an already-named guest.
+    let name: string | undefined;
+    if (typeof update.name === "string") {
+      if (!member.isPlusOne) {
+        errors.push(`${member.name || "This guest"}'s name cannot be changed.`);
+      } else {
+        const trimmed = update.name.trim().slice(0, NAME_MAX);
+        // Blank means "still don't know" — leave the existing value alone
+        // rather than wiping the placeholder.
+        if (trimmed.length > 0) name = trimmed;
+      }
+    }
+
+    // Dietary notes are free text for anyone in the household. An empty string
+    // is meaningful (clears a previously entered restriction).
+    let dietary: string | undefined;
+    if (typeof update.dietary === "string") {
+      dietary = update.dietary.trim().slice(0, DIETARY_MAX);
+    }
+
+    const hasChange =
+      Object.keys(responses).length > 0 ||
+      name !== undefined ||
+      dietary !== undefined;
+
+    if (hasChange) {
+      sanitized.push({ guestId: update.guestId, responses, name, dietary });
     }
   }
 
@@ -199,6 +245,13 @@ export function buildPatchRecords(
     for (const [key, value] of Object.entries(update.responses)) {
       const event = eventByKey(key);
       if (event && value) fields[event.airtableField] = value;
+    }
+    if (update.name !== undefined) {
+      fields["Name"] = update.name;
+      fields["First Name"] = update.name.split(/\s+/)[0] ?? "";
+    }
+    if (update.dietary !== undefined) {
+      fields["Dietary Restrictions"] = update.dietary;
     }
     return { id: update.guestId, fields };
   });

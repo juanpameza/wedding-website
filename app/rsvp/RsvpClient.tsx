@@ -6,6 +6,7 @@ import {
   type Attendance,
   type RsvpEventKey,
 } from "@/lib/rsvp-events";
+import { isUnnamedPlusOne, NAME_MAX, DIETARY_MAX } from "@/lib/rsvp-core";
 
 // TODO: set this to the address guests should email if they can't find themselves.
 const CONTACT_EMAIL = "planit4usv@gmail.com";
@@ -15,6 +16,8 @@ interface Member {
   id: string;
   firstName: string;
   name: string;
+  isPlusOne: boolean;
+  dietary: string;
   invitedEvents: RsvpEventKey[];
   responses: Record<RsvpEventKey, Attendance>;
 }
@@ -38,6 +41,8 @@ export default function RsvpClient() {
 
   const [roster, setRoster] = useState<Roster | null>(null);
   const [responses, setResponses] = useState<LocalResponses>({});
+  const [names, setNames] = useState<Record<string, string>>({});
+  const [diets, setDiets] = useState<Record<string, string>>({});
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -83,15 +88,22 @@ export default function RsvpClient() {
 
   const selectRoster = useCallback((r: Roster) => {
     const seed: LocalResponses = {};
+    const seedNames: Record<string, string> = {};
+    const seedDiets: Record<string, string> = {};
     for (const m of r.members) {
       seed[m.id] = {};
       for (const ev of m.invitedEvents) {
         const current = m.responses[ev];
         if (current === "Yes" || current === "No") seed[m.id][ev] = current;
       }
+      // An unnamed +1 starts blank so the guest types the real name in.
+      seedNames[m.id] = isUnnamedPlusOne(m) ? "" : m.name;
+      seedDiets[m.id] = m.dietary ?? "";
     }
     setRoster(r);
     setResponses(seed);
+    setNames(seedNames);
+    setDiets(seedDiets);
     setSubmitError(null);
     setStep("form");
   }, []);
@@ -103,14 +115,36 @@ export default function RsvpClient() {
     }));
   };
 
+  const setName = (guestId: string, value: string) =>
+    setNames((prev) => ({ ...prev, [guestId]: value }));
+
+  const setDiet = (guestId: string, value: string) =>
+    setDiets((prev) => ({ ...prev, [guestId]: value }));
+
   const submit = async () => {
     if (!roster) return;
+
+    // If a +1 is coming to anything, we need their name for our records.
+    const namelessAttending = roster.members.find(
+      (m) =>
+        m.isPlusOne &&
+        !(names[m.id] ?? "").trim() &&
+        Object.values(responses[m.id] ?? {}).includes("Yes"),
+    );
+    if (namelessAttending) {
+      setSubmitError("Please add your guest's name so we have it on record.");
+      return;
+    }
+
     setSubmitting(true);
     setSubmitError(null);
     try {
       const updates = roster.members.map((m) => ({
         guestId: m.id,
         responses: responses[m.id] ?? {},
+        // Only +1 rows may carry a name; the server rejects it otherwise.
+        ...(m.isPlusOne ? { name: names[m.id] ?? "" } : {}),
+        dietary: diets[m.id] ?? "",
       }));
       const res = await fetch("/api/rsvp/submit", {
         method: "POST",
@@ -158,7 +192,11 @@ export default function RsvpClient() {
         <FormStep
           roster={roster}
           responses={responses}
+          names={names}
+          diets={diets}
           setAnswer={setAnswer}
+          setName={setName}
+          setDiet={setDiet}
           submit={submit}
           submitting={submitting}
           error={submitError}
@@ -268,7 +306,11 @@ function RosterButton({ roster, onClick }: { roster: Roster; onClick: () => void
 function FormStep({
   roster,
   responses,
+  names,
+  diets,
   setAnswer,
+  setName,
+  setDiet,
   submit,
   submitting,
   error,
@@ -276,7 +318,11 @@ function FormStep({
 }: {
   roster: Roster;
   responses: LocalResponses;
+  names: Record<string, string>;
+  diets: Record<string, string>;
   setAnswer: (guestId: string, ev: RsvpEventKey, value: Attendance) => void;
+  setName: (guestId: string, value: string) => void;
+  setDiet: (guestId: string, value: string) => void;
   submit: () => void;
   submitting: boolean;
   error: string | null;
@@ -292,7 +338,23 @@ function FormStep({
           className="mb-6 pb-4"
           style={{ borderBottom: "1px solid var(--color-border)" }}
         >
-          <p className="card-heading mb-3">{member.name || member.firstName}</p>
+          <p className="card-heading mb-3">
+            {isUnnamedPlusOne(member)
+              ? "Your guest (+1)"
+              : member.name || member.firstName}
+          </p>
+
+          {member.isPlusOne && (
+            <TextField
+              id={`name-${member.id}`}
+              label="Guest's name"
+              value={names[member.id] ?? ""}
+              onChange={(v) => setName(member.id, v)}
+              placeholder="Who are you bringing?"
+              maxLength={NAME_MAX}
+            />
+          )}
+
           {member.invitedEvents.length === 0 && (
             <p className="text-sm" style={{ color: "var(--color-muted)" }}>
               No events to RSVP for.
@@ -328,6 +390,17 @@ function FormStep({
               );
             },
           )}
+
+          <div className="mt-3">
+            <TextField
+              id={`diet-${member.id}`}
+              label="Dietary restrictions (optional)"
+              value={diets[member.id] ?? ""}
+              onChange={(v) => setDiet(member.id, v)}
+              placeholder="Allergies, vegetarian, etc."
+              maxLength={DIETARY_MAX}
+            />
+          </div>
         </div>
       ))}
 
@@ -343,6 +416,48 @@ function FormStep({
           {submitting ? "Saving…" : "Submit RSVP"}
         </button>
       </div>
+    </div>
+  );
+}
+
+function TextField({
+  id,
+  label,
+  value,
+  onChange,
+  placeholder,
+  maxLength,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  maxLength?: number;
+}) {
+  return (
+    <div className="mb-3">
+      <label
+        className="block text-xs mb-1"
+        htmlFor={id}
+        style={{ color: "var(--color-muted)" }}
+      >
+        {label}
+      </label>
+      <input
+        id={id}
+        type="text"
+        value={value}
+        maxLength={maxLength}
+        placeholder={placeholder}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full px-3 py-2 outline-none"
+        style={{
+          backgroundColor: "var(--color-bg-white)",
+          border: "1px solid var(--color-border)",
+          color: "var(--color-body)",
+        }}
+      />
     </div>
   );
 }

@@ -20,6 +20,8 @@ Two tables:
 | `Name` | Single line text | full name; what search matches on, and the heading above each person's toggles |
 | `Household` | Link to `Households` | auto-created by the link above |
 | `Invited Events` | Multiple select | options exactly: `Beach Day`, `Welcome Dinner`, `Reception` |
+| `Plus One` | Checkbox | tick for a +1 whose name you don't know. The form shows them a blank "Guest's name" box and writes the answer back into `Name` |
+| `Dietary Restrictions` | Long text | guests fill this in themselves; you can also edit it |
 | `Beach Day` | Single select | options exactly: `No response`, `Yes`, `No` (default `No response`) |
 | `Welcome Dinner` | Single select | same three options |
 | `Reception` | Single select | same three options |
@@ -47,6 +49,18 @@ Airtable does **not** auto-link records when you change a text column to a link.
 events? If yes, set `Invited Events` to all three for everyone. If some are
 reception-only, set `Invited Events` per guest — the form only shows toggles for
 a guest's invited events.
+
+## 2b. Party member order
+
+Members appear on the form in the order Airtable returns them, which is the order
+of the **view** we read from — `Grid view` by default.
+
+- To change the order guests see, drag the rows in that view (or set the sort you
+  want on it). No code change needed.
+- If your view is named something other than `Grid view`, set
+  `AIRTABLE_GUESTS_VIEW` to its exact name. If the name doesn't match, the app
+  logs a warning and falls back to Airtable's default (unordered) list rather
+  than breaking.
 
 ## 3. Environment variables
 

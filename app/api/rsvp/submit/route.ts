@@ -34,10 +34,11 @@ function parseBody(body: SubmitBody): {
     ) {
       return null;
     }
-    updates.push({
-      guestId: (raw as any).guestId,
-      responses: (raw as any).responses,
-    });
+    const { guestId, responses, name, dietary } = raw as any;
+    if (name !== undefined && typeof name !== "string") return null;
+    if (dietary !== undefined && typeof dietary !== "string") return null;
+
+    updates.push({ guestId, responses, name, dietary });
   }
   return { householdId: body.householdId, updates };
 }

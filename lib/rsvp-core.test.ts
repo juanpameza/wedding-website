@@ -5,6 +5,7 @@ import {
   groupByHousehold,
   validateSubmission,
   buildPatchRecords,
+  isUnnamedPlusOne,
   type GuestRecord,
   type HouseholdRoster,
 } from "./rsvp-core";
@@ -21,6 +22,8 @@ function guest(over: Partial<GuestRecord> = {}): GuestRecord {
     name: "Maria Lopez",
     householdId: "hh1",
     householdName: "The Lopez Family",
+    isPlusOne: false,
+    dietary: "",
     invitedEvents: ["beachDay", "welcomeDinner", "reception"],
     responses: { beachDay: "No response", welcomeDinner: "No response", reception: "No response" },
     ...over,
@@ -47,6 +50,20 @@ describe("parseGuest", () => {
     expect(g.invitedEvents).toEqual(["beachDay", "reception"]);
     expect(g.responses.beachDay).toBe("Yes");
     expect(g.responses.welcomeDinner).toBe("No response");
+  });
+
+  it("reads the Plus One flag and dietary notes", () => {
+    const g = parseGuest(
+      "recC",
+      { Name: "Guest", "Plus One": true, "Dietary Restrictions": " Vegan " },
+      NAMES,
+    );
+    expect(g.isPlusOne).toBe(true);
+    expect(g.dietary).toBe("Vegan");
+
+    const plain = parseGuest("recD", { Name: "Ana" }, NAMES);
+    expect(plain.isPlusOne).toBe(false);
+    expect(plain.dietary).toBe("");
   });
 
   it("handles orphan guests (no household link)", () => {
@@ -83,6 +100,29 @@ describe("groupByHousehold", () => {
     const orphan = guest({ id: "g9", householdId: null, householdName: null, name: "Solo" });
     const map = groupByHousehold([orphan]);
     expect(map.get("guest:g9")?.members).toHaveLength(1);
+  });
+
+  it("preserves the incoming Airtable order (does not sort)", () => {
+    const ordered = [
+      guest({ id: "g2", name: "Zoe Lopez" }),
+      guest({ id: "g1", name: "Adam Lopez" }),
+      guest({ id: "g3", name: "Mia Lopez" }),
+    ];
+    const members = groupByHousehold(ordered).get("hh1")!.members;
+    expect(members.map((m) => m.name)).toEqual([
+      "Zoe Lopez",
+      "Adam Lopez",
+      "Mia Lopez",
+    ]);
+  });
+});
+
+describe("isUnnamedPlusOne", () => {
+  it("detects blank and placeholder names on +1 rows", () => {
+    expect(isUnnamedPlusOne({ isPlusOne: true, name: "" })).toBe(true);
+    expect(isUnnamedPlusOne({ isPlusOne: true, name: "Guest" })).toBe(true);
+    expect(isUnnamedPlusOne({ isPlusOne: true, name: "Ana Ruiz" })).toBe(false);
+    expect(isUnnamedPlusOne({ isPlusOne: false, name: "" })).toBe(false);
   });
 });
 
@@ -126,6 +166,58 @@ describe("validateSubmission", () => {
     ]);
     expect(r.sanitized).toHaveLength(0);
   });
+
+  it("lets a +1 be named, and trims/caps it", () => {
+    const withPlusOne: HouseholdRoster = {
+      ...roster,
+      members: [guest({ id: "p1", name: "Guest", isPlusOne: true, invitedEvents: ["reception"] })],
+    };
+    const r = validateSubmission(withPlusOne, [
+      { guestId: "p1", responses: {}, name: "  Ana Ruiz  " },
+    ]);
+    expect(r.sanitized[0].name).toBe("Ana Ruiz");
+
+    const long = validateSubmission(withPlusOne, [
+      { guestId: "p1", responses: {}, name: "x".repeat(200) },
+    ]);
+    expect(long.sanitized[0].name!.length).toBe(80);
+  });
+
+  it("refuses to rename a guest who is not a +1", () => {
+    const r = validateSubmission(roster, [
+      { guestId: "g1", responses: {}, name: "Hacked Name" },
+    ]);
+    expect(r.ok).toBe(false);
+    expect(r.sanitized).toHaveLength(0);
+  });
+
+  it("leaves a +1's placeholder alone when the name is left blank", () => {
+    const withPlusOne: HouseholdRoster = {
+      ...roster,
+      members: [guest({ id: "p1", name: "Guest", isPlusOne: true, invitedEvents: ["reception"] })],
+    };
+    const r = validateSubmission(withPlusOne, [
+      { guestId: "p1", responses: { reception: "No" }, name: "   " },
+    ]);
+    expect(r.sanitized[0].name).toBeUndefined();
+  });
+
+  it("accepts dietary notes, caps length, and allows clearing", () => {
+    const r = validateSubmission(roster, [
+      { guestId: "g1", responses: {}, dietary: "  Peanut allergy " },
+    ]);
+    expect(r.sanitized[0].dietary).toBe("Peanut allergy");
+
+    const cleared = validateSubmission(roster, [
+      { guestId: "g1", responses: {}, dietary: "" },
+    ]);
+    expect(cleared.sanitized[0].dietary).toBe("");
+
+    const long = validateSubmission(roster, [
+      { guestId: "g1", responses: {}, dietary: "x".repeat(999) },
+    ]);
+    expect(long.sanitized[0].dietary!.length).toBe(500);
+  });
 });
 
 describe("buildPatchRecords", () => {
@@ -140,5 +232,15 @@ describe("buildPatchRecords", () => {
     expect(recs[0].fields["Reception"]).toBe("No");
     expect(recs[0].fields["Responded At"]).toBe(now);
     expect(recs[0].fields["Last Modified"]).toBe(now);
+  });
+
+  it("writes a +1's name and dietary notes", () => {
+    const recs = buildPatchRecords(
+      [{ guestId: "p1", responses: {}, name: "Ana Ruiz", dietary: "Vegan" }],
+      "2026-06-28T00:00:00.000Z",
+    );
+    expect(recs[0].fields["Name"]).toBe("Ana Ruiz");
+    expect(recs[0].fields["First Name"]).toBe("Ana");
+    expect(recs[0].fields["Dietary Restrictions"]).toBe("Vegan");
   });
 });

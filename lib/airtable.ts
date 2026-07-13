@@ -58,6 +58,7 @@ async function listAll(
   table: string,
   config: AirtableConfig,
   fields?: string[],
+  view?: string,
 ): Promise<AirtableRecord[]> {
   const records: AirtableRecord[] = [];
   let offset: string | undefined;
@@ -66,6 +67,9 @@ async function listAll(
     const url = new URL(`${API_BASE}/${config.baseId}/${encodeURIComponent(table)}`);
     url.searchParams.set("pageSize", "100");
     if (offset) url.searchParams.set("offset", offset);
+    // Records come back in the order they appear in this view. Without it,
+    // Airtable does not guarantee your row order.
+    if (view) url.searchParams.set("view", view);
     for (const f of fields ?? []) url.searchParams.append("fields[]", f);
 
     const res = await fetch(url, {
@@ -91,20 +95,44 @@ async function listAll(
   return records;
 }
 
+const GUEST_FIELDS = [
+  "First Name",
+  "Name",
+  "Household",
+  "Invited Events",
+  "Plus One",
+  "Dietary Restrictions",
+  "Beach Day",
+  "Welcome Dinner",
+  "Reception",
+];
+
+// Guests are listed in this view's order so party members appear on the form in
+// the same order as your Airtable rows. Override with AIRTABLE_GUESTS_VIEW if
+// your view is named something else.
+const GUESTS_VIEW = process.env.AIRTABLE_GUESTS_VIEW ?? "Grid view";
+
+async function listGuests(config: AirtableConfig): Promise<AirtableRecord[]> {
+  try {
+    return await listAll(GUESTS_TABLE, config, GUEST_FIELDS, GUESTS_VIEW);
+  } catch (err) {
+    // The view name may not exist in this base. Fall back to an unordered list
+    // rather than breaking RSVP entirely.
+    console.warn(
+      `[rsvp] could not list Guests via view "${GUESTS_VIEW}" — falling back to default order. ` +
+        `Set AIRTABLE_GUESTS_VIEW to your view's exact name to control ordering.`,
+      err,
+    );
+    return listAll(GUESTS_TABLE, config, GUEST_FIELDS);
+  }
+}
+
 async function fetchAllGuests(): Promise<GuestRecord[]> {
   const config = getConfig();
 
   const [households, guests] = await Promise.all([
     listAll(HOUSEHOLDS_TABLE, config, ["Name"]),
-    listAll(GUESTS_TABLE, config, [
-      "First Name",
-      "Name",
-      "Household",
-      "Invited Events",
-      "Beach Day",
-      "Welcome Dinner",
-      "Reception",
-    ]),
+    listGuests(config),
   ]);
 
   const householdNameById = new Map(
