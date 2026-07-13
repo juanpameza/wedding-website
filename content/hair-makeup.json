@@ -2,12 +2,40 @@
   "intro": "We want everyone to feel their most beautiful and confident on our big day! Below you'll find information about hair and makeup services available for the wedding weekend.",
   "stylists": [
     {
-      "name": "Stylist / Salon Name",
+      "name": "Jr Studio Salón",
       "role": "Hair & Makeup",
-      "note": "Available for wedding party. Contact to book your appointment.",
-      "phone": "+1 (555) 000-0000",
-      "email": "stylist@example.com",
-      "instagram": "@stylisthandle"
+      "note": "",
+      "phone": "+503 7045-0464",
+      "email": "",
+      "instagram": "@jrstudiosalon",
+      "location": "C. La Mascota 940, San Salvador, El Salvador"
+    },
+    {
+      "name": "Elemento Beauty House SV",
+      "role": "Hair & Makeup",
+      "note": "",
+      "phone": "+503 7749-0539",
+      "email": "",
+      "instagram": "@elementobeauty.sv",
+      "location": "Bulevar Del Hipodromo 626, San Salvador, El Salvador"
+    },
+    {
+      "name": "Amarello Salon & Spa",
+      "role": "Hair & Makeup",
+      "note": "",
+      "phone": "+503 7741-3984",
+      "email": "",
+      "instagram": "@amarellosalon.sv",
+      "location": "Bulevar Del Hipodromo 480, San Salvador, El Salvador"
+    },
+    {
+      "name": "90 Grados",
+      "role": "Hair & Makeup",
+      "note": "",
+      "phone": "+503 2264 4328",
+      "email": "",
+      "instagram": "@90gradossv",
+      "location": "7a Calle Poniente 4854, San Salvador, El Salvador"
     }
   ],
   "tips": [

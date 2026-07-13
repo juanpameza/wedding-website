@@ -46,9 +46,31 @@ export default function ThingsToDoPage() {
                   >
                     {item.name}
                   </h3>
+                  {item.driveTime && (
+                    <p
+                      className="text-sm italic mb-2"
+                      style={{ color: "var(--color-heading-rose)" }}
+                    >
+                      {item.driveTime}
+                    </p>
+                  )}
                   <p className="text-sm" style={{ color: "var(--color-body)" }}>
                     {item.note}
                   </p>
+                  {item.whereToEat && (
+                    <p
+                      className="text-sm mt-3"
+                      style={{ color: "var(--color-body)" }}
+                    >
+                      <span
+                        className="italic"
+                        style={{ color: "var(--color-heading-rose)" }}
+                      >
+                        Where to eat:
+                      </span>{" "}
+                      {item.whereToEat}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

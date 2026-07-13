@@ -1,36 +1,36 @@
 {
-  "airportName": "Airport Name (CODE)",
-  "airportDistance": "XX km (XX miles) from City Center",
-  "airportTravelTime": "~XX minutes",
-  "airportVisaNote": "Visa is/is not required for stays under XX days.",
-  "airportArrivalRecommendation": "We recommend arriving by [Day], as official wedding events begin [Day] morning.",
-  "planningContact": "+1 (555) 200-0000",
+  "airportName": "El Salvador International Airport (SAL)",
+  "airportDistance": "45km (28 miles) from City Center",
+  "airportTravelTime": "~45 minutes",
+  "airportVisaNote": "Visa is typically not required for stays under 90 days.",
+  "airportArrivalRecommendation": "",
+  "planningContact": "",
   "hotels": [
     {
-      "name": "Hotel Name 1",
-      "address": "123 Street Name, City",
-      "phone": "+1 (555) 000-0000",
+      "name": "Barceló San Salvador",
+      "address": "Bulevar Del Hipodromo, San Salvador",
+      "phone": "+503 2268 4545",
       "reserveLink": "#"
     },
     {
-      "name": "Hotel Name 2",
-      "address": "456 Avenue, City",
-      "phone": "+1 (555) 000-0001",
+      "name": "Hilton San Salvador",
+      "address": "89 Avenida Norte y 11 Calle Poniente, Colonia Escalón, San Salvador",
+      "phone": "+503 2133 7000",
       "reserveLink": "#"
     },
     {
-      "name": "Hotel Name 3",
-      "address": "789 Boulevard, City",
-      "phone": "+1 (555) 000-0002",
+      "name": "Terra Bella Hotel Boutique",
+      "address": "Av. de la Revolución 175, San Salvador",
+      "phone": "+503 7803 3845",
       "reserveLink": "#"
     }
   ],
   "transportServices": [
     {
-      "name": "Transport Company 1",
-      "phone": "+1 (555) 100-0000",
-      "email": "contact@company1.com",
-      "instagram": "@company1handle"
+      "name": "Fácil Travel El Salvador",
+      "phone": "+503 7163-5348",
+      "email": "info@faciltravel.sv",
+      "instagram": "@svfaciltravel"
     },
     {
       "name": "Transport Company 2",

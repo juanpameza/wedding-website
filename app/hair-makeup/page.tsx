@@ -51,12 +51,20 @@ export default function HairMakeupPage() {
                 >
                   {s.role}
                 </p>
-                <p className="text-sm mb-3" style={{ color: "var(--color-body)" }}>
-                  {s.note}
-                </p>
+                {s.note && (
+                  <p className="text-sm mb-3" style={{ color: "var(--color-body)" }}>
+                    {s.note}
+                  </p>
+                )}
                 {s.phone && (
                   <p className="text-sm" style={{ color: "var(--color-body)" }}>
-                    Phone: {s.phone}
+                    Phone / WhatsApp:{" "}
+                    <a
+                      href={`tel:${s.phone.replace(/[^+\d]/g, "")}`}
+                      className="underline"
+                    >
+                      {s.phone}
+                    </a>
                   </p>
                 )}
                 {s.email && (
@@ -69,7 +77,30 @@ export default function HairMakeupPage() {
                 )}
                 {s.instagram && (
                   <p className="text-sm" style={{ color: "var(--color-body)" }}>
-                    Instagram: {s.instagram}
+                    Instagram:{" "}
+                    <a
+                      href={`https://instagram.com/${s.instagram.replace(/^@/, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline"
+                    >
+                      {s.instagram}
+                    </a>
+                  </p>
+                )}
+                {s.location && (
+                  <p className="text-sm" style={{ color: "var(--color-body)" }}>
+                    Location:{" "}
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        `${s.name} ${s.location}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline"
+                    >
+                      {s.location}
+                    </a>
                   </p>
                 )}
               </div>

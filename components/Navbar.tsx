@@ -12,6 +12,7 @@ const links = [
   { label: "Things To Do",  href: "/things-to-do" },
   { label: "Gallery",       href: "/gallery" },
   { label: "Registry",      href: "/registry" },
+  { label: "RSVP",          href: "/rsvp" },
   { label: "FAQs",          href: "/faqs" },
 ];
 

@@ -35,12 +35,6 @@ export default function TravelStayPage() {
 
         {/* ── Flight Info ── */}
         <section className="text-center">
-          <div
-            className="w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center border-2"
-            style={{ borderColor: "var(--color-muted)", borderStyle: "dashed" }}
-          >
-            <span style={{ color: "var(--color-muted)", fontSize: "0.7rem" }}>Icon</span>
-          </div>
           <h2 className="section-heading">Flight Information</h2>
           <p className="section-subheading mb-4">{airportName}</p>
           <p style={{ color: "var(--color-body)" }}>
@@ -136,18 +130,6 @@ export default function TravelStayPage() {
               </div>
             ))}
           </div>
-        </section>
-
-        <FlowerDivider src={flowerByIndex(FL + 4)} />
-
-        {/* ── Travel Planning ── */}
-        <section className="text-center pb-8">
-          <h2 className="section-heading mb-4">Travel Planning Services</h2>
-          <p style={{ color: "var(--color-body)" }}>
-            Please contact our wedding planning team at{" "}
-            <strong>{planningContact}</strong> for any help with flight
-            questions, transportation, tours, or anything else you need.
-          </p>
         </section>
       </div>
     </div>

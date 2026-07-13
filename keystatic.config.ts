@@ -279,9 +279,13 @@ export default config({
             name: fields.text({ label: "Stylist / Salon Name" }),
             role: fields.text({ label: "Role", description: "e.g., Hair & Makeup" }),
             note: fields.text({ multiline: true, label: "Booking Note" }),
-            phone: fields.text({ label: "Phone" }),
+            phone: fields.text({ label: "Phone / WhatsApp" }),
             email: fields.text({ label: "Email" }),
             instagram: fields.text({ label: "Instagram Handle" }),
+            location: fields.text({
+              label: "Location",
+              description: "Address or area — used for the Google Maps link",
+            }),
           }),
           {
             label: "Stylists",
@@ -313,7 +317,15 @@ export default config({
             items: fields.array(
               fields.object({
                 name: fields.text({ label: "Place Name" }),
+                driveTime: fields.text({
+                  label: "Approx. Drive Time",
+                  description: "e.g., ~1.5–2 hrs — shown as a subtitle",
+                }),
                 note: fields.text({ label: "Short Note" }),
+                whereToEat: fields.text({
+                  label: "Where to Eat",
+                  description: "Restaurant recommendation shown below the note",
+                }),
               }),
               {
                 label: "Places",

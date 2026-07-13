@@ -36,6 +36,7 @@ export const PAGE_FLOWER: Record<string, FlowerKey> = {
   "/gallery": "ranunculus",
   "/registry": "lisianthus",
   "/faqs": "escabiosa",
+  "/rsvp": "anthurium",
 };
 
 const DEFAULT_FLOWER: FlowerKey = "escabiosa";

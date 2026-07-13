@@ -5,25 +5,25 @@
     {
       "heading": "Breakfast & Lunch Spots",
       "items": [
-        { "name": "Café Name 1", "note": "Great for a morning bite." },
-        { "name": "Café Name 2", "note": "Local favorite for lunch." },
-        { "name": "Café Name 3", "note": "Beautiful garden setting." }
+        { "name": "Andián Bistro & Café", "driveTime": "", "note": "A French-inspired bistro in the heart of San Benito, known for excellent coffee, fresh brunch plates, and a downstairs case full of pastries and chocolates.", "whereToEat": "" },
+        { "name": "Alquimia Coffee", "driveTime": "", "note": "A sleek 'coffee lab' pouring 100% Salvadoran beans, recently ranked the #3 coffee shop in the world; come for a cup, stay for the sensory experience.", "whereToEat": "" },
+        { "name": "El Mirador de la Giralda", "driveTime": "", "note": "A mountain-ridge restaurant about 40 minutes above the city in Comasagua, with panoramic volcano views, Swiss-Salvadoran cooking, and live music.", "whereToEat": "" }
       ]
     },
     {
       "heading": "Dinner & Drinks",
       "items": [
-        { "name": "Restaurant 1", "note": "Upscale dining, reservations recommended." },
-        { "name": "Bar / Restaurant 2", "note": "Lively atmosphere and great cocktails." },
-        { "name": "Restaurant 3", "note": "Authentic local cuisine." }
+        { "name": "El Xolo", "driveTime": "", "note": "Set inside the National Anthropology Museum, this is El Salvador's most celebrated restaurant (Latin America's 50 Best), reinventing native corn and local ingredients.", "whereToEat": "" },
+        { "name": "Brutto", "driveTime": "", "note": "A stylish rooftop spot with skyline views, serving modern Asian-influenced plates, standout sushi, and inventive cocktails, all designed to share.", "whereToEat": "" },
+        { "name": "Al Pomodoro", "driveTime": "", "note": "A San Benito institution for authentic Italian: handmade pastas, wood-fired pizzas, and a deep wine list in a warm, family-friendly setting that welcomes all ages.", "whereToEat": "" }
       ]
     },
     {
-      "heading": "Explore the City",
+      "heading": "Explore El Salvador / Day Trips",
       "items": [
-        { "name": "Landmark 1", "note": "Scenic lake — perfect for a weekend morning." },
-        { "name": "Landmark 2", "note": "Historic city center, great for walking tours." },
-        { "name": "Landmark 3", "note": "Beautiful beach town ~1 hour away." }
+        { "name": "Ataco/Apaneca", "driveTime": "~1.5–2 hrs", "note": "Two colorful mountain towns along the Ruta de las Flores, famous for muraled streets, coffee farms, waterfalls, and cool highland air.", "whereToEat": "Piccolo Giardino — a charming garden-set Italian spot in Ataco known for wood-fired pizzas and fresh pasta." },
+        { "name": "Surf City / La Libertad", "driveTime": "~45 min–1 hr", "note": "El Salvador's Pacific surf coast, with black-sand beaches like El Tunco and El Zonte, world-class waves, sunsets, and fresh seafood.", "whereToEat": "Beto's — a coastal institution since 1986, serving fresh seafood on a cliff terrace right over the ocean." },
+        { "name": "Cerro Verde", "driveTime": "~1.5–2 hrs", "note": "A national park in the cloud forest, home to the hike up the Santa Ana volcano (Ilamatepec) and sweeping views of its turquoise crater lake.", "whereToEat": "Casa 1800 — a boutique lodge and restaurant perched in the park, with Salvadoran plates and floor-to-ceiling volcano views." }
       ]
     }
   ]
