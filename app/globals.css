@@ -325,6 +325,31 @@ details p {
   justify-content: center;
 }
 
+.site-footer .footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 0.4rem;
+  margin: 2.5rem auto 0;
+  max-width: 44rem;
+}
+
+.site-footer .footer-nav-link {
+  display: inline-block;
+  font-family: var(--font-body), Georgia, serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-body);
+  padding: 0.25rem 0.125rem;
+  transition: color 0.2s ease;
+}
+
+.site-footer .footer-nav-link:hover {
+  color: var(--color-heading-rose);
+}
+
 .site-footer .footer-names {
   font-family: var(--font-display), cursive;
   color: var(--color-heading-rose);

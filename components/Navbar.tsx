@@ -3,19 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
-const links = [
-  { label: "Home",          href: "/" },
-  { label: "Our Journey",   href: "/our-journey" },
-  { label: "Itinerary",     href: "/itinerary" },
-  { label: "Travel & Stay", href: "/travel-stay" },
-  { label: "Hair & Makeup", href: "/hair-makeup" },
-  { label: "Things To Do",  href: "/things-to-do" },
-  { label: "Gallery",       href: "/gallery" },
-  { label: "Registry",      href: "/registry" },
-  { label: "RSVP",          href: "/rsvp" },
-  { label: "FAQs",          href: "/faqs" },
-];
+import { navLinks as links } from "@/lib/nav-links";
 
 export default function Navbar({ monogram = "S & J" }: { monogram?: string }) {
   const pathname = usePathname();

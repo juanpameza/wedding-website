@@ -1,6 +1,8 @@
+import Link from "next/link";
 import siteContent from "@/content/site.json";
 import BotanicalAccent from "./BotanicalAccent";
 import { FLOWERS } from "@/lib/flowers";
+import { navLinks } from "@/lib/nav-links";
 
 export default function Footer() {
   return (
@@ -28,6 +30,17 @@ export default function Footer() {
         <p className="footer-detail">
           {siteContent.weddingDate} &middot; {siteContent.weddingLocation}
         </p>
+        <nav aria-label="Footer">
+          <ul className="footer-nav">
+            {navLinks.map(({ label, href }) => (
+              <li key={href}>
+                <Link href={href} className="footer-nav-link">
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </footer>
   );
