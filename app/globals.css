@@ -116,6 +116,95 @@ h1, h2, h3 {
   color: var(--color-nav-text);
 }
 
+.nav-monogram {
+  font-family: var(--font-nav), var(--font-display), cursive;
+  font-size: 1.6rem;
+  font-style: var(--font-nav-style, normal);
+  font-weight: var(--font-nav-weight, 400);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--color-nav);
+}
+
+/* 44px tap target; negative margin keeps the icon optically at the edge */
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: -0.625rem;
+  color: var(--color-nav);
+}
+
+.nav-toggle-icon {
+  position: relative;
+  display: block;
+  width: 1.375rem;
+  height: 1rem;
+}
+
+.nav-toggle-icon span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.nav-toggle-icon span:nth-child(1) { top: 0; }
+.nav-toggle-icon span:nth-child(2) { top: 7px; }
+.nav-toggle-icon span:nth-child(3) { top: 14px; }
+
+.nav-toggle-icon.open span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.nav-toggle-icon.open span:nth-child(2) { opacity: 0; }
+.nav-toggle-icon.open span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+/* Full-screen overlay; z-index -1 keeps it under the sticky bar so the
+   monogram and close button stay visible on top of it */
+.nav-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 5.5rem 1.5rem 2.5rem;
+  background-color: var(--color-bg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.nav-mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* margin auto centers the links when they fit and scrolls when they don't */
+.nav-mobile-menu > ul {
+  margin: auto;
+}
+
+.nav-link-mobile {
+  display: block;
+  padding: 0.55rem 1.75rem;
+  font-size: min(1.9rem, 8vw);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile-menu,
+  .nav-toggle-icon span {
+    transition: none;
+  }
+}
+
 /* ─── Page heading ──────────────────────────────────────── */
 .page-heading {
   font-family: var(--font-page-heading), var(--font-display), cursive;

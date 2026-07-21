@@ -59,7 +59,9 @@ export default function RootLayout({
         {fontsUrl && <link href={fontsUrl} rel="stylesheet" />}
       </head>
       <body>
-        <ConditionalNavbar />
+        <ConditionalNavbar
+          monogram={`${siteContent.coupleNameA?.charAt(0) ?? ""} & ${siteContent.coupleNameB?.charAt(0) ?? ""}`}
+        />
         <main className="relative min-h-screen">
           {children}
           <PageBotanicals />
