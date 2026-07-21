@@ -238,15 +238,55 @@ export default config({
         airportName: fields.text({ label: "Airport Name & Code", description: "e.g., El Salvador International Airport (SAL)" }),
         airportDistance: fields.text({ label: "Distance from City", description: "e.g., 44 km from San Salvador" }),
         airportTravelTime: fields.text({ label: "Travel Time", description: "e.g., ~1 hour" }),
+        airportLat: fields.number({
+          label: "Airport Latitude",
+          description: "Map pin position — right-click the spot in Google Maps to copy coordinates",
+          validation: { min: -90, max: 90 },
+        }),
+        airportLng: fields.number({
+          label: "Airport Longitude",
+          description: "Map pin position — right-click the spot in Google Maps to copy coordinates",
+          validation: { min: -180, max: 180 },
+        }),
         airportVisaNote: fields.text({ label: "Visa Note", description: "e.g., U.S. citizens do not need a visa." }),
         airportArrivalRecommendation: fields.text({ multiline: true, label: "Arrival Recommendation" }),
         planningContact: fields.text({ label: "Planning Contact Phone / Email" }),
+        venue: fields.object(
+          {
+            name: fields.text({ label: "Venue Name" }),
+            note: fields.text({ label: "Note", description: "Shown in the map popup, e.g. Wedding reception venue" }),
+            lat: fields.number({
+              label: "Latitude",
+              description: "Map pin position — right-click the spot in Google Maps to copy coordinates",
+              validation: { min: -90, max: 90 },
+            }),
+            lng: fields.number({
+              label: "Longitude",
+              description: "Map pin position — right-click the spot in Google Maps to copy coordinates",
+              validation: { min: -180, max: 180 },
+            }),
+          },
+          {
+            label: "Wedding Venue Map Pin",
+            description: "Shown on the hotel map with a distinct green pin",
+          }
+        ),
         hotels: fields.array(
           fields.object({
             name: fields.text({ label: "Hotel Name" }),
             address: fields.text({ label: "Address" }),
             phone: fields.text({ label: "Phone" }),
             reserveLink: fields.text({ label: "Booking URL or Promo Code Instructions" }),
+            lat: fields.number({
+              label: "Latitude",
+              description: "Map pin position — right-click the spot in Google Maps to copy coordinates",
+              validation: { min: -90, max: 90 },
+            }),
+            lng: fields.number({
+              label: "Longitude",
+              description: "Map pin position — right-click the spot in Google Maps to copy coordinates",
+              validation: { min: -180, max: 180 },
+            }),
           }),
           {
             label: "Hotel Recommendations",

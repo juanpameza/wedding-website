@@ -251,3 +251,29 @@ details p {
   font-size: 0.8rem;
   margin-top: 0.75rem;
 }
+
+/* ── Hotel map (Travel & Stay) ─────────────────────────── */
+.hotel-map .leaflet-popup-content-wrapper {
+  border-radius: 2px;
+  border: 1px solid var(--color-border);
+  color: var(--color-body);
+  font-family: var(--font-body), Georgia, serif;
+  box-shadow: 0 8px 24px rgba(54, 36, 20, 0.18);
+}
+
+.hotel-map .leaflet-popup-content a {
+  color: var(--color-heading-olive);
+}
+
+.hotel-map .leaflet-container {
+  font-family: var(--font-body), Georgia, serif;
+}
+
+.hotel-map-pin {
+  background: none;
+  border: none;
+}
+
+.hotel-map-pin svg {
+  filter: drop-shadow(0 2px 3px rgba(54, 36, 20, 0.35));
+}

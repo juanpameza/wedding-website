@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
+import HotelMap from "@/components/HotelMap";
 import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import travelContent from "@/content/travel.json";
 
@@ -15,7 +16,10 @@ export default function TravelStayPage() {
     airportTravelTime,
     airportVisaNote,
     airportArrivalRecommendation,
+    airportLat,
+    airportLng,
     planningContact,
+    venue,
     hotels,
     transportServices,
   } = travelContent;
@@ -52,7 +56,7 @@ export default function TravelStayPage() {
         <section>
           <h2 className="section-heading mb-8">Hotel Information</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {hotels.map((hotel) => (
+            {hotels.map((hotel, index) => (
               <div
                 key={hotel.name}
                 className="info-card border rounded-sm"
@@ -65,6 +69,16 @@ export default function TravelStayPage() {
                   className="card-heading mb-1"
                   style={{ color: "var(--color-heading-rose)" }}
                 >
+                  <span
+                    aria-hidden
+                    className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full text-sm align-middle"
+                    style={{
+                      backgroundColor: "var(--color-heading-rose)",
+                      color: "var(--color-nav-text)",
+                    }}
+                  >
+                    {index + 1}
+                  </span>
                   {hotel.name}
                 </h3>
                 <p
@@ -84,6 +98,27 @@ export default function TravelStayPage() {
                 </a>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10">
+            <p
+              className="text-center text-sm mb-4"
+              style={{ color: "var(--color-body)" }}
+            >
+              Numbered pins are our recommended hotels, the green heart marks
+              the reception at Cajamarca, and the plane marks the airport. Tap
+              a pin for details and directions.
+            </p>
+            <HotelMap
+              hotels={hotels}
+              venue={venue}
+              airport={{
+                name: airportName,
+                note: `${airportDistance} — ${airportTravelTime}`,
+                lat: airportLat,
+                lng: airportLng,
+              }}
+            />
           </div>
         </section>
 

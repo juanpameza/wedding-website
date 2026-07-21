@@ -2,27 +2,41 @@
   "airportName": "El Salvador International Airport (SAL)",
   "airportDistance": "45km (28 miles) from City Center",
   "airportTravelTime": "~45 minutes",
+  "airportLat": 13.45144,
+  "airportLng": -89.05227,
   "airportVisaNote": "Visa is typically not required for stays under 90 days.",
   "airportArrivalRecommendation": "",
   "planningContact": "",
+  "venue": {
+    "name": "Cajamarca El Salvador",
+    "note": "Wedding reception venue",
+    "lat": 13.75197,
+    "lng": -89.26674
+  },
   "hotels": [
     {
-      "name": "Barceló San Salvador",
-      "address": "Bulevar Del Hipodromo, San Salvador",
-      "phone": "+503 2268 4545",
-      "reserveLink": "#"
+      "name": "Fairfield by Marriott San Salvador",
+      "address": "Centro Comercial Centro de Estilo de Vida La Gran Via, Calle 2 Contiguo A, San Salvador",
+      "phone": "+503 2529 2200",
+      "reserveLink": "#",
+      "lat": 13.67648,
+      "lng": -89.25528
     },
     {
-      "name": "Hilton San Salvador",
-      "address": "89 Avenida Norte y 11 Calle Poniente, Colonia Escalón, San Salvador",
-      "phone": "+503 2133 7000",
-      "reserveLink": "#"
+      "name": "Hyatt Centric San Salvador",
+      "address": "Sergio Paz Ave Corner With El Pedregal St Las Cascadas Shopping Center, C. el Pedregal, Cd Merliot",
+      "phone": "+503 2528 7000",
+      "reserveLink": "#",
+      "lat": 13.67813,
+      "lng": -89.25223
     },
     {
       "name": "Terra Bella Hotel Boutique",
       "address": "Av. de la Revolución 175, San Salvador",
       "phone": "+503 7803 3845",
-      "reserveLink": "#"
+      "reserveLink": "#",
+      "lat": 13.68742,
+      "lng": -89.2374
     }
   ],
   "transportServices": [
@@ -33,10 +47,10 @@
       "instagram": "@svfaciltravel"
     },
     {
-      "name": "Transport Company 2",
-      "phone": "+1 (555) 100-0001",
-      "email": "contact@company2.com",
-      "instagram": "@company2handle"
+      "name": "Don Bosco Travel",
+      "phone": "+503 7820 5478",
+      "email": "donboscotravel@gmail.com",
+      "instagram": "@donboscotravel"
     }
   ]
 }
