@@ -3,15 +3,21 @@
   "note": "If you'd like to give a monetary gift, cash or a gift card is always appreciated and can be brought to the wedding or sent digitally. Thank you so much for your generosity and love!",
   "registries": [
     {
-      "name": "Registry Store 1",
+      "name": "Crate and Barrel",
       "description": "Home goods and kitchenware.",
-      "url": "https://example.com/registry1",
+      "url": "https://www.createandbarrel.com/gift-registry/sage-nye-and-juanpa-meza/r7595406",
       "buttonLabel": "View Registry"
     },
     {
-      "name": "Registry Store 2",
+      "name": "Over The Moon",
+      "description": "Home goods and kitchenware.",
+      "url": "https://www.overthemoon.com/apps/registry/nye-meza-ee10",
+      "buttonLabel": "View Registry"
+    },
+    {
+      "name": "Honeyfund",
       "description": "Experiences and travel fund.",
-      "url": "https://example.com/registry2",
+      "url": "https://www.honeyfund.com/site/nye-meza-03-13-2027",
       "buttonLabel": "View Registry"
     }
   ]
