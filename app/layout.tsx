@@ -21,6 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { template: `%s | ${site.siteTitle}`, default: site.siteTitle },
     description: `Join us to celebrate the wedding of ${site.coupleNameA} & ${site.coupleNameB}.`,
+    icons: {
+      icon: "/images/Monograma.png",
+      apple: "/images/Monograma.png",
+    },
   };
 }
 
