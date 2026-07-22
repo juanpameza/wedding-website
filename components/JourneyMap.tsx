@@ -323,7 +323,7 @@ export default function JourneyMap({
             )}
 
             <p
-              className="mt-4 text-[1.02rem] leading-7"
+              className="mt-4 whitespace-pre-line text-[1.02rem] leading-7"
               style={{
                 color: "var(--color-body)",
                 fontFamily: "var(--font-body), Georgia, serif",
@@ -417,7 +417,7 @@ export default function JourneyMap({
             )}
 
             <p
-              className="mt-5 text-[1.05rem] leading-7"
+              className="mt-5 whitespace-pre-line text-[1.05rem] leading-7"
               style={{
                 color: "var(--color-body)",
                 fontFamily: "var(--font-body), Georgia, serif",
