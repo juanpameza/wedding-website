@@ -5,8 +5,6 @@
   "airportLat": 13.45144,
   "airportLng": -89.05227,
   "airportVisaNote": "Visa is typically not required for stays under 90 days.",
-  "airportArrivalRecommendation": "",
-  "planningContact": "",
   "venue": {
     "name": "Cajamarca El Salvador",
     "note": "Wedding reception venue",
@@ -25,8 +23,8 @@
     {
       "name": "Hyatt Centric San Salvador",
       "address": "Sergio Paz Ave Corner With El Pedregal St Las Cascadas Shopping Center, C. el Pedregal, Cd Merliot",
-      "phone": "+503 2528 7000",
-      "reserveLink": "#",
+      "phone": "+503 7954-6444",
+      "reserveLink": "https://www.hyat.com/events/en-US/group-booking/SALCT/G-MENY",
       "lat": 13.67813,
       "lng": -89.25223
     },
