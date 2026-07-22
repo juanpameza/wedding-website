@@ -38,42 +38,42 @@
       "y": 26.5
     },
     {
-      "location": "Antigua Guatemala",
-      "story": "Shortly after, Sage and Juanpa road-tripped from San Salvador to Antigua, Guatemala, where Sage met many, many of Juanpa’s high school friends. It was full of laughter, stories, and so much joy. Fue un gran viaje and another special chapter in getting to know each other’s worlds.",
-      "image": "/images/Stop_5_-_Antigua_Guatemala.png",
-      "imageScale": 1.3,
-      "x": 70.3,
-      "y": 40.9
-    },
-    {
       "location": "Ravenna, Italy",
       "story": "Missing each other and always looking for a reason to travel, they planned a trip to Europe. Their first stop was Ravenna, where they ran their first half marathon together. This would later become a pattern: another half marathon in Houston, and eventually, a full marathon in San Diego. Apparently, they don’t just like traveling together, they also like suffering together!",
       "image": "/images/Stop_6_-_Italy.png",
       "imageScale": 1.3,
-      "x": 45.5,
-      "y": 27.1
+      "x": 70.3,
+      "y": 40.9
     },
     {
       "location": "Switzerland",
       "story": "Next came Switzerland, where Juanpa taught Sage how to drive stick shift on the side of a Swiss mountain. Why? Because it was illegal for him to drive there without a U.S. license, of course. Nothing says romance quite like learning manual transmission under pressure in one of the most beautiful places in the world.",
       "image": "/images/Stop_7_-_Switzerland.png",
       "imageScale": 1.3,
-      "x": 19.4,
-      "y": 36.2
+      "x": 45.5,
+      "y": 27.1
     },
     {
       "location": "Istanbul & Cappadocia",
       "story": "Then came Turkey, where they fell in love with the stunning architecture, rich culture, and unforgettable energy of the country. Their hot air balloon ride in Cappadocia was unfortunately canceled because of bad weather, but their ATV tour through the valleys more than made up for it. Not exactly the original plan, but still magical in its own way",
       "image": "/images/Stop_8_-_Istambul.png",
       "imageScale": 1.3,
-      "x": 22.6,
-      "y": 54.1
+      "x": 19.4,
+      "y": 36.2
     },
     {
       "location": "Cartagena, Colombia",
       "story": "Excited to reunite once again, they planned a month-long stay in Colombia, where Juanpa worked remotely and Sage studied for the MCAT. Romantic, productive, and slightly chaotic. During that month, they learned how to kitesurf, explored beautiful cities, and hiked through Tayrona National Park. It was the perfect mix of adventure, discipline, and quality time together",
       "image": "/images/Stop_9_-_Cartagena.png",
       "imageScale": 1,
+      "x": 22.6,
+      "y": 54.1
+    },
+    {
+      "location": "Antigua Guatemala",
+      "story": "Shortly after, Sage and Juanpa road-tripped from San Salvador to Antigua, Guatemala, where Sage met many, many of Juanpa’s high school friends. It was full of laughter, stories, and so much joy. Fue un gran viaje and another special chapter in getting to know each other’s worlds.",
+      "image": "/images/Stop_5_-_Antigua_Guatemala.png",
+      "imageScale": 1.3,
       "x": 48.4,
       "y": 49.1
     },
