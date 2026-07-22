@@ -8,8 +8,24 @@ const FL = pageFlowerOffset("/hair-makeup");
 
 export const metadata: Metadata = { title: "Hair & Makeup" };
 
+// Keystatic omits empty text fields when it saves JSON, so any text value
+// may be absent from the file entirely — treat them all as optional.
+type HairMakeupContent = {
+  intro?: string;
+  stylists: {
+    name: string;
+    role?: string;
+    note?: string;
+    phone?: string;
+    email?: string;
+    instagram?: string;
+    location?: string;
+  }[];
+  tips: { tip?: string }[];
+};
+
 export default function HairMakeupPage() {
-  const { intro, stylists, tips } = hairMakeupContent;
+  const { intro, stylists, tips } = hairMakeupContent as HairMakeupContent;
 
   return (
     <div

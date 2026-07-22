@@ -10,6 +10,8 @@ const FL = pageFlowerOffset("/travel-stay");
 export const metadata: Metadata = { title: "Travel & Stay" };
 
 export default function TravelStayPage() {
+  // Keystatic omits empty text fields when it saves JSON, so optional copy
+  // like the arrival recommendation may be absent from the file entirely.
   const {
     airportName,
     airportDistance,
@@ -18,11 +20,12 @@ export default function TravelStayPage() {
     airportArrivalRecommendation,
     airportLat,
     airportLng,
-    planningContact,
     venue,
     hotels,
     transportServices,
-  } = travelContent;
+  } = travelContent as typeof travelContent & {
+    airportArrivalRecommendation?: string;
+  };
 
   return (
     <div
@@ -45,9 +48,11 @@ export default function TravelStayPage() {
             {airportDistance} — average travel time {airportTravelTime}.{" "}
             {airportVisaNote}
           </p>
-          <p className="mt-3" style={{ color: "var(--color-body)" }}>
-            {airportArrivalRecommendation}
-          </p>
+          {airportArrivalRecommendation && (
+            <p className="mt-3" style={{ color: "var(--color-body)" }}>
+              {airportArrivalRecommendation}
+            </p>
+          )}
         </section>
 
         <FlowerDivider src={flowerByIndex(FL + 2)} />

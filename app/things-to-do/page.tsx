@@ -8,8 +8,25 @@ const FL = pageFlowerOffset("/things-to-do");
 
 export const metadata: Metadata = { title: "Things To Do" };
 
+// Keystatic omits empty text fields when it saves JSON, so any text value
+// may be absent from the file entirely — treat them all as optional.
+type ThingsToDoContent = {
+  intro?: string;
+  planningContact?: string;
+  categories: {
+    heading: string;
+    items: {
+      name: string;
+      driveTime?: string;
+      note?: string;
+      whereToEat?: string;
+    }[];
+  }[];
+};
+
 export default function ThingsToDoPage() {
-  const { intro, planningContact, categories } = thingsContent;
+  const { intro, planningContact, categories } =
+    thingsContent as ThingsToDoContent;
 
   return (
     <div
