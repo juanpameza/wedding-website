@@ -209,6 +209,11 @@ export default config({
                 name: fields.text({ label: "Event Name" }),
                 time: fields.text({ label: "Time", description: "e.g., 3:00 pm - 4:00 pm" }),
                 description: fields.text({ multiline: true, label: "Location / Description" }),
+                details: fields.text({
+                  multiline: true,
+                  label: "Details",
+                  description: "Longer text shown in the event details popup",
+                }),
                 image: fields.image({
                   label: "Event Photo",
                   directory: "public/images/itinerary",
@@ -444,10 +449,34 @@ export default config({
           step: 1,
           validation: { min: 0, max: 180 },
         }),
+        mapAspectRatio: fields.text({
+          label: "Map Aspect Ratio",
+          description: 'Width/height of the map frame, e.g. "1493/2000"',
+          defaultValue: "1493/2000",
+        }),
+        stopImageWidth: fields.number({
+          label: "Stop Image Width (px)",
+          description: "Base width for stop photos on the desktop map",
+          defaultValue: 200,
+          step: 1,
+          validation: { min: 60, max: 800 },
+        }),
         stops: fields.array(
           fields.object({
             location: fields.text({ label: "Location Name", description: "e.g., Paris" }),
             story: fields.text({ multiline: true, label: "Story" }),
+            image: fields.image({
+              label: "Stop Photo",
+              directory: "public/images",
+              publicPath: "/images/",
+            }),
+            imageScale: fields.number({
+              label: "Image Scale",
+              description: "Per-stop size multiplier on top of the base width, e.g. 1.3",
+              defaultValue: 1,
+              step: 0.1,
+              validation: { min: 0.2, max: 4 },
+            }),
             x: fields.number({ label: "X Position (% from left)", description: "0 = far left, 100 = far right" }),
             y: fields.number({ label: "Y Position (% from top)", description: "0 = top, 100 = bottom" }),
           }),
