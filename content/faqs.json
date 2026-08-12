@@ -13,6 +13,10 @@
       "answer": "U.S. citizens traveling for tourism do not need a visa for stays under 90 days. You will need a valid U.S. passport with at least one blank page."
     },
     {
+      "question": "What days should I plan to come?",
+      "answer": "Wedding events begin Thursday, March 11 and continue through the wedding on Saturday, March 13. We'd love to have you for all of it, but we completely understand if the wedding day is the only day you can make it. If you'd like to arrive early or stay longer, there is plenty of exploring to do — check out our Things to Do section for ideas, and reach out if you'd like help planning. We're happy to give recommendations."
+    },
+    {
       "question": "Where should I stay?",
       "answer": "We recommend basing yourself in San Salvador. It's a small country, so if you'd like to explore, most places are an easy day trip with transportation arranged from the city. Please see our hotel recommendations above."
     },
@@ -25,16 +29,16 @@
       "answer": "San Salvador is generally warm year-round. The volcano area can feel cooler in the evening, so we recommend bringing a light jacket or wrap, especially for nighttime events."
     },
     {
+      "question": "What is the dress code?",
+      "answer": "Formal attire — we'd love for everyone to dress up with us! For men, a dark suit and tie. For women, a midi or floor-length dress or gown. We'll be celebrating outdoors at a coffee farm, so we'd suggest block or thicker heels for walking on grass and uneven ground, and a shawl or wrap for when the evening cools down."
+    },
+    {
       "question": "What should I pack?",
       "answer": "We recommend packing comfortable clothes for exploring, dressy attire for wedding events, sunscreen, sunglasses, bug spray, comfortable walking shoes, and a light jacket for cooler evenings near the volcano."
     },
     {
       "question": "What currency is used in El Salvador?",
       "answer": "El Salvador uses the U.S. dollar, so guests traveling from the U.S. do not need to exchange currency. Credit cards are accepted in many places, but it is helpful to carry some cash for smaller purchases, tips, markets, or local vendors."
-    },
-    {
-      "question": "Can I drink the tap water?",
-      "answer": "We recommend drinking bottled or filtered water during your stay."
     },
     {
       "question": "What language is spoken?",
