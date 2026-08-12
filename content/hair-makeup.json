@@ -1,47 +1,47 @@
 {
-  "intro": "We want everyone to feel their most beautiful and confident on our big day! Below you'll find information about hair and makeup services available for the wedding weekend.",
+  "intro": "If you'd like to book hair or makeup for the wedding weekend, here are a few salons we recommend nearby.",
   "stylists": [
     {
       "name": "Jr Studio Salón",
       "role": "Hair & Makeup",
-      "note": "",
       "phone": "+503 7045-0464",
-      "email": "",
       "instagram": "@jrstudiosalon",
       "location": "C. La Mascota 940, San Salvador, El Salvador"
     },
     {
       "name": "Elemento Beauty House SV",
       "role": "Hair & Makeup",
-      "note": "",
       "phone": "+503 7749-0539",
-      "email": "",
       "instagram": "@elementobeauty.sv",
       "location": "Bulevar Del Hipodromo 626, San Salvador, El Salvador"
     },
     {
       "name": "Amarello Salon & Spa",
       "role": "Hair & Makeup",
-      "note": "",
       "phone": "+503 7741-3984",
-      "email": "",
       "instagram": "@amarellosalon.sv",
       "location": "Bulevar Del Hipodromo 480, San Salvador, El Salvador"
     },
     {
       "name": "90 Grados",
       "role": "Hair & Makeup",
-      "note": "",
       "phone": "+503 2264 4328",
-      "email": "",
       "instagram": "@90gradossv",
       "location": "7a Calle Poniente 4854, San Salvador, El Salvador"
     }
   ],
   "tips": [
-    { "tip": "Book your appointment as early as possible — spots fill up fast!" },
-    { "tip": "Bring inspiration photos to your consultation." },
-    { "tip": "Arrive with clean, dry hair unless your stylist says otherwise." },
-    { "tip": "Let us know if you have any allergies to products." }
+    {
+      "tip": "Book your appointment as early as possible — spots fill up fast!"
+    },
+    {
+      "tip": "Bring inspiration photos to your consultation."
+    },
+    {
+      "tip": "Arrive with clean, dry hair unless your stylist says otherwise."
+    },
+    {
+      "tip": "Let them know if you have any allergies to products."
+    }
   ]
 }
