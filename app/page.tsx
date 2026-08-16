@@ -4,7 +4,17 @@ import Image from "next/image";
 import FlowerDivider from "@/components/FlowerDivider";
 import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
 import siteContent from "@/content/site.json";
-import homeContent from "@/content/home.json";
+import homeJson from "@/content/home.json";
+
+// Typed view of the JSON so fields cleared in Keystatic (which omits empty
+// values entirely) don't change the inferred shape and break the build.
+const homeContent = homeJson as {
+  welcomeHeading?: string | null;
+  welcomeBody?: string | null;
+  logoImage?: string | null;
+  logoMaxWidth?: number | null;
+  logoPadding?: number | null;
+};
 
 const FL = pageFlowerOffset("/");
 

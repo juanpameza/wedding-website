@@ -17,12 +17,16 @@ function getSiteContent() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = getSiteContent();
+  const home = JSON.parse(fs.readFileSync(path.join(process.cwd(), "content/home.json"), "utf-8"));
+  // Keystatic renames the uploaded file to match the field name, so follow
+  // whatever the home logo currently points at instead of hardcoding it.
+  const icon = home.logoImage ?? "/images/logoImage.png";
   return {
     title: { template: `%s | ${site.siteTitle}`, default: site.siteTitle },
     description: `Join us to celebrate the wedding of ${site.coupleNameA} & ${site.coupleNameB}.`,
     icons: {
-      icon: "/images/Monograma.png",
-      apple: "/images/Monograma.png",
+      icon,
+      apple: icon,
     },
   };
 }

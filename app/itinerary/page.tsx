@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageCountdown from "@/components/PageCountdown";
 import FlowerDivider from "@/components/FlowerDivider";
-import ItineraryEventDetails from "@/components/ItineraryEventDetails";
+import ItineraryEventDetails, {
+  type ItineraryEvent,
+} from "@/components/ItineraryEventDetails";
 import { flowerByIndex, pageFlowerOffset } from "@/lib/flowers";
-import itineraryContent from "@/content/itinerary.json";
+import itineraryJson from "@/content/itinerary.json";
+
+// Typed view of the JSON so optional fields (e.g. an event without a photo)
+// don't change the inferred shape and break the build.
+type ItineraryDay = { date: string; events: ItineraryEvent[] };
+const itineraryContent = itineraryJson as { days: ItineraryDay[] };
 
 const FL = pageFlowerOffset("/itinerary");
 

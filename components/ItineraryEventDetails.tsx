@@ -10,6 +10,7 @@ export type ItineraryEvent = {
   image?: string | null;
   imageWidth?: number | null;
   imageHeight?: number | null;
+  imagePadding?: number | null;
   details?: string | null;
 };
 
