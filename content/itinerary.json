@@ -5,48 +5,44 @@
       "events": [
         {
           "name": "Beach Day",
-          "time": "9:00 am - 5:00 pm",
+          "time": "10:00 am - 5:00 pm",
           "description": "Balsamar Beach",
-          "image": "/images/Balsamar_Beach.png",
+          "details": "Join us for a relaxed day at the Balsamar Beach Club. Come ready for sun, sand, and surf. Please bring a swimwear, sunscreen, and a towel. Lunch and drinks will be available for purchase.",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0,
-          "details": "Kick off the celebration with a relaxed day at Balsamar Beach. Come ready for sun, sand, and surf — bring swimwear, sunscreen, and a towel. Lunch and drinks will be available for purchase."
+          "imagePadding": 0
         },
         {
-          "name": "Night out in San Salvador",
-          "time": "10:00 pm - 2:00 am",
-          "description": "La Cantina",
-          "image": "/images/la_cantina.png",
+          "name": "Night Out",
+          "time": "9:00 pm - 2:00 am",
+          "description": "San Salvador ",
+          "details": "Join us for a fun night out at the place where we first met! Come dressed to dance and enjoy a taste of the city's nightlife.",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0,
-          "details": "Join us for a fun night out at the place where we first met! Come dressed to dance and enjoy a taste of the city's nightlife."
+          "imagePadding": 0
         }
       ]
     },
     {
       "date": "Friday, March 12, 2027",
       "events": [
-                {
+        {
           "name": "Holy Hour",
           "time": "3:00 pm - 4:00 pm",
           "description": "Iglesia Maria Auxiliadora",
-          "image": "/images/iglesia_maria_auxiliadora.png",
+          "details": "Please join us for quiet hour of prayer and reflection at the lake before the festivities begin. All are welcome to join. ",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0,
-          "details": "A quiet hour of prayer and reflection at the lake before the festivities begin. All are welcome to join."
+          "imagePadding": 0
         },
         {
-          "name": "Welcome Dinner",
-          "time": "4:00 pm - 7:00 pm",
-          "description": "Lake House",
-          "image": "/images/Lago_De_Coatepeque.png",
+          "name": "Welcome Cocktail",
+          "time": "4:00 pm - 8:00 pm",
+          "description": "Lago de Coatepeque",
+          "details": "Gather with family and friends for a welcome cocktails and local pupusa dinner at Juanpa's family lake home overlooking Lago de Coatepeque. Enjoy some pupusas, drinks, and the company of loved ones as we celebrate the weekend ahead.",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0,
-          "details": "Gather with family and friends for a welcome dinner at the Lake House overlooking Lago de Coatepeque. Enjoy some pupusas, drinks, and the company of loved ones as we celebrate the weekend ahead."
+          "imagePadding": 0
         }
       ]
     },
@@ -57,21 +53,33 @@
           "name": "Wedding Ceremony",
           "time": "3:00 pm - 4:00 pm",
           "description": "Basilica of Our Lady of Guadalupe",
-          "image": "/images/Basilica_De_Guadalupe.png",
+          "details": "The heart of the weekend! Please join us as we exchange vows at the Basilica de Nuestra Señora de Guadalupe. Please arrive 30 minutes early to be seated before the ceremony begins. We will provide transportation from the Basilica to the reception at Cajamarca. ",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0,
-          "details": "The heart of the weekend — join us as we exchange vows at the Basilica of Our Lady of Guadalupe. Please arrive 30 minutes early to be seated before the ceremony begins."
+          "imagePadding": 0
         },
         {
-          "name": "The Reception",
+          "name": "Reception & After Party",
           "time": "5:00 pm - 2:00 am",
           "description": "Cajamarca El Salvador",
-          "image": "/images/Cajamarca.png",
+          "details": "Let the party begin! Please join us to celebrate our marriage and enjoy the night with dinner, dancing, and plenty of surprises await. Formal attire requested. Please look at FAQ for more attire details. ",
           "imageWidth": 380,
           "imageHeight": 333,
-          "imagePadding": 0,
-          "details": "Celebrate with us into the night at Cajamarca. Dinner, dancing, and plenty of surprises await. Formal attire requested."
+          "imagePadding": 0
+        }
+      ]
+    },
+    {
+      "date": "Sunday, March 14th 2027",
+      "events": [
+        {
+          "name": "Farewell Brunch ",
+          "time": "11:00 am - 1:00 pm ",
+          "description": "Il Buongustaio ",
+          "details": "For those joining us from out of town, we’d love for you to wrap up the weekend with us over breakfast before heading to the airport. Breakfast is completely optional, but we’d be so happy to have the chance to say goodbye!",
+          "imageWidth": 256,
+          "imageHeight": 224,
+          "imagePadding": 0
         }
       ]
     }
