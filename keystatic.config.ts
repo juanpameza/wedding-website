@@ -216,8 +216,8 @@ export default config({
                 }),
                 image: fields.image({
                   label: "Event Photo",
-                  directory: "public/images/itinerary",
-                  publicPath: "/images/itinerary/",
+                  directory: "public/images",
+                  publicPath: "/images/",
                 }),
                 ...imageLayoutFields(256, 224),
               }),
