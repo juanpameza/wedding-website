@@ -11,7 +11,7 @@
   "typography": {
     "homeNames": {
       "fontFamily": "__displayFont",
-      "fontSize": 57,
+      "fontSize": 62,
       "bold": false,
       "italic": false
     },
