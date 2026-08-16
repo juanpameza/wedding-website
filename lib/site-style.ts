@@ -8,6 +8,12 @@ export const FONT_OPTIONS = [
     source: "custom",
   },
   {
+    label: "Morello Pen",
+    value: "Morello Pen",
+    stack: '"Morello Pen", "Great Vibes", cursive',
+    source: "custom",
+  },
+  {
     label: "Great Vibes",
     value: "Great Vibes",
     stack: '"Great Vibes", cursive',
@@ -71,6 +77,13 @@ export const FONT_OPTIONS = [
     stack: '"Libre Baskerville", Georgia, serif',
     source: "google",
     weighted: true,
+  },
+  {
+    label: "Conso Serif Light",
+    value: "Conso Serif",
+    stack: '"Conso Serif", Georgia, serif',
+    source: "custom",
+    normalWeight: 300,
   },
   {
     label: "Montserrat Medium",
