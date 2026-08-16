@@ -28,13 +28,13 @@
       "italic": false
     },
     "pageHeading": {
-      "fontFamily": "Conso Serif",
+      "fontFamily": "Morello Pen",
       "fontSize": 64,
       "bold": false,
       "italic": false
     },
     "sectionHeading": {
-      "fontFamily": "Morello Pen",
+      "fontFamily": "Conso Serif",
       "fontSize": 44,
       "bold": false,
       "italic": false
@@ -46,13 +46,13 @@
       "italic": false
     },
     "cardHeading": {
-      "fontFamily": "Morello Pen",
+      "fontFamily": "Conso Serif",
       "fontSize": 32,
       "bold": false,
       "italic": false
     },
     "bodyText": {
-      "fontFamily": "__bodyFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 18,
       "bold": false,
       "italic": false
