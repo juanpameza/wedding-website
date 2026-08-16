@@ -5,7 +5,7 @@
   "weddingDateTime": "2027-03-13T21:00:00Z",
   "weddingLocation": "San Salvador, El Salvador",
   "siteTitle": "Sage & Juanpa | March 13, 2027",
-  "displayFont": "Dancing Script",
+  "displayFont": "Morello Pen",
   "bodyFont": "Cormorant Garamond",
   "baseFontSize": 16,
   "typography": {
@@ -22,31 +22,31 @@
       "italic": false
     },
     "homeDetails": {
-      "fontFamily": "__displayFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 28,
       "bold": false,
       "italic": false
     },
     "pageHeading": {
-      "fontFamily": "__displayFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 64,
       "bold": false,
       "italic": false
     },
     "sectionHeading": {
-      "fontFamily": "__displayFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 44,
       "bold": false,
       "italic": false
     },
     "sectionSubheading": {
-      "fontFamily": "__bodyFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 16,
       "bold": false,
       "italic": false
     },
     "cardHeading": {
-      "fontFamily": "__displayFont",
+      "fontFamily": "Morello Pen",
       "fontSize": 32,
       "bold": false,
       "italic": false
@@ -58,25 +58,25 @@
       "italic": false
     },
     "nav": {
-      "fontFamily": "__displayFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 21,
       "bold": false,
       "italic": false
     },
     "button": {
-      "fontFamily": "__bodyFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 14,
       "bold": false,
       "italic": false
     },
     "countdownNumber": {
-      "fontFamily": "__bodyFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 44,
       "bold": false,
       "italic": false
     },
     "countdownLabel": {
-      "fontFamily": "__bodyFont",
+      "fontFamily": "Conso Serif",
       "fontSize": 10,
       "bold": false,
       "italic": false
