@@ -17,7 +17,7 @@
     },
     "homeAmpersand": {
       "fontFamily": "__displayFont",
-      "fontSize": 45,
+      "fontSize": 65,
       "bold": false,
       "italic": false
     },
