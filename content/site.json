@@ -35,7 +35,7 @@
     },
     "sectionHeading": {
       "fontFamily": "Conso Serif",
-      "fontSize": 44,
+      "fontSize": 35,
       "bold": false,
       "italic": false
     },
@@ -97,9 +97,9 @@
   "colorBgWhite": "#F3EAE5",
   "colorNav": "#97973F",
   "colorNavText": "#F6EFEA",
-  "colorHeadingRose": "#B5574D",
-  "colorHeadingOlive": "#97973F",
+  "colorHeadingRose": "#450011",
+  "colorHeadingOlive": "#062E03",
   "colorBody": "#856F45",
-  "colorMuted": "#C2908A",
-  "colorBorder": "#DAC2BA"
+  "colorMuted": "#FCC5DA",
+  "colorBorder": "#FAE9F3"
 }
