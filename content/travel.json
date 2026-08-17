@@ -29,12 +29,12 @@
       "lng": -89.25223
     },
     {
-      "name": "Terra Bella Hotel Boutique",
-      "address": "Av. de la Revolución 175, San Salvador",
-      "phone": "+503 7803 3845",
-      "reserveLink": "#",
-      "lat": 13.68742,
-      "lng": -89.2374
+      "name": "Kaleo Hotel Boutique",
+      "address": "Av La Capilla 353, San Salvador",
+      "phone": "+503 7605-7844",
+      "reserveLink": "https://hotels.cloudbeds.com/es/reservation/JB6h4w/?currency=usd&checkin=2027-03-12&checkout=2027-03-14&promo=BodaMeza26",
+      "lat": 13.693,
+      "lng": -89.237
     }
   ],
   "transportServices": [
