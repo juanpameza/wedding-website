@@ -13,6 +13,14 @@
   },
   "hotels": [
     {
+      "name": "Kaleo Hotel Boutique",
+      "address": "Av La Capilla 353, San Salvador",
+      "phone": "+503 7605-7844",
+      "reserveLink": "https://hotels.cloudbeds.com/es/reservation/JB6h4w/?currency=usd&checkin=2027-03-12&checkout=2027-03-14&promo=BodaMeza26",
+      "lat": 13.693,
+      "lng": -89.237
+    },
+    {
       "name": "Fairfield by Marriott San Salvador",
       "address": "Centro Comercial Centro de Estilo de Vida La Gran Via, Calle 2 Contiguo A, San Salvador",
       "phone": "+503 2529 2200",
@@ -27,14 +35,6 @@
       "reserveLink": "https://www.hyatt.com/events/en-US/group-booking/SALCT/G-MENY",
       "lat": 13.67813,
       "lng": -89.25223
-    },
-    {
-      "name": "Kaleo Hotel Boutique",
-      "address": "Av La Capilla 353, San Salvador",
-      "phone": "+503 7605-7844",
-      "reserveLink": "https://hotels.cloudbeds.com/es/reservation/JB6h4w/?currency=usd&checkin=2027-03-12&checkout=2027-03-14&promo=BodaMeza26",
-      "lat": 13.693,
-      "lng": -89.237
     }
   ],
   "transportServices": [
