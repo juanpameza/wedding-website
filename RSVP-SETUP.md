@@ -113,7 +113,7 @@ Resend configured) email you a failure alert naming the missing table.
 ## 5. Tests
 
 ```bash
-npm test        # Vitest unit tests for the matching/validation core
+npm test        # Vitest unit tests (RSVP matching/validation + music-page libs)
 npm run e2e      # Playwright smoke (needs `npx playwright install` once)
 ```
 
