@@ -21,3 +21,6 @@ node_modules/
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# playwright artifacts
+/test-results/

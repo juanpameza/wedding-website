@@ -33,6 +33,7 @@ export const PAGE_FLOWER: Record<string, FlowerKey> = {
   "/travel-stay": "pinkGinger",
   "/hair-makeup": "escabiosa",
   "/things-to-do": "anthurium",
+  "/music": "pinkGinger",
   "/gallery": "ranunculus",
   "/registry": "lisianthus",
   "/faqs": "escabiosa",

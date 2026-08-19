@@ -79,7 +79,10 @@ h1, h2, h3 {
 
 .home-name-text {
   font-family: var(--font-home-names), var(--font-display), cursive;
-  font-size: min(var(--font-home-names-size, 4.6rem), 18vw);
+  /* 11vw cap: the longest name ("Juan Pablo Meza") measures ~7.4em in Morello
+     Pen, so 18vw let it wrap mid-name on phones; 11vw keeps each name on one
+     line down to ~300px viewports while desktop keeps the CMS size. */
+  font-size: min(var(--font-home-names-size, 4.6rem), 11vw);
   font-style: var(--font-home-names-style, normal);
   font-weight: var(--font-home-names-weight, 400);
   letter-spacing: 0.015em;
@@ -114,7 +117,15 @@ h1, h2, h3 {
 }
 
 .nav-link {
-  @apply px-4 py-3 leading-none transition-colors duration-200;
+  /* inline-block so the vertical padding actually sizes the row — as a plain
+     inline element the active pill painted outside the line box and the
+     sticky bar clipped its top.
+     Fluid horizontal padding keeps all 11 links on one row from 1280px up
+     (measured: link text alone is ~1080px at the CMS's 21px nav size, so
+     ~8px/side fits a 1280 laptop; padding grows smoothly on wider screens).
+     Assumes the CMS nav font size stays ~21px — re-check if it's raised. */
+  @apply inline-block py-3 leading-none transition-colors duration-200;
+  padding-inline: clamp(0.45rem, 0.6vw, 1rem);
   font-family: var(--font-nav), var(--font-display), cursive;
   font-size: var(--font-nav-size, 1.3rem);
   font-style: var(--font-nav-style, normal);
@@ -279,6 +290,60 @@ h1, h2, h3 {
 /* ─── Card / info block ─────────────────────────────────── */
 .info-card {
   @apply text-center py-6 px-4;
+}
+
+/* ─── Shared form inputs ─────────────────────────────────── */
+/* Visible keyboard focus for inputs that suppress the UA outline. */
+.text-field-input:focus-visible {
+  outline: 2px solid var(--color-heading-rose);
+  outline-offset: 1px;
+}
+
+/* ─── Music page: caption link, setlist, embed mat ──────── */
+.caption-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* true 44px touch target despite the small type */
+  padding: 0.5rem 0.25rem;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--color-heading-olive);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.caption-link:hover {
+  color: var(--color-heading-rose);
+}
+
+.setlist-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 1rem 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.setlist-row:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Interior of the Spotify embed mat. Fixed height = zero layout shift while
+   the player loads; a blocked embed degrades to a quiet blush panel. Heights
+   come from CMS fields via inline CSS vars set on the mat. */
+.embed-mat-interior {
+  height: var(--embed-h-mobile, 352px);
+  background-color: var(--color-bg);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .embed-mat-interior {
+    height: var(--embed-h-desktop, 480px);
+  }
 }
 
 /* ─── Divider ────────────────────────────────────────────── */

@@ -53,8 +53,8 @@ export default function Navbar({ monogram = "S & J" }: { monogram?: string }) {
         </button>
       </div>
 
-      {/* Desktop links */}
-      <ul className="hidden flex-wrap justify-center md:flex">
+      {/* Desktop links — py keeps the active pill clear of the bar's edges */}
+      <ul className="hidden flex-wrap justify-center py-1.5 md:flex">
         {links.map(({ label, href }) => {
           const isActive = pathname === href;
           return (

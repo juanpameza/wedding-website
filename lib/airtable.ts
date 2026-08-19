@@ -24,6 +24,8 @@ import {
   buildPatchRecords,
 } from "./rsvp-core";
 
+import { SONG_REQUESTS_TABLE } from "./song-request-core";
+
 const API_BASE = "https://api.airtable.com/v0";
 const GUESTS_TABLE = "Guests";
 const HOUSEHOLDS_TABLE = "Households";
@@ -230,4 +232,39 @@ export async function submitRsvp(
     updated,
     errors: [...errors, ...writeErrors],
   };
+}
+
+// One row per guest song request (Music page). Airtable's built-in createdTime
+// covers the timestamp; the table has no other machinery — no cache, no view.
+export async function createSongRequest(input: {
+  song: string;
+  artist: string;
+  requestedBy: string;
+}): Promise<void> {
+  const config = getConfig();
+
+  const fields: Record<string, string> = {
+    Song: input.song,
+    Artist: input.artist,
+  };
+  if (input.requestedBy) fields["Requested By"] = input.requestedBy;
+
+  const res = await fetch(
+    `${API_BASE}/${config.baseId}/${encodeURIComponent(SONG_REQUESTS_TABLE)}`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${config.token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ records: [{ fields }], typecast: false }),
+    },
+  );
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(
+      `Airtable ${SONG_REQUESTS_TABLE} create failed (${res.status}): ${body}`,
+    );
+  }
 }

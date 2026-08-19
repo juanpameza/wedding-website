@@ -10,12 +10,14 @@
   guard in `app/rsvp/page.tsx` + `POST /api/rsvp/submit` that returns a closed state past it.
 - **Depends on:** Core RSVP feature shipped; a decided cutoff date.
 
-## RSVP: extra guest fields (dietary / meal / kids-vs-adults)
-- **What:** Optional `Guests` fields — dietary restrictions / notes, maybe meal choice, maybe an
-  adults-vs-kids flag for catering counts.
+## RSVP: extra guest fields (meal choice / kids-vs-adults)
+- **What:** Optional `Guests` fields — maybe meal choice, maybe an adults-vs-kids
+  flag for catering counts. (Dietary restrictions already shipped as the
+  `Dietary Restrictions` field.)
 - **Why:** Caterer headcounts and meal planning.
 - **Pros:** One-field additions to the Airtable schema + form; high value for catering.
 - **Cons:** Adds form length; meal options not known yet.
-- **Context:** Deferred during /plan-eng-review (2026-06-28). Schema already leaves room
-  (`Dietary / Notes`). Add fields once the caterer's requirements are known.
+- **Context:** Deferred during /plan-eng-review (2026-06-28). Dietary shipped as
+  `Dietary Restrictions`. Add the remaining fields once the caterer's
+  requirements are known.
 - **Depends on:** Core RSVP feature shipped; caterer requirements.
