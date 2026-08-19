@@ -16,7 +16,7 @@ export default function RsvpPage() {
     >
       <h1 className="page-heading">RSVP</h1>
       <FlowerDivider src={flowerByIndex(FL + 1)} />
-      <PageCountdown page="faqs" />
+      <PageCountdown page="rsvp" />
 
       <p
         className="max-w-xl mx-auto text-center mb-10"

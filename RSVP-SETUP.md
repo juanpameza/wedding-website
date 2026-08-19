@@ -3,6 +3,12 @@
 The RSVP feature reads/writes guest responses in **Airtable**. The code is done;
 these are the one-time data + config steps to make it live.
 
+> **Music page too:** the song-request form on `/music` writes to a third table
+> in this same base — see [Song Requests](#3b-song-requests-table-music-page)
+> below. The same `AIRTABLE_TOKEN` needs write access to it, and the same
+> `RSVP_NOTIFY_EMAIL` / `RSVP_NOTIFY_FROM` env vars (despite the RSVP_ prefix)
+> also deliver the song-request notification emails.
+
 ## 1. Create the Airtable base
 
 Two tables:
@@ -77,6 +83,23 @@ Set the same vars in the Vercel project settings for production.
 Also update `CONTACT_EMAIL` in [app/rsvp/RsvpClient.tsx](app/rsvp/RsvpClient.tsx)
 to the address guests should use if they can't find themselves.
 
+## 3b. Song Requests table (Music page)
+
+The `/music` page's "Request a Song" form writes one row per request. Add a
+third table to the same base — field names must be spelled exactly (they map
+1:1 from [lib/airtable.ts](lib/airtable.ts) `createSongRequest`):
+
+### `Song Requests`
+| Field | Type | Notes |
+|-------|------|-------|
+| `Song` | Single line text | required |
+| `Artist` | Single line text | required |
+| `Requested By` | Single line text | omitted when the guest leaves their name blank |
+
+Airtable's built-in *Created time* covers the timestamp — no extra field needed.
+Until this table exists, song submits show guests a friendly error and (with
+Resend configured) email you a failure alert naming the missing table.
+
 ## 4. How it works
 
 - Search is served from the full guest list cached via Next.js Data Cache
@@ -94,8 +117,9 @@ npm test        # Vitest unit tests for the matching/validation core
 npm run e2e      # Playwright smoke (needs `npx playwright install` once)
 ```
 
-The full E2E journey is `test.skip`-ed until you point `RSVP_E2E_GUEST` at a name
-in a test base — see [e2e/rsvp.spec.ts](e2e/rsvp.spec.ts).
+The full E2E journey runs against stubbed API routes — no Airtable credentials
+or test data needed — see [e2e/rsvp.spec.ts](e2e/rsvp.spec.ts). The music page
+has its own spec at [e2e/music.spec.ts](e2e/music.spec.ts), also stub-based.
 
 ## Admin (tracking + edits)
 

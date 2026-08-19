@@ -1,0 +1,41 @@
+{
+  "kickerIntro": "The Warm-Up",
+  "intro": "Fair warning: at a Latin wedding, the dance floor is not optional. Consider this your official warm-up — we've gathered the salsa, merengue, cumbia, and reggaetón you'll be hearing on the big night, the songs everyone will be singing at the top of their lungs. Press play now so your hips know what's coming.",
+  "spotifyPlaylistUrl": "https://open.spotify.com/playlist/6k86Qi0WUAqvZgnIYlDGrC?si=0b57bcc607ef4736",
+  "listenButtonLabel": "Open in Spotify",
+  "embedHeightMobile": 352,
+  "embedHeightDesktop": 480,
+  "kickerFeatured": "Nuestras Canciones",
+  "featuredHeading": "Songs That Matter to Us",
+  "featuredSongs": [
+    {
+      "title": "Vivir Mi Vida",
+      "artist": "Marc Anthony",
+      "note": "The song that was playing the first night we danced.",
+      "url": ""
+    },
+    {
+      "title": "La Bilirrubina",
+      "artist": "Juan Luis Guerra",
+      "note": "Leave it to a med student to fall for a merengue about bilirubin.",
+      "url": ""
+    },
+    {
+      "title": "Bachata Rosa",
+      "artist": "Juan Luis Guerra",
+      "note": "Juanpa's parents danced to this at their own wedding.",
+      "url": ""
+    },
+    {
+      "title": "Como La Flor",
+      "artist": "Selena",
+      "note": "Every road trip, without fail, at full volume.",
+      "url": ""
+    }
+  ],
+  "kickerRequest": "Your Turn",
+  "requestHeading": "Request a Song",
+  "requestIntro": "Is there a song that gets you on the dance floor every single time? Tell us — we'll make sure the DJ knows.",
+  "successMessage": "It's on the list — see you on the dance floor.",
+  "errorMessage": "That didn't go through — give it another try, or just tell the DJ in person."
+}

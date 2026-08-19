@@ -83,7 +83,7 @@ export default config({
     brand: { name: "Wedding CMS" },
     navigation: {
       "Site & Colors": ["site"],
-      "Pages": ["home", "itinerary", "travel", "hairMakeup", "thingsToDo", "registry", "faqs"],
+      "Pages": ["home", "itinerary", "travel", "hairMakeup", "thingsToDo", "music", "registry", "faqs"],
       "Media": ["gallery", "journey"],
     },
   },
@@ -146,14 +146,16 @@ export default config({
             travel: fields.checkbox({ label: "Travel & Stay", defaultValue: false }),
             hairMakeup: fields.checkbox({ label: "Hair & Makeup", defaultValue: false }),
             thingsToDo: fields.checkbox({ label: "Things To Do", defaultValue: false }),
+            music: fields.checkbox({ label: "Music", defaultValue: false }),
             gallery: fields.checkbox({ label: "Gallery", defaultValue: false }),
             registry: fields.checkbox({ label: "Registry", defaultValue: false }),
+            rsvp: fields.checkbox({ label: "RSVP", defaultValue: false }),
             faqs: fields.checkbox({ label: "FAQs", defaultValue: false }),
           },
           {
             label: "Countdown Visibility",
             description: "Choose which pages show the wedding countdown.",
-            layout: [4, 4, 4, 4, 4, 4, 4, 4, 4],
+            layout: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
           },
         ),
         colorBg:           colorField("Background Color",       "Main page background"),
@@ -405,6 +407,85 @@ export default config({
             itemLabel: (props) => props.fields.name.value || "Registry",
           }
         ),
+      },
+    }),
+
+    music: singleton({
+      label: "Music",
+      path: "content/music",
+      format: { data: "json" },
+      schema: {
+        kickerIntro: fields.text({
+          label: "Intro Kicker",
+          description: "Small label above the intro, e.g. The Warm-Up. Leave empty to hide.",
+        }),
+        intro: fields.text({ multiline: true, label: "Introduction Text" }),
+        spotifyPlaylistUrl: fields.text({
+          label: "Spotify Playlist URL",
+          description:
+            "Paste the full open.spotify.com/playlist/… link (open the playlist in a browser and copy the address — spotify.link short URLs won't work).",
+        }),
+        listenButtonLabel: fields.text({
+          label: "Open in Spotify Label",
+          description: "Text of the link under the player, e.g. Open in Spotify",
+        }),
+        embedHeightMobile: fields.number({
+          label: "Player Height — Mobile (px)",
+          description: "Height of the Spotify player in pixels on phones",
+          defaultValue: 352,
+          step: 1,
+          validation: { min: 152, max: 800 },
+        }),
+        embedHeightDesktop: fields.number({
+          label: "Player Height — Desktop (px)",
+          description: "Height of the Spotify player in pixels on larger screens",
+          defaultValue: 480,
+          step: 1,
+          validation: { min: 152, max: 800 },
+        }),
+        kickerFeatured: fields.text({
+          label: "Featured Songs Kicker",
+          description: "Small label above the featured songs heading, e.g. Nuestras Canciones. Leave empty to hide.",
+        }),
+        featuredHeading: fields.text({ label: "Featured Songs Heading" }),
+        featuredSongs: fields.array(
+          fields.object({
+            title: fields.text({
+              label: "Song Title",
+              description: "Short display title — keep under ~30 characters (drop the '(feat. …)' suffix).",
+            }),
+            artist: fields.text({ label: "Artist" }),
+            note: fields.text({
+              multiline: true,
+              label: "Why It Matters",
+              description: "One line about what this song means to you two",
+            }),
+            url: fields.text({
+              label: "Spotify Link (optional)",
+              description: "Adds a LISTEN link to this song",
+            }),
+          }),
+          {
+            label: "Featured Songs",
+            description:
+              "Sample entries — replace with your own songs and stories. Empty list hides the whole section.",
+            itemLabel: (props) => props.fields.title.value || "Song",
+          }
+        ),
+        kickerRequest: fields.text({
+          label: "Request Kicker",
+          description: "Small label above the request heading, e.g. Your Turn. Leave empty to hide.",
+        }),
+        requestHeading: fields.text({ label: "Request Section Heading" }),
+        requestIntro: fields.text({ multiline: true, label: "Request Intro Text" }),
+        successMessage: fields.text({
+          label: "Success Message",
+          description: "Shown after a song request is submitted",
+        }),
+        errorMessage: fields.text({
+          label: "Error Message",
+          description: "Shown when a song request fails to send",
+        }),
       },
     }),
 

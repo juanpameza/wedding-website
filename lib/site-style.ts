@@ -232,8 +232,10 @@ export const COUNTDOWN_PAGE_KEYS = [
   "travel",
   "hairMakeup",
   "thingsToDo",
+  "music",
   "gallery",
   "registry",
+  "rsvp",
   "faqs",
 ] as const;
 

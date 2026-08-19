@@ -5,6 +5,7 @@ export const navLinks = [
   { label: "Travel & Stay", href: "/travel-stay" },
   { label: "Hair & Makeup", href: "/hair-makeup" },
   { label: "Things To Do",  href: "/things-to-do" },
+  { label: "Music",         href: "/music" },
   { label: "Gallery",       href: "/gallery" },
   { label: "Registry",      href: "/registry" },
   { label: "RSVP",          href: "/rsvp" },
