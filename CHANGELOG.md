@@ -10,13 +10,14 @@ All notable changes to the wedding website. Versions follow a 4-digit
   on the site — framed as the page's centerpiece, with an "Open in Spotify"
   link, a numbered "Nuestras Canciones" setlist of songs that matter to us,
   and a "Request a Song" form so guests can send picks straight to the DJ's
-  list. Every heading, message, and the player size is editable in Keystatic.
-- Song requests land in Airtable and email the couple on every submission —
-  with a separate alert email if a request ever fails to save.
+  list. Headings, key messages, and the player size are editable in Keystatic.
+- Song requests land in Airtable and, when Resend email is configured, email
+  the couple on every submission — with a separate alert email if a request
+  ever fails to save.
 - Countdown can now be toggled for the Music and RSVP pages independently in
   the CMS.
 - Continuous integration: lint, unit tests, and a production build now run on
-  every push and pull request.
+  every pull request and every push to main.
 
 ### Changed
 - Navigation fits all 11 tabs on one row on laptop screens, and the active

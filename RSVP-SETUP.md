@@ -11,7 +11,8 @@ these are the one-time data + config steps to make it live.
 
 ## 1. Create the Airtable base
 
-Two tables:
+Two tables for RSVP (a third, `Song Requests`, is added in
+[§3b](#3b-song-requests-table-music-page)):
 
 ### `Households`
 | Field | Type |
@@ -77,6 +78,9 @@ Copy `.env.local.example` → `.env.local` and fill in:
 - `AIRTABLE_BASE_ID` — the base id (starts with `app`).
 - `RESEND_API_KEY` + `RSVP_NOTIFY_EMAIL` (optional) — to get an email on each
   submit. Without them, submits are logged server-side.
+- `RSVP_NOTIFY_FROM` (optional) — the From address for those emails; defaults
+  to `rsvp@resend.dev`. All three notification vars also cover the `/music`
+  song-request emails.
 
 Set the same vars in the Vercel project settings for production.
 
@@ -109,6 +113,10 @@ Resend configured) email you a failure alert naming the missing table.
   matched household, and you can only set events that guest is invited to.
 - Writes are batched (≤10 records/call), update-by-id (idempotent), and stamp
   the audit dates.
+- Song requests (`POST /api/songs/request`) are validated server-side (song +
+  artist required, 200 chars max per field) and rate-limited to 5 requests per
+  minute per IP; over the limit, guests get a friendly "slow down" message
+  (HTTP 429).
 
 ## 5. Tests
 
@@ -119,7 +127,9 @@ npm run e2e      # Playwright smoke (needs `npx playwright install` once)
 
 The full E2E journey runs against stubbed API routes — no Airtable credentials
 or test data needed — see [e2e/rsvp.spec.ts](e2e/rsvp.spec.ts). The music page
-has its own spec at [e2e/music.spec.ts](e2e/music.spec.ts), also stub-based.
+has its own spec at [e2e/music.spec.ts](e2e/music.spec.ts) — mostly stub-based,
+plus a credential-free validation check against the real `/api/songs/request`
+route.
 
 ## Admin (tracking + edits)
 
