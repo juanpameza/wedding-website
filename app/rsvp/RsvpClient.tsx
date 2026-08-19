@@ -7,6 +7,7 @@ import {
   type RsvpEventKey,
 } from "@/lib/rsvp-events";
 import { isUnnamedPlusOne, NAME_MAX, DIETARY_MAX } from "@/lib/rsvp-core";
+import TextField from "@/components/TextField";
 
 // TODO: set this to the address guests should email if they can't find themselves.
 const CONTACT_EMAIL = "planit4usv@gmail.com";
@@ -249,7 +250,7 @@ function SearchStep({
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Start typing your first or last name…"
-        className="w-full px-4 py-3 mb-4 outline-none"
+        className="text-field-input w-full px-4 py-3 mb-4 outline-none"
         style={{
           backgroundColor: "var(--color-bg-white)",
           border: "1px solid var(--color-border)",
@@ -416,48 +417,6 @@ function FormStep({
           {submitting ? "Saving…" : "Submit RSVP"}
         </button>
       </div>
-    </div>
-  );
-}
-
-function TextField({
-  id,
-  label,
-  value,
-  onChange,
-  placeholder,
-  maxLength,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
-  maxLength?: number;
-}) {
-  return (
-    <div className="mb-3">
-      <label
-        className="block text-xs mb-1"
-        htmlFor={id}
-        style={{ color: "var(--color-muted)" }}
-      >
-        {label}
-      </label>
-      <input
-        id={id}
-        type="text"
-        value={value}
-        maxLength={maxLength}
-        placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full px-3 py-2 outline-none"
-        style={{
-          backgroundColor: "var(--color-bg-white)",
-          border: "1px solid var(--color-border)",
-          color: "var(--color-body)",
-        }}
-      />
     </div>
   );
 }
