@@ -9,28 +9,24 @@
   "featuredHeading": "Songs That Matter to Us",
   "featuredSongs": [
     {
-      "title": "Vivir Mi Vida",
-      "artist": "Marc Anthony",
-      "note": "The song that was playing the first night we danced.",
-      "url": ""
-    },
-    {
       "title": "La Bilirrubina",
       "artist": "Juan Luis Guerra",
-      "note": "Leave it to a med student to fall for a merengue about bilirubin.",
-      "url": ""
+      "note": "Leave it to a med student to fall for a merengue about bilirubin."
     },
     {
-      "title": "Bachata Rosa",
-      "artist": "Juan Luis Guerra",
-      "note": "Juanpa's parents danced to this at their own wedding.",
-      "url": ""
+      "title": "A Donde Vamos",
+      "artist": "Morat",
+      "note": "The question that has taken us around the world."
     },
     {
-      "title": "Como La Flor",
+      "title": "Suavemente",
+      "artist": "Elvis Crespo",
+      "note": "The song that unlocks Juanpa's forbidden dance move."
+    },
+    {
+      "title": "Bidi Bidi Bom Bom",
       "artist": "Selena",
-      "note": "Every road trip, without fail, at full volume.",
-      "url": ""
+      "note": "Every road trip, without fail, at full volume."
     }
   ],
   "kickerRequest": "Your Turn",
