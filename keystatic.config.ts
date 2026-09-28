@@ -155,7 +155,8 @@ export default config({
           {
             label: "Countdown Visibility",
             description: "Choose which pages show the wedding countdown.",
-            layout: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            // Keystatic requires the spans to add up to a multiple of 12.
+            layout: [4, 4, 4, 4, 4, 4, 4, 4, 4, 6, 6],
           },
         ),
         colorBg:           colorField("Background Color",       "Main page background"),
@@ -242,6 +243,21 @@ export default config({
       path: "content/travel",
       format: { data: "json" },
       schema: {
+        whatsappHeading: fields.text({
+          label: "WhatsApp Section Heading",
+          description: "Shown at the top of the page, e.g. Stay Connected on WhatsApp",
+        }),
+        whatsappBody: fields.text({
+          multiline: true,
+          label: "WhatsApp Message",
+          description:
+            "Why guests should download WhatsApp and what the group chat is for. Leave empty to hide the section.",
+        }),
+        whatsappGroupLink: fields.text({
+          label: "WhatsApp Group Invite Link",
+          description:
+            "Optional — paste the chat.whatsapp.com invite link once the group exists to add a Join button",
+        }),
         airportName: fields.text({ label: "Airport Name & Code", description: "e.g., El Salvador International Airport (SAL)" }),
         airportDistance: fields.text({ label: "Distance from City", description: "e.g., 44 km from San Salvador" }),
         airportTravelTime: fields.text({ label: "Travel Time", description: "e.g., ~1 hour" }),
@@ -357,7 +373,6 @@ export default config({
       format: { data: "json" },
       schema: {
         intro: fields.text({ multiline: true, label: "Introduction Text" }),
-        planningContact: fields.text({ label: "Planning Contact" }),
         categories: fields.array(
           fields.object({
             heading: fields.text({ label: "Category Heading", description: "e.g., Breakfast & Lunch Spots" }),

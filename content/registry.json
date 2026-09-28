@@ -4,21 +4,27 @@
   "registries": [
     {
       "name": "Crate and Barrel",
-      "description": "Home goods and kitchenware.",
+      "description": "Everyday essentials for our kitchen and home.",
       "url": "https://www.crateandbarrel.com/gift-registry/sage-nye-and-juanpa-meza/r7595406",
       "buttonLabel": "View Registry"
     },
     {
       "name": "Over The Moon",
-      "description": "Home goods and kitchenware.",
+      "description": "Tableware, linens, and pieces for hosting friends and family.",
       "url": "https://www.overthemoon.com/apps/registry/nye-meza-ee10",
       "buttonLabel": "View Registry"
     },
     {
-      "name": "Honeyfund",
-      "description": "Experiences and travel fund.",
-      "url": "https://www.honeyfund.com/site/nye-meza-03-13-2027",
-      "buttonLabel": "View Registry"
+      "name": "Honeymoon Fund",
+      "description": "Help send us on our honeymoon adventure.",
+      "url": "https://www.honeyfund.com/site/meza-nye-03-13-2027",
+      "buttonLabel": "Contribute"
+    },
+    {
+      "name": "House Fund",
+      "description": "A contribution toward our first home together.",
+      "url": "https://www.honeyfund.com/site/meza-nye-03-13-2027-1",
+      "buttonLabel": "Contribute"
     }
   ]
 }
