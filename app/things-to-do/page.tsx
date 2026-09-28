@@ -12,7 +12,6 @@ export const metadata: Metadata = { title: "Things To Do" };
 // may be absent from the file entirely — treat them all as optional.
 type ThingsToDoContent = {
   intro?: string;
-  planningContact?: string;
   categories: {
     heading: string;
     items: {
@@ -25,8 +24,7 @@ type ThingsToDoContent = {
 };
 
 export default function ThingsToDoPage() {
-  const { intro, planningContact, categories } =
-    thingsContent as ThingsToDoContent;
+  const { intro, categories } = thingsContent as ThingsToDoContent;
 
   return (
     <div
@@ -39,8 +37,7 @@ export default function ThingsToDoPage() {
 
       <div className="max-w-3xl mx-auto space-y-14">
         <p className="text-center" style={{ color: "var(--color-body)" }}>
-          {intro}{" "}
-          <strong>{planningContact}</strong>
+          {intro}
         </p>
 
         {categories.map((cat, i) => (

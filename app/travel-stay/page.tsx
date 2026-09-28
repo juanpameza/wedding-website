@@ -18,6 +18,9 @@ export default function TravelStayPage() {
     airportTravelTime,
     airportVisaNote,
     airportArrivalRecommendation,
+    whatsappHeading,
+    whatsappBody,
+    whatsappGroupLink,
     airportLat,
     airportLng,
     venue,
@@ -25,6 +28,9 @@ export default function TravelStayPage() {
     transportServices,
   } = travelContent as typeof travelContent & {
     airportArrivalRecommendation?: string;
+    whatsappHeading?: string;
+    whatsappBody?: string;
+    whatsappGroupLink?: string;
   };
 
   return (
@@ -39,6 +45,40 @@ export default function TravelStayPage() {
       <PageCountdown page="travel" />
 
       <div className="max-w-3xl mx-auto px-6 space-y-16">
+
+        {/* ── WhatsApp ── */}
+        {whatsappBody && (
+          <>
+            <section className="text-center">
+              <h2 className="section-heading mb-4">
+                {whatsappHeading || "Stay Connected on WhatsApp"}
+              </h2>
+              <p style={{ color: "var(--color-body)" }}>{whatsappBody}</p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <a
+                  href="https://www.whatsapp.com/download"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline text-sm"
+                >
+                  Download WhatsApp
+                </a>
+                {whatsappGroupLink && (
+                  <a
+                    href={whatsappGroupLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline text-sm"
+                  >
+                    Join the Guest Group
+                  </a>
+                )}
+              </div>
+            </section>
+
+            <FlowerDivider src={flowerByIndex(FL + 2)} />
+          </>
+        )}
 
         {/* ── Flight Info ── */}
         <section className="text-center">
@@ -55,7 +95,7 @@ export default function TravelStayPage() {
           )}
         </section>
 
-        <FlowerDivider src={flowerByIndex(FL + 2)} />
+        <FlowerDivider src={flowerByIndex(FL + 3)} />
 
         {/* ── Hotels ── */}
         <section>
@@ -127,7 +167,7 @@ export default function TravelStayPage() {
           </div>
         </section>
 
-        <FlowerDivider src={flowerByIndex(FL + 3)} />
+        <FlowerDivider src={flowerByIndex(FL + 4)} />
 
         {/* ── Private Transport ── */}
         <section>

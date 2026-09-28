@@ -28,6 +28,14 @@ const VENUE_FILL = "#97973F"; // --color-heading-olive
 const AIRPORT_FILL = "#856F45"; // --color-body
 const PIN_TEXT = "#F6EFEA"; // --color-nav-text
 
+// CARTO has required a (free) key for its basemaps since 2026-09-23; unkeyed
+// requests are still served but every tile is stamped "API KEY REQUIRED".
+// Request one at https://carto.com/basemaps/apikey — see .env.local.example.
+const CARTO_KEY = process.env.NEXT_PUBLIC_CARTO_API_KEY;
+const TILE_URL =
+  "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" +
+  (CARTO_KEY ? `?key=${encodeURIComponent(CARTO_KEY)}` : "");
+
 function pinSvg(label: string, fill: string) {
   return `
     <svg width="34" height="44" viewBox="0 0 34 44" xmlns="http://www.w3.org/2000/svg">
@@ -73,14 +81,17 @@ export default function HotelMap({ hotels, venue, airport }: Props) {
         attributionControl: true,
       });
 
-      L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-        {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          maxZoom: 19,
-        },
-      ).addTo(map);
+      if (!CARTO_KEY && process.env.NODE_ENV !== "production") {
+        console.warn(
+          "HotelMap: NEXT_PUBLIC_CARTO_API_KEY is not set; CARTO tiles will be watermarked.",
+        );
+      }
+
+      L.tileLayer(TILE_URL, {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 19,
+      }).addTo(map);
 
       const bounds = L.latLngBounds([]);
 

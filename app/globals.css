@@ -120,7 +120,7 @@ h1, h2, h3 {
   /* inline-block so the vertical padding actually sizes the row — as a plain
      inline element the active pill painted outside the line box and the
      sticky bar clipped its top.
-     Fluid horizontal padding keeps all 11 links on one row from 1280px up
+     Fluid horizontal padding keeps every top-level link on one row from 1280px up
      (measured: link text alone is ~1080px at the CMS's 21px nav size, so
      ~8px/side fits a 1280 laptop; padding grows smoothly on wider screens).
      Assumes the CMS nav font size stays ~21px — re-check if it's raised. */
@@ -230,9 +230,68 @@ h1, h2, h3 {
   text-align: center;
 }
 
+/* ─── Navbar dropdown (desktop) ─────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.nav-dropdown-caret {
+  width: 0.55em;
+  height: 0.55em;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown[data-open="true"] .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+/* Flush under the toggle (no gap) so the pointer can travel from the button
+   into the menu without triggering pointerleave on the group. */
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 10;
+  min-width: 12rem;
+  padding: 0.5rem 0;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -0.35rem);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+}
+
+.nav-dropdown[data-open="true"] .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-dropdown-link {
+  display: block;
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav-mobile-menu,
-  .nav-toggle-icon span {
+  .nav-toggle-icon span,
+  .nav-dropdown-menu,
+  .nav-dropdown-caret {
     transition: none;
   }
 }
