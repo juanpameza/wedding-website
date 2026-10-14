@@ -1,3 +1,13 @@
 {
-  "images": []
+  "images": [
+    {
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    },
+    {
+      "src": "/images/gallery/images/1/src.jpeg",
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    }
+  ]
 }
