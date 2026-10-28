@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "dev:lan": "next dev -H 0.0.0.0",
+    "prebuild": "node scripts/check-image-sizes.mjs",
     "build": "next build",
+    "check:images": "node scripts/check-image-sizes.mjs",
     "start": "next start",
     "lint": "next lint",
     "qr": "node scripts/generate-qr.mjs",

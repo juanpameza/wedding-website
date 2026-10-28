@@ -17,17 +17,13 @@ function getSiteContent() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = getSiteContent();
-  const home = JSON.parse(fs.readFileSync(path.join(process.cwd(), "content/home.json"), "utf-8"));
-  // Keystatic renames the uploaded file to match the field name, so follow
-  // whatever the home logo currently points at instead of hardcoding it.
-  const icon = home.logoImage ?? "/images/logoImage.png";
+  // Favicons come from app/icon.png and app/apple-icon.png (Next file
+  // conventions). They used to point at the full-size hero logo, which made
+  // every page load download a 9.9 MB PNG. Regenerate them from the logo
+  // if it changes: 256px transparent PNG + 180px flattened on --color-bg.
   return {
     title: { template: `%s | ${site.siteTitle}`, default: site.siteTitle },
     description: `Join us to celebrate the wedding of ${site.coupleNameA} & ${site.coupleNameB}.`,
-    icons: {
-      icon,
-      apple: icon,
-    },
   };
 }
 

@@ -4,12 +4,12 @@
 export const FLOWER_RATIO = 5000 / 3536; // height / width
 
 export const FLOWERS = {
-  amaranthus: "/images/Amaranthus.png",
-  anthurium: "/images/Anthurium_.png",
-  escabiosa: "/images/Escabiosa.png",
-  lisianthus: "/images/Lisianthus.png",
-  pinkGinger: "/images/Pink_Ginger.png",
-  ranunculus: "/images/Ranunculus.png",
+  amaranthus: "/images/Amaranthus.webp",
+  anthurium: "/images/Anthurium_.webp",
+  escabiosa: "/images/Escabiosa.webp",
+  lisianthus: "/images/Lisianthus.webp",
+  pinkGinger: "/images/Pink_Ginger.webp",
+  ranunculus: "/images/Ranunculus.webp",
 } as const;
 
 export type FlowerKey = keyof typeof FLOWERS;
