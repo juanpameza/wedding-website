@@ -1,3 +1,34 @@
 {
-  "images": []
+  "images": [
+    {
+      "src": "/images/gallery/images/0/src.jpeg",
+      "alt": "S/o Walter and Valeria for the introduction!",
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    },
+    {
+      "src": "/images/gallery/images/1/src.jpeg",
+      "alt": "Our first night meeting!",
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    },
+    {
+      "src": "/images/gallery/images/2/src.jpeg",
+      "alt": "our first trip together",
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    },
+    {
+      "src": "/images/gallery/images/3/src.jpeg",
+      "alt": "Holbox together!",
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    },
+    {
+      "src": "/images/gallery/images/4/src.jpeg",
+      "alt": "First time meeting the family! Just over a month into dating ",
+      "imageWidthPercent": 100,
+      "imagePadding": 0
+    }
+  ]
 }
