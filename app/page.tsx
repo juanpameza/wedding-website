@@ -42,6 +42,7 @@ export default function HomePage() {
               width={1343}
               height={1600}
               className="w-full h-auto rounded-lg"
+              sizes={`(max-width: ${logoMaxWidth}px) 100vw, ${logoMaxWidth}px`}
               priority
             />
           </div>

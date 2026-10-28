@@ -72,6 +72,7 @@ export default function ItineraryEventDetails({ event, alignClass }: Props) {
                 width={event.imageWidth ?? 380}
                 height={event.imageHeight ?? 333}
                 className="mx-auto mb-5 h-auto w-[70%] max-w-[260px] rounded-lg object-contain"
+                sizes="260px"
               />
             )}
 

@@ -179,6 +179,7 @@ export default function JourneyMap({
               width={1493}
               height={1054}
               className="w-full select-none"
+              sizes="(max-width: 1493px) 100vw, 1493px"
               priority
             />
           ) : (
@@ -252,6 +253,7 @@ export default function JourneyMap({
                     width={width}
                     height={Math.round(width * 1.2)}
                     className="pointer-events-none block h-auto select-none"
+                    sizes={`${width}px`}
                     style={{ width, height: "auto" }}
                   />
                 )}
@@ -319,6 +321,7 @@ export default function JourneyMap({
                 width={240}
                 height={Math.round(240 * 1.2)}
                 className="mt-4 h-auto w-[62%] max-w-[240px] select-none"
+                sizes="240px"
               />
             )}
 
@@ -413,6 +416,7 @@ export default function JourneyMap({
                 width={240}
                 height={Math.round(240 * 1.2)}
                 className="mx-auto mt-4 h-auto w-[62%] max-w-[240px] select-none"
+                sizes="240px"
               />
             )}
 

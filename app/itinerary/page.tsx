@@ -80,6 +80,7 @@ export default function ItineraryPage() {
                             width={imageWidth}
                             height={imageHeight}
                             className="max-w-full rounded-lg object-contain"
+                            sizes={`(max-width: ${imageWidth}px) 100vw, ${imageWidth}px`}
                             style={{
                               height: "auto",
                               width: `min(100%, ${imageWidth}px)`,
