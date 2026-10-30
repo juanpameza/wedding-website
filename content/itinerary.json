@@ -14,10 +14,10 @@
           "imagePadding": 0
         },
         {
-          "name": "Night Out",
+          "name": "Night Out (Optional)",
           "time": "9:00 pm - 2:00 am",
           "description": "San Salvador ",
-          "details": "Would not be a trip to El Salvador without a trip to the discotecas! Come join us for a pre-wedding celebration at the place where Juanpa and I got to know each other! There will be vans to and from discos! Wear fun going out clothes that you can dance in! ",
+          "details": "It wouldn’t be a trip to El Salvador without a night at the discotecas! After the beach, come celebrate with us at the place where Juanpa and I first got to know each other. We’ll have vans to take everyone there and back, so just wear something fun that you can dance in. ",
           "image": "/images/days/0/events/1/image.webp",
           "imageWidth": 380,
           "imageHeight": 333,
@@ -29,20 +29,20 @@
       "date": "Friday, March 12, 2027",
       "events": [
         {
-          "name": "Holy Hour",
+          "name": "Holy Hour (Optional)",
           "time": "3:00 pm - 4:00 pm",
-          "description": "Iglesia Maria Auxiliadora",
-          "details": "Please join us for quiet hour of prayer and reflection at the lake before the festivities begin. All are welcome to join. ",
+          "description": "Iglesia María Auxiliadora\nLago de Coatepeque, Santa Ana, El Salvador",
+          "details": "Please join us for a quiet hour of prayer and reflection at a church by Lago de Coatepeque. Holy Hour is a Catholic tradition that goes back to the night before Jesus died, when he asked his friends in the garden to stay and pray with him for one hour. For us, it’s a chance to slow down, give thanks, and ask God to bless our marriage before we say “I do.” A priest will also be there to hear confessions for anyone who would like to receive the Sacrament of Reconciliation. All are welcome! Since we’ll head straight to the welcome cocktail afterward, come dressed in cocktail attire and ready for the evening.",
           "image": "/images/days/1/events/0/image.webp",
           "imageWidth": 380,
           "imageHeight": 333,
           "imagePadding": 0
         },
         {
-          "name": "Welcome Cocktail",
+          "name": "Welcome Cocktail (Optional)",
           "time": "4:00 pm - 8:00 pm",
           "description": "Lago de Coatepeque",
-          "details": "Gather with family and friends for a welcome cocktails and local pupusa dinner at Juanpa's family lake home overlooking Lago de Coatepeque. Enjoy some pupusas, drinks, and the company of loved ones as we celebrate the weekend ahead.",
+          "details": "After Holy Hour, hop on the bus for a quick five-minute ride to Juanpa’s family lake house for a cozy evening overlooking Lago de Coatepeque. We’ll toast to the weekend ahead with drinks, games, and a few sweet speeches from the wedding party. Come hungry, because dinner is pupusas, El Salvador’s famous stuffed corn tortillas, and trust us, one is never enough! Attire is cocktail, so dress up and get ready for a beautiful night by the lake.",
           "image": "/images/days/1/events/1/image.webp",
           "imageWidth": 380,
           "imageHeight": 333,
@@ -56,8 +56,8 @@
         {
           "name": "Wedding Ceremony",
           "time": "3:00 pm - 4:00 pm",
-          "description": "Basilica of Our Lady of Guadalupe",
-          "details": "The heart of the weekend! Please join us as we exchange vows at the Basilica de Nuestra Señora de Guadalupe. Please arrive 30 minutes early to be seated before the ceremony begins. We will provide transportation from the Basilica to the reception at Cajamarca. ",
+          "description": "Basílica de Nuestra Señora de Guadalupe \nCarretera a Santa Tecla, Antiguo Cuscatlán, La Libertad, El Salvador",
+          "details": "The heart of the weekend! Please join us as we exchange vows at the Basílica de Nuestra Señora de Guadalupe. Shuttles will pick everyone up from the hotels and get you to the Basilica 30 minutes early, so you’re seated before the ceremony begins. Once we’re officially married, shuttles will take everyone straight from the Basilica to the reception at Cajamarca. Attire is formal, so think floor-length gowns in fun colors, heels, and suits for the men. Come dressed to impress! ",
           "image": "/images/days/2/events/0/image.webp",
           "imageWidth": 380,
           "imageHeight": 333,
@@ -66,8 +66,8 @@
         {
           "name": "Reception & After Party",
           "time": "5:00 pm - 2:00 am",
-          "description": "Cajamarca El Salvador",
-          "details": "Let the party begin! Please join us to celebrate our marriage and enjoy the night with dinner, dancing, and plenty of surprises await. Formal attire requested. Please look at FAQ for more attire details. ",
+          "description": "Bosque de Cajamarca\nCalle al Boquerón Km 22.5, Volcán de San Salvador, Nejapa, San Salvador, El Salvador",
+          "details": "Time to celebrate! Once we’re officially married, shuttles will whisk everyone from the Basilica up the San Salvador volcano to Cajamarca for the party of the weekend. Expect dinner, an open bar, a few surprises we can’t tell you about yet, and a dance floor that won’t empty all night. If you’ve never been to a Latin wedding, consider this your warning: we dance until the sun comes up, so save some energy and wear shoes you can move in! Ladies, bring a light shawl, because it gets breezy up on the volcano at night.",
           "image": "/images/days/2/events/1/image.webp",
           "imageWidth": 380,
           "imageHeight": 333,
@@ -81,8 +81,8 @@
         {
           "name": "Farewell Brunch ",
           "time": "11:00 am - 1:00 pm ",
-          "description": "Il Buongustaio ",
-          "details": "For those joining us from out of town, we’d love for you to wrap up the weekend with us over breakfast before heading to the airport. Breakfast is completely optional, but we’d be so happy to have the chance to say goodbye!",
+          "description": "Il Buongustaio\nBoulevard del Hipódromo #605, Colonia San Benito, San Salvador, El Salvador",
+          "details": "After a night of dancing until sunrise, let’s refuel together before you head home! If you’re traveling from out of town, join us for one last breakfast before your flight. It’s completely optional, but we’d love the chance to hug you goodbye and thank you for celebrating with us. Breakfast is $20 per person, so please bring cash.",
           "image": "/images/days/3/events/0/image.webp",
           "imageWidth": 256,
           "imageHeight": 224,
