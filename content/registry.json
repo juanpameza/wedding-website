@@ -1,17 +1,17 @@
 {
-  "intro": "We are so grateful for you! As many of you will be traveling to El Salvador to celebrate this special moment with us, your presence is truly the greatest gift we could ask for. If you wish to honor us with an additional gift, we have created a registry to help us build our home and begin this beautiful new chapter of our lives together. Thank you for being part of our journey!",
-  "note": "If you'd like to give a monetary gift, cash or a gift card is always appreciated and can be brought to the wedding or sent digitally. Thank you so much for your generosity and love!",
+  "intro": "Having you celebrate with us in El Salvador means more to us than we can put into words. We know many of you are traveling to be there, and having you by our side is truly the greatest gift. For those who have asked, we've included a registry with a few things to help us make our house a home as we begin this next chapter together. Above all, we're just so grateful to have you be part of it!",
+  "note": "If you prefer, monetary gifts in the form of cash or a gift card are also welcome. You can bring them to the wedding or send them digitally. We are so grateful for your thoughtfulness and generosity as we begin this next chapter together!",
   "registries": [
-    {
-      "name": "Crate and Barrel",
-      "description": "Everyday essentials for our kitchen and home.",
-      "url": "https://www.crateandbarrel.com/gift-registry/sage-nye-and-juanpa-meza/r7595406",
-      "buttonLabel": "View Registry"
-    },
     {
       "name": "Over The Moon",
       "description": "Tableware, linens, and pieces for hosting friends and family.",
       "url": "https://www.overthemoon.com/apps/registry/nye-meza-ee10",
+      "buttonLabel": "View Registry"
+    },
+    {
+      "name": "Crate and Barrel",
+      "description": "Everyday essentials for our kitchen and home.",
+      "url": "https://www.crateandbarrel.com/gift-registry/sage-nye-and-juanpa-meza/r7595406",
       "buttonLabel": "View Registry"
     },
     {
