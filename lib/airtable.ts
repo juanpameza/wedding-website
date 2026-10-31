@@ -105,7 +105,8 @@ const GUEST_FIELDS = [
   "Plus One",
   "Dietary Restrictions",
   "Beach Day",
-  "Welcome Dinner",
+  "Holy Hour",
+  "Welcome Cocktail",
   "Reception",
 ];
 

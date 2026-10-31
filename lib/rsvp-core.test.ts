@@ -24,8 +24,13 @@ function guest(over: Partial<GuestRecord> = {}): GuestRecord {
     householdName: "The Lopez Family",
     isPlusOne: false,
     dietary: "",
-    invitedEvents: ["beachDay", "welcomeDinner", "reception"],
-    responses: { beachDay: "No response", welcomeDinner: "No response", reception: "No response" },
+    invitedEvents: ["beachDay", "holyHour", "welcomeCocktail", "reception"],
+    responses: {
+      beachDay: "No response",
+      holyHour: "No response",
+      welcomeCocktail: "No response",
+      reception: "No response",
+    },
     ...over,
   };
 }
@@ -49,7 +54,7 @@ describe("parseGuest", () => {
     expect(g.householdName).toBe("The Lopez Family");
     expect(g.invitedEvents).toEqual(["beachDay", "reception"]);
     expect(g.responses.beachDay).toBe("Yes");
-    expect(g.responses.welcomeDinner).toBe("No response");
+    expect(g.responses.welcomeCocktail).toBe("No response");
   });
 
   it("reads the Plus One flag and dietary notes", () => {

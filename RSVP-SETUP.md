@@ -26,11 +26,12 @@ Two tables for RSVP (a third, `Song Requests`, is added in
 | `First Name` | Single line text | optional; used for the "Maria, Juan, Sofia" preview line under the household name in search results. Falls back to `Name` if blank |
 | `Name` | Single line text | full name; what search matches on, and the heading above each person's toggles |
 | `Household` | Link to `Households` | auto-created by the link above |
-| `Invited Events` | Multiple select | options exactly: `Beach Day`, `Welcome Dinner`, `Reception` |
+| `Invited Events` | Multiple select | options exactly: `Beach Day`, `Holy Hour`, `Welcome Cocktail`, `Reception` |
 | `Plus One` | Checkbox | tick for a +1 whose name you don't know. The form shows them a blank "Guest's name" box and writes the answer back into `Name` |
 | `Dietary Restrictions` | Long text | guests fill this in themselves; you can also edit it |
 | `Beach Day` | Single select | options exactly: `No response`, `Yes`, `No` (default `No response`) |
-| `Welcome Dinner` | Single select | same three options |
+| `Holy Hour` | Single select | same three options |
+| `Welcome Cocktail` | Single select | same three options |
 | `Reception` | Single select | same three options |
 | `Responded At` | Date (include time) | stamped on submit |
 | `Last Modified` | Date (include time) | stamped on submit (audit) |
@@ -52,8 +53,8 @@ Airtable does **not** auto-link records when you change a text column to a link.
 5. Verify every Guest has exactly **one** `Household` link. Fix orphans.
 6. Keep the original sheet so you can re-import if the conversion goes wrong.
 
-**Open question to resolve:** is every household member invited to all three
-events? If yes, set `Invited Events` to all three for everyone. If some are
+**Open question to resolve:** is every household member invited to all four
+events? If yes, set `Invited Events` to all four for everyone. If some are
 reception-only, set `Invited Events` per guest — the form only shows toggles for
 a guest's invited events.
 
@@ -133,6 +134,6 @@ route.
 
 ## Admin (tracking + edits)
 
-Use Airtable directly — group `Guests` by `Beach Day` / `Welcome Dinner` /
-`Reception` for live headcounts, filter to "Responded", and edit any cell. Share
+Use Airtable directly — group `Guests` by `Beach Day` / `Holy Hour` /
+`Welcome Cocktail` / `Reception` for live headcounts, filter to "Responded", and edit any cell. Share
 the base with your fiancée for collaborative editing.
