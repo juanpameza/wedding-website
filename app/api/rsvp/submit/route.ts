@@ -1,5 +1,5 @@
 // POST /api/rsvp/submit
-// Body: { householdId: string, updates: [{ guestId, responses: {beachDay?, welcomeDinner?, reception?} }] }
+// Body: { householdId: string, updates: [{ guestId, responses: {beachDay?, holyHour?, welcomeCocktail?, reception?} }] }
 // Server re-validates ownership + invitation against fresh data before writing.
 
 export const runtime = "nodejs";

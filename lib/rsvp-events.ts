@@ -1,6 +1,6 @@
 // ─── RSVP events: single source of truth ─────────────────────────────────
 //
-// The three head-count events guests RSVP to. Defined ONCE here and imported by
+// The four head-count events guests RSVP to. Defined ONCE here and imported by
 // the Airtable layer, both API routes, and the UI so a rename is a single edit
 // (Eng review Issue 3 — DRY). Deliberately NOT derived from content/itinerary.json
 // to avoid coupling Airtable field mapping to editorial copy.
@@ -15,7 +15,7 @@
 //                       ▲
 //        Airtable ──────┘
 
-export type RsvpEventKey = "beachDay" | "welcomeDinner" | "reception";
+export type RsvpEventKey = "beachDay" | "holyHour" | "welcomeCocktail" | "reception";
 
 export interface RsvpEvent {
   key: RsvpEventKey;
@@ -32,14 +32,20 @@ export const RSVP_EVENTS: readonly RsvpEvent[] = [
     date: "Thursday, March 11, 2027",
   },
   {
-    key: "welcomeDinner",
-    label: "Welcome Dinner",
-    airtableField: "Welcome Dinner",
+    key: "holyHour",
+    label: "Holy Hour",
+    airtableField: "Holy Hour",
+    date: "Friday, March 12, 2027",
+  },
+  {
+    key: "welcomeCocktail",
+    label: "Welcome Cocktail",
+    airtableField: "Welcome Cocktail",
     date: "Friday, March 12, 2027",
   },
   {
     key: "reception",
-    label: "The Reception",
+    label: "Reception",
     airtableField: "Reception",
     date: "Saturday, March 13, 2027",
   },
