@@ -1,5 +1,5 @@
 {
-  "intro": "If you'd like to book hair or makeup for the wedding weekend, here are a few salons we recommend nearby.",
+  "intro": "You always look great, but if you’d like to book hair & makeup for the wedding, here are a few places we recommend! We suggest being fully ready no later than 1:45 PM, as shuttles will depart from the hotel lobbies promptly at 2:15 PM.",
   "stylists": [
     {
       "name": "Jr Studio Salón",
@@ -32,16 +32,13 @@
   ],
   "tips": [
     {
-      "tip": "Book your appointment as early as possible — spots fill up fast!"
+      "tip": "Book your appointment as early as possible, spots fill up fast!"
     },
     {
       "tip": "Bring inspiration photos to your consultation."
     },
     {
       "tip": "Arrive with clean, dry hair unless your stylist says otherwise."
-    },
-    {
-      "tip": "Let them know if you have any allergies to products."
     }
   ]
 }
