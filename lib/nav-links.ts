@@ -21,7 +21,9 @@ export const navItems: NavItem[] = [
     ],
   },
   { label: "Music",       href: "/music" },
-  { label: "Gallery",     href: "/gallery" },
+  // Gallery is hidden from the nav, mobile menu, and footer for now; the
+  // /gallery page still exists. Uncomment to bring the tab back.
+  // { label: "Gallery",     href: "/gallery" },
   { label: "Registry",    href: "/registry" },
   { label: "RSVP",        href: "/rsvp" },
   { label: "FAQs",        href: "/faqs" },
