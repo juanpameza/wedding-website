@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import ConditionalNavbar from "@/components/ConditionalNavbar";
 import ConditionalFooter from "@/components/ConditionalFooter";
@@ -69,6 +70,9 @@ export default function RootLayout({
           {children}
         </main>
         <ConditionalFooter />
+        {/* Vercel Web Analytics: cookie-free page view tracking. Only
+            reports from deployments on Vercel; a no-op in local dev. */}
+        <Analytics />
       </body>
     </html>
   );
